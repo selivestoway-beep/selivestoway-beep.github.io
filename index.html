@@ -1,6 +1,8 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Кодекс Термины</title>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta property="og:type" content="website"><meta property="og:site_name" content="Кодекс Термины"><meta property="og:title" content="Кодекс Термины"><meta property="og:description" content="Закрытая вики мира Mudila Quest: земли, народы, магия, герои и чудовища Второй Эры."><meta property="og:image" content="https://selivestoway-beep.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://selivestoway-beep.github.io/"><meta name="twitter:card" content="summary_large_image"><meta name="description" content="Закрытая вики мира Mudila Quest."><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Кодекс Термины</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23172030%27/%3E%3Cg fill=%27none%27 stroke=%27%23D0AF68%27 stroke-width=%271.6%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2710%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%274.5%27/%3E%3C/g%3E%3Ccircle cx=%2722.5%27 cy=%279.5%27 r=%272.3%27 fill=%27%23E2665A%27/%3E%3C/svg%3E">
+<meta name="theme-color" content="#14181B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -411,6 +413,55 @@ aside.info.s-erih-askarios::before{content:"";display:block;height:3px;backgroun
 .lock-err{color:#F0A090;margin-top:var(--s3);font-family:var(--f-mono);font-size:13px}
 .foot-links{display:flex;gap:18px;align-items:baseline}
 
+/* Поиск по тексту */
+.results mark{background:color-mix(in srgb,var(--gold) 30%,transparent);color:inherit;border-radius:2px;padding:0 1px}
+/* Подсказка при наведении */
+.pv{position:fixed;z-index:40;width:340px;max-width:calc(100vw - 16px);display:flex;gap:12px;padding:12px;background:var(--surface);border:1px solid color-mix(in srgb,var(--fc,var(--gold)) 40%,var(--line));border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.35);pointer-events:none;animation:drop .16s var(--ease)}
+.pv-fig{flex:none;width:72px;height:72px;border-radius:8px;overflow:hidden;background:var(--night);color:var(--gold);display:grid;place-items:center}
+.pv-fig.tall{height:90px}
+.pv-fig img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.pv-fig svg{width:100%;height:100%}
+.pv-txt{min-width:0;font-size:13.5px;line-height:1.45}
+.pv-txt .eyebrow{font-size:10px;color:var(--fc,var(--gold))}
+.pv-txt b{display:block;font-family:var(--f-display);font-weight:400;font-size:19px;line-height:1.15;margin:2px 0}
+.pv-txt i{display:block;color:var(--muted);font-size:13px;margin-bottom:4px}
+.pv-txt p{margin:0;color:var(--ink);display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+/* Шаблон карточки */
+.facts-head{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:-8px}
+.facts-head .btn{text-transform:none;letter-spacing:.03em}
+.sr-only>textarea{margin-top:0}
+.sr-only{font-size:0;gap:0}
+/* Связи */
+.rels{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line)}
+.rels h2{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0 0 var(--s4)}
+.rel-g{margin-bottom:var(--s3);display:grid;grid-template-columns:150px minmax(0,1fr);gap:var(--s3);align-items:center}
+@media (max-width:640px){.rel-g{grid-template-columns:minmax(0,1fr);gap:6px}}
+.rel-l{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.rel-row{display:flex;flex-wrap:wrap;gap:8px}
+.rel-chip{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:1px solid color-mix(in srgb,var(--fc,var(--gold)) 30%,var(--line));border-radius:999px;background:var(--surface);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s var(--ease)}
+.rel-chip:hover{border-color:var(--fc,var(--accent));transform:translateY(-2px)}
+.rel-av{width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;background:var(--night);color:var(--gold);display:grid;place-items:center}
+.rel-av img,.rel-av svg{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.rel-t b{display:block;font-weight:400;font-size:15px;line-height:1.2}
+.rel-t small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--muted)}
+.rel-chip.missing{border-style:dashed;color:var(--ember)}
+/* Статья дня и факты */
+.today{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s4)}
+.aotd{display:flex;gap:var(--s4);padding:var(--s4);background:var(--surface);border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .2s var(--ease),border-color .2s}
+.aotd:hover{transform:translateY(-3px);border-color:var(--gold)}
+.aotd-fig{flex:none;width:150px;border-radius:10px;overflow:hidden;background:var(--night);color:var(--gold);display:grid;place-items:center;aspect-ratio:4/5}
+.aotd-fig img{width:100%;height:100%;object-fit:cover}
+.aotd-fig.sig svg{width:80%;height:auto}
+.aotd-txt b{display:block;font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1.1;margin:6px 0 8px}
+.aotd-txt p{margin:0 0 var(--s3);color:var(--muted);font-size:15.5px}
+.aotd .more{font-family:var(--f-mono);font-size:12px;color:var(--gold)}
+.dyk{padding:var(--s4) var(--s5);background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.dyk ul{margin:var(--s3) 0;padding-left:18px;display:grid;gap:10px}
+.dyk li{font-size:15.5px;line-height:1.5}
+.dyk li::marker{color:var(--gold)}
+.dyk-bar{display:flex;align-items:center;gap:var(--s3)}
+@media (max-width:860px){.today{grid-template-columns:minmax(0,1fr)}.aotd-fig{width:110px}}
+
 @media (max-width:1000px){
   .page{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   aside.info{position:static;max-width:520px;order:-1;margin-top:0}
@@ -465,6 +516,8 @@ aside.info.s-erih-askarios::before{content:"";display:block;height:3px;backgroun
 
 <script type="application/json" id="snapshot">{"at":0,"articles":{}}</script>
 <script>
+const SERVICE="Служебное";
+const isSvc=a=>a&&a.category===SERVICE;
 const CATS=["Мир","История","Расы","Земли","Магия","Вера и ордена","Существа","Бой","Артефакты","Сказания"];
 const HERO="Главные герои";
 const GROUPS=[HERO,"Силы Пожирателя","Альянс","Великие","Загадочные личности","Внешний космос","Герои былых времён","Древние владыки","Правители нашего дня","Тьма и угрозы","Боги и великие силы"];
@@ -574,7 +627,7 @@ function linksIn(md){const idx=nameIndex(),s=new Set();for(const m of String(md|
 const entries=()=>Object.entries(articles);
 const byOrder=(x,y)=>(x[1].order??99)-(y[1].order??99)||x[1].title.localeCompare(y[1].title,"ru");
 function inCat(c){return entries().filter(([,a])=>!isChar(a)&&a.category===c).sort(byOrder)}
-function allCats(){const ex=[...new Set(entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category).filter(c=>c&&!CATS.includes(c)))].sort();return[...CATS,...ex].filter(c=>inCat(c).length)}
+function allCats(){const ex=[...new Set(entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category).filter(c=>c&&!CATS.includes(c)&&c!==SERVICE))].sort();return[...CATS,...ex].filter(c=>inCat(c).length)}
 function chars(g){return entries().filter(([,a])=>isChar(a)&&(a.group||"Прочие")===g).sort(byOrder)}
 function allGroups(){const ex=[...new Set(entries().filter(([,a])=>isChar(a)).map(([,a])=>a.group||"Прочие").filter(g=>!GROUPS.includes(g)))].sort();return[...GROUPS,...ex].filter(g=>chars(g).length)}
 function fmtDate(ms){if(!ms)return"";try{return new Date(ms).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"})}catch{return""}}
@@ -656,6 +709,7 @@ async function homeHtml(){
     </div></section>
     <div class="gut"><div class="inner">
       <section class="block"><h2 class="sec">С чего начать <small>пять шагов</small></h2><div class="path stagger">${path}</div></section>
+      ${todayHtml()}
       <section class="block"><h2 class="sec">Календарь Термины <small><a href="#kalendar">как устроен год</a></small></h2><div class="cal" id="cal">${calHtml()}</div></section>
       <section class="block"><h2 class="sec">Разделы</h2><div class="grid stagger">${cats}</div></section>
       ${feat?`<section class="block"><h2 class="sec">Лица эпохи <small><a href="#personazhi">все персонажи</a></small></h2><div class="strip">${feat}</div></section>`:""}
@@ -707,7 +761,7 @@ function chronicleHtml(){
 async function pageHtml(slug){
   const a=articles[slug],ch=isChar(a);
   document.title=a.title+" · Кодекс Термины";
-  const back=entries().filter(([s,x])=>s!==slug&&linksIn(x.body).has(slug)).map(([s,x])=>[s,x.title]).sort((p,q)=>p[1].localeCompare(q[1],"ru"));
+  const back=entries().filter(([s,x])=>s!==slug&&!isSvc(x)&&linksIn(x.body).has(slug)).map(([s,x])=>[s,x.title]).sort((p,q)=>p[1].localeCompare(q[1],"ru"));
   const nm=await names([a.updatedBy]);const whoName=who(a.updatedBy,nm);
   const sib=ch?chars(a.group||"Прочие"):inCat(a.category);const k=sib.findIndex(([s])=>s===slug);
   const prev=sib[k-1],next=sib[k+1];
@@ -725,7 +779,7 @@ async function pageHtml(slug){
       <h3>${esc(a.title)}</h3><dl>
       ${ch&&a.role?`<div><dt>Кто это</dt><dd>${esc(a.role)}</dd></div>`:""}
       ${ch&&a.status?`<div><dt>Состояние</dt><dd>${statusPill(a.status)}</dd></div>`:""}
-      ${String(a.facts||"").split("\n").map(l=>l.match(/^\s*([^:]{1,40}):\s*(.+)$/)).filter(Boolean).map(m=>`<div><dt>${esc(m[1])}</dt><dd>${inline(m[2],nameIndex())}</dd></div>`).join("")}
+      ${String(a.facts||"").split("\n").map(l=>l.match(/^\s*([^:]{1,40}):\s*(.+)$/)).filter(Boolean).map(m=>`<div class="aside-facts"><dt>${esc(m[1])}</dt><dd>${inline(m[2],nameIndex())}</dd></div>`).join("")}
       <div><dt>${ch?"Группа":"Раздел"}</dt><dd>${ch?`<a href="#personazhi">${esc(a.group||"Прочие")}</a>`:`<a href="#mir" data-cat="${esc(a.category)}">${esc(a.category)}</a>`}</dd></div>
       ${(a.aliases||[]).length?`<div><dt>Также известно как</dt><dd class="tags">${a.aliases.map(x=>`<span class="tag">${/^~~.*~~$/.test(x)?`<s>${esc(x.slice(2,-2))}</s>`:esc(x)}</span>`).join("")}</dd></div>`:""}
       ${back.length?`<div><dt>Упоминается в</dt><dd class="backlinks">${back.map(([s,t])=>`<a href="#${s}">${esc(t)}</a>`).join("")}</dd></div>`:""}
@@ -741,6 +795,7 @@ async function pageHtml(slug){
       ${a.epigraph?`<blockquote class="epigraph">${esc(a.epigraph)}${a.epigraphBy?`<cite>${esc(a.epigraphBy)}</cite>`:""}</blockquote>`:""}
       ${canW()?`<div class="actions"><button class="btn" id="editbtn" type="button">Редактировать</button></div>`:""}
       <div class="prose">${render(a.body,{ids:true})}</div>
+      ${relationsHtml(slug,a)}
       ${prev||next?`<nav class="pager" aria-label="Соседние статьи">${prev?`<a href="#${prev[0]}"><span>Назад</span><b>${esc(prev[1].title)}</b></a>`:""}${next?`<a class="next" href="#${next[0]}"><span>Дальше</span><b>${esc(next[1].title)}</b></a>`:""}</nav>`:""}
     </article>${info}</div></div>`;
 }
@@ -815,7 +870,7 @@ function wantedData(){
   const idx=nameIndex(),miss=new Map();
   for(const[s,a]of entries()){for(const m of String((a.body||"")+"\n"+(a.facts||"")).matchAll(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g)){const t=m[1].trim();if(idx.get(norm(t)))continue;const k=norm(t);if(!miss.has(k))miss.set(k,{title:t,from:new Set()});miss.get(k).from.add(s)}}
   const missing=[...miss.values()].sort((x,y)=>y.from.size-x.from.size||x.title.localeCompare(y.title,"ru"));
-  const stubs=entries().filter(([,a])=>{const b=String(a.body||"").trim();return b.length<350||/появится позже/i.test(b)}).sort(byOrder);
+  const stubs=entries().filter(([,a])=>{if(isSvc(a))return false;const b=String(a.body||"").trim();return b.length<350||/появится позже/i.test(b)}).sort(byOrder);
   return{missing,stubs};
 }
 function wantedHtml(){
@@ -834,6 +889,70 @@ document.addEventListener("click",e=>{
   const sp=e.target.closest(".sp");if(sp){sp.classList.toggle("open")}
 });
 document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.classList?.contains("sp")){e.preventDefault();e.target.classList.toggle("open")}});
+
+
+/* ---------- текст без разметки (поиск, подсказки) ---------- */
+const plainCache=new Map();
+function plain(md){return String(md||"").replace(/^:::\s*(гм|секрет)[^\n]*\n[\s\S]*?\n:::\s*$/gim,"").replace(/^:::\s*спойлер[^\n]*\n[\s\S]*?\n:::\s*$/gim,"").replace(/^:::.*$/gm,"").replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g,"$2").replace(/\[\[([^\]]+)\]\]/g,"$1").replace(/\|\|[^|]+\|\|/g,"…").replace(/^#+\s*/gm,"").replace(/\*\*|~~|(^|\s)\*|\*(\s|$)/g,"$1$2").replace(/^\s*[-*>]\s+/gm,"").replace(/\s+/g," ").trim()}
+function plainOf(s){const a=articles[s];const k=s+"|"+(a.updatedAt||0)+"|"+(a.body||"").length;let v=plainCache.get(s);if(!v||v.k!==k){v={k,t:plain(a.body)};plainCache.set(s,v)}return v.t}
+
+/* ---------- 7. подсказка при наведении на ссылку ---------- */
+let pvT=null,pvEl=null;
+function figOf(s,a){const src=imgSrc(a.image);return src?`<img src="${src}" alt="" ${imgErr}>`:(isChar(a)?(a.group===HERO?crest(a,s):medallion(a,s)):sigil(s,a.category,a.title))}
+function previewHtml(s){const a=articles[s];const pt=plainOf(s);const txt=a.summary||(pt.slice(0,220)+(pt.length>220?"…":""));
+  return `<div class="pv-fig ${isChar(a)?"tall":""}">${figOf(s,a)}</div><div class="pv-txt"><span class="eyebrow">${esc(isChar(a)?(a.group||"Персонаж"):a.category)}</span><b>${esc(a.title)}</b>${a.role?`<i>${esc(a.role)}</i>`:""}<p>${esc(txt)}</p></div>`}
+function hidePv(){if(pvEl){pvEl.remove();pvEl=null}}
+function showPv(l){hidePv();const s=decodeURIComponent((l.getAttribute("href")||"").slice(1));if(!articles[s]||s===route())return;
+  const d=document.createElement("div");d.className="pv "+faction(articles[s]);d.innerHTML=previewHtml(s);document.body.appendChild(d);
+  const r=l.getBoundingClientRect(),w=d.offsetWidth,h=d.offsetHeight;let x=Math.min(Math.max(8,r.left),innerWidth-w-8),y=r.bottom+8;if(y+h>innerHeight-8)y=Math.max(8,r.top-h-8);
+  d.style.left=x+"px";d.style.top=y+"px";pvEl=d;pvEl.link=l}
+const PV_SEL="a.wl:not(.missing),.backlinks a,a.rel-chip:not(.missing),.aside-facts a";
+document.addEventListener("mouseover",e=>{if(matchMedia("(hover:none)").matches)return;const l=e.target.closest(PV_SEL);if(!l||(pvEl&&pvEl.link===l))return;clearTimeout(pvT);pvT=setTimeout(()=>showPv(l),300)});
+document.addEventListener("mouseout",e=>{const l=e.target.closest(PV_SEL);if(l&&!l.contains(e.relatedTarget)){clearTimeout(pvT);hidePv()}});
+addEventListener("hashchange",()=>{clearTimeout(pvT);hidePv()});addEventListener("scroll",()=>{if(pvEl)hidePv()},{passive:true});
+
+/* ---------- 9. шаблоны карточек по типу статьи ---------- */
+const FACT_TMPL={
+  "Персонаж":"Родился: \nРод: \nНаставник: \nОружие: ",
+  "Земли":"Тип: \nСтолица: \nПравитель: \nНароды: \nВера: ",
+  "Вера и ордена":"Глава: \nОснователь: \nОснован: \nОплот: \nСимвол: ",
+  "Артефакты":"Владелец: \nМатериал: \nТип: \nСоздатель: ",
+  "Материалы":"Цвет: \nСвойства: \nГде добывают: \nИз него делают: ",
+  "Расы":"Продолжительность жизни: \nРодина: \nЯзык: ",
+  "Существа":"Где обитают: \nОпасность: \nСлабость: ",
+  "Магия":"Источник: \nПрактики: \nОпасность: ",
+  "История":"Когда: \nГде: \nУчастники: \nИтог: ",
+  "Бой":"Оружие: \nПрактикуют: ",
+  "Мир":"Тип: "};
+function factTemplate(kind,cat){return FACT_TMPL[kind==="character"?"Персонаж":cat]||"Тип: "}
+
+/* ---------- 10. связи персонажей ---------- */
+function relList(a){return String(a.relations||"").split("\n").map(l=>l.match(/^\s*([^:]{1,40}):\s*(.+)$/)).filter(Boolean).map(m=>({label:m[1].trim(),items:[...m[2].matchAll(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g)].map(x=>({name:x[1].trim(),text:(x[2]||x[1]).trim()}))})).filter(g=>g.items.length)}
+function relChip(s,a,text,cap){return a?`<a class="rel-chip ${faction(a)}" href="#${s}"><span class="rel-av">${figOf(s,a)}</span><span class="rel-t"><b>${esc(text)}</b>${cap?`<small>${esc(cap)}</small>`:""}</span></a>`:`<a class="rel-chip missing wl" href="#" data-create="${esc(text)}"><span class="rel-av"></span><span class="rel-t"><b>${esc(text)}</b><small>статьи пока нет</small></span></a>`}
+function relationsHtml(slug,a){
+  const idx=nameIndex(),mine=new Set();
+  const own=relList(a).map(g=>`<div class="rel-g"><div class="rel-l">${esc(g.label)}</div><div class="rel-row">${g.items.map(it=>{const s=idx.get(norm(it.name));if(s)mine.add(s);return relChip(s,s?articles[s]:null,s?articles[s].title:it.text)}).join("")}</div></div>`).join("");
+  const rev=new Map();for(const[s,x]of entries()){if(s===slug||mine.has(s))continue;for(const g of relList(x))for(const it of g.items)if(idx.get(norm(it.name))===slug){if(!rev.has(s))rev.set(s,[]);rev.get(s).push(g.label.toLowerCase())}}
+  if(!own&&!rev.size)return"";
+  return `<section class="rels"><h2>Связи</h2>${own}${rev.size?`<div class="rel-g"><div class="rel-l">Указан в связях других</div><div class="rel-row">${[...rev].map(([s,l])=>relChip(s,articles[s],articles[s].title,"для них: "+[...new Set(l)].join(", "))).join("")}</div></div>`:""}</section>`;
+}
+
+/* ---------- 14. статья дня и «Знаете ли вы» ---------- */
+let dykShift=0;
+function dayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+function articleOfDay(){const pool=entries().filter(([,a])=>!isChar(a)&&!isSvc(a)&&a.summary&&String(a.body||"").length>1500&&a.category!=="Сказания").sort((x,y)=>x[0].localeCompare(y[0]));if(!pool.length)return null;return pool[hash("aotd"+dayKey())%pool.length]}
+function dykFacts(){const a=articles["znaete-li-vy"];if(!a)return[];const out=[];for(const b of blocks(a.body))if(b.t==="ul")out.push(...b.v);return out}
+function dykHtml(){const f=dykFacts();if(!f.length)return"";const idx=nameIndex(),n=Math.min(3,f.length),start=(hash("dyk"+dayKey())+dykShift*n)%f.length;
+  return Array.from({length:n},(_,i)=>`<li>${inline(f[(start+i)%f.length],idx)}</li>`).join("")}
+function todayHtml(){
+  const ad=articleOfDay(),f=dykFacts();if(!ad&&!f.length)return"";
+  const[s,a]=ad||[];
+  return `<section class="block"><div class="today">
+    ${ad?`<a class="aotd" href="#${s}"><div class="aotd-fig ${imgSrc(a.image)?"":"sig"}">${figOf(s,a)}</div><div class="aotd-txt"><span class="eyebrow">Статья дня · ${esc(a.category)}</span><b>${esc(a.title)}</b><p>${esc(a.summary)}</p><span class="more">Читать статью →</span></div></a>`:""}
+    ${f.length?`<div class="dyk"><span class="eyebrow">Знаете ли вы, что…</span><ul id="dyk-list">${dykHtml()}</ul><div class="dyk-bar"><button class="btn" id="dyk-more" type="button">Ещё факты</button>${canW()?`<a class="status" href="#znaete-li-vy">править список</a>`:""}</div></div>`:""}
+  </div></section>`;
+}
+document.addEventListener("click",e=>{if(e.target.closest("#dyk-more")){dykShift++;const l=$("#dyk-list");if(l)l.innerHTML=dykHtml()}});
 
 /* ---------- просмотр арта ---------- */
 function openLightbox(src,alt){const d=document.createElement("div");d.className="lightbox";d.setAttribute("role","dialog");d.setAttribute("aria-label",alt||"Арт");d.innerHTML=`<img src="${src}" alt="${esc(alt)}"><button type="button" aria-label="Закрыть">×</button>`;document.body.appendChild(d)}
@@ -857,7 +976,7 @@ document.addEventListener("click",e=>{
   const tb=e.target.closest("#themebtn");if(tb){const t=document.documentElement.dataset.theme==="light"?"dark":"light";applyTheme(t);try{localStorage.setItem(THEME_KEY,t)}catch{};return}
   const z=e.target.closest("[data-zoom]");if(z){openLightbox(z.dataset.zoom,z.querySelector("img.fg")?.alt||"");return}
   const lb=e.target.closest(".lightbox");if(lb){lb.remove();return}
-  if(e.target.closest("#rnd")){const cur=route(),pool=Object.keys(articles).filter(s=>s!==cur&&s!=="o-mudila-quest"&&(articles[s].body||"").length>60);if(pool.length)location.hash=pool[Math.floor(Math.random()*pool.length)];return}
+  if(e.target.closest("#rnd")){const cur=route(),pool=Object.keys(articles).filter(s=>s!==cur&&s!=="o-mudila-quest"&&!isSvc(articles[s])&&(articles[s].body||"").length>60);if(pool.length)location.hash=pool[Math.floor(Math.random()*pool.length)];return}
   const t=e.target.closest("#tabs a");if(t&&t.dataset.r==="mir"&&!c)filterCat="";
 });
 window.addEventListener("hashchange",()=>{editing=null;view()});
@@ -867,9 +986,15 @@ $("#newbtn").onclick=()=>{const r=route();startEdit(null,"",r==="personazhi"||r=
 let sel=-1;
 $("#q").addEventListener("input",e=>{
   const q=norm(e.target.value),box=$("#results");if(!q){box.hidden=true;return}
-  const hits=[];for(const[s,a]of entries()){const t=norm(a.title);let sc=t.startsWith(q)?5:t.includes(q)?4:(a.aliases||[]).some(x=>norm(x).includes(q))?3:norm(a.role).includes(q)?2:(norm(a.summary)+" "+norm(a.body)).includes(q)?1:0;if(sc)hits.push([sc,s,a])}
+  const words=q.split(/\s+/).filter(w=>w.length>1);if(!words.length){box.hidden=true;return}
+  const hits=[];for(const[s,a]of entries()){if(isSvc(a))continue;const t=norm(a.title),al=(a.aliases||[]).map(norm).join(" "),meta=norm((a.role||"")+" "+(a.summary||""));
+    let sc=t.startsWith(q)?6:t.includes(q)?5:al.includes(q)?4:meta.includes(q)?3:words.every(w=>(t+" "+al+" "+meta).includes(w))?2:0,snip="";
+    if(sc<3){const pt=plainOf(s),np=norm(pt);if(words.every(w=>np.includes(w))){if(!sc)sc=1;const i=np.indexOf(words[0]);const a0=Math.max(0,i-60),b0=Math.min(pt.length,i+110);snip=(a0?"…":"")+pt.slice(a0,b0)+(b0<pt.length?"…":"")}}
+    if(sc)hits.push([sc,s,a,snip])}
   hits.sort((x,y)=>y[0]-x[0]||x[2].title.localeCompare(y[2].title,"ru"));sel=-1;
-  box.innerHTML=hits.slice(0,10).map(([,s,a])=>`<a href="#${s}"><span class="r-cat">${esc(isChar(a)?"Персонаж":a.category)}</span>${esc(a.title)}<span class="r-sum">${esc(a.role||a.summary||"")}</span></a>`).join("")||`<a tabindex="-1"><span class="r-sum">Ничего не нашлось</span></a>`;box.hidden=false;
+  const hl=t=>{let h=esc(t);for(const w of words){const re=new RegExp("("+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/е/g,"[её]")+")","gi");h=h.replace(re,"<mark>$1</mark>")}return h};
+  const shown=hits.slice(0,12);
+  box.innerHTML=shown.map(([sc,s,a,snip])=>`<a href="#${s}"><span class="r-cat">${esc(isChar(a)?"Персонаж":a.category)}${sc===1?" · в тексте":""}</span>${hl(a.title)}<span class="r-sum">${snip?hl(snip):esc(a.role||a.summary||"")}</span></a>`).join("")+(hits.length>12?`<a tabindex="-1"><span class="r-sum">И ещё ${hits.length-12}. Уточните запрос.</span></a>`:"")||`<a tabindex="-1"><span class="r-sum">Ничего не нашлось</span></a>`;box.hidden=false;
 });
 $("#q").addEventListener("keydown",e=>{const it=[...$("#results").querySelectorAll("a[href]")];
   if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if(!it.length)return;sel=(sel+(e.key==="ArrowDown"?1:-1)+it.length)%it.length;it.forEach((x,i)=>x.classList.toggle("sel",i===sel))}
@@ -882,12 +1007,12 @@ function startEdit(slug,title,kind,group){
   const a=slug?articles[slug]:null;
   editing={slug,base:a?.updatedAt||0,tab:"write",confirmDel:false,warn:"",saving:false,uploading:false,
     draft:{kind:a?.kind||kind||"article",title:a?.title||title||"",category:a?.category&&a.category!=="Персонажи"?a.category:"Мир",group:a?.group||group||"Силы Пожирателя",role:a?.role||"",status:a?.status||"",
-      summary:a?.summary||"",aliases:(a?.aliases||[]).join(", "),body:a?.body||"",epigraph:a?.epigraph||"",epigraphBy:a?.epigraphBy||"",image:a?.image||"",caption:a?.caption||"",facts:a?.facts||"",order:a?.order??99}};
+      summary:a?.summary||"",aliases:(a?.aliases||[]).join(", "),body:a?.body||"",epigraph:a?.epigraph||"",epigraphBy:a?.epigraphBy||"",image:a?.image||"",caption:a?.caption||"",facts:a?.facts||"",relations:a?.relations||"",order:a?.order??99}};
   view();
 }
 function readForm(){
   const d=editing.draft;
-  for(const k of["title","summary","aliases","body","epigraph","epigraphBy","caption","role","status","facts"]){const el=$("#e-"+k);if(el)d[k]=el.value}
+  for(const k of["title","summary","aliases","body","epigraph","epigraphBy","caption","role","status","facts","relations"]){const el=$("#e-"+k);if(el)d[k]=el.value}
   const c=$("#e-category");if(c)d.category=c.value==="__new"?$("#e-newcat").value.trim():c.value;
   const g=$("#e-group");if(g)d.group=g.value==="__new"?$("#e-newgroup").value.trim():g.value;
 }
@@ -912,7 +1037,9 @@ function editorHtml(){
       <label for="e-summary">Кратко, одной строкой<input id="e-summary" type="text" value="${esc(d.summary)}" placeholder="Что это и почему важно"></label>
       <label for="e-aliases">Другие имена через запятую<input id="e-aliases" type="text" value="${esc(d.aliases)}" placeholder="По ним работают поиск и ссылки"></label>
       <div class="row"><label for="e-epigraph">Эпиграф<input id="e-epigraph" type="text" value="${esc(d.epigraph)}" placeholder="Цитата, с которой начинается статья"></label><label for="e-epigraphBy">Чьи слова<input id="e-epigraphBy" type="text" value="${esc(d.epigraphBy)}" placeholder="Кто это сказал"></label></div>
-      <label for="e-facts">Сведения в карточке справа, по строке «Метка: значение»<textarea id="e-facts" style="min-height:90px;font-family:var(--f-body)" placeholder="Родился: 31 Золотой Короны 353 г.&#10;Оружие: [[Край Рассвета]]">${esc(d.facts||"")}</textarea></label>
+      <div class="facts-head"><span>Сведения в карточке справа, по строке «Метка: значение»</span><button class="btn" id="e-tmpl" type="button">Шаблон для раздела</button></div>
+      <label for="e-facts" class="sr-only">Сведения в карточке<textarea id="e-facts" style="min-height:90px;font-family:var(--f-body)" placeholder="Родился: 31 Золотой Короны 353 г.&#10;Оружие: [[Край Рассвета]]">${esc(d.facts||"")}</textarea></label>
+      ${ch?`<label for="e-relations">Связи, по строке «Кто это ему: [[Имя]], [[Имя]]»<textarea id="e-relations" style="min-height:90px;font-family:var(--f-body)" placeholder="Наставник: [[Лотар]]&#10;Спутники: [[Иден Битардский]], [[Дитрих из Багерта]]">${esc(d.relations||"")}</textarea></label>`:""}
       <div class="imgfield">
         <div class="thumb">${src?`<img src="${src}" alt="">`:(ch?medallion({title:d.title},"x"+d.title):sigil(d.title||"x",d.category,d.title))}</div>
         <div style="display:grid;gap:8px;flex:1;min-width:200px">
@@ -936,6 +1063,7 @@ function editorHtml(){
 function rerender(){$("#main").innerHTML=editorHtml();bindEditor()}
 function bindEditor(){
   const e=editing;const on=(id,fn)=>{const el=$(id);if(el)el.onclick=fn};
+  on("#e-tmpl",()=>{const ta=$("#e-facts");if(!ta)return;const cat=$("#e-category")?.value||e.draft.category;const t=factTemplate(e.draft.kind,cat);const have=new Set(ta.value.split("\n").map(l=>l.split(":")[0].trim()).filter(Boolean));const add=t.split("\n").filter(l=>!have.has(l.split(":")[0].trim()));ta.value=(ta.value.trim()?ta.value.trim()+"\n":"")+add.join("\n");ta.focus()});
   ["#e-category","#e-group"].forEach(id=>{const s=$(id);if(s)s.onchange=()=>{const n=$(id==="#e-category"?"#e-newcat":"#e-newgroup");n.hidden=s.value!=="__new"}});
   on("#k-a",()=>{readForm();e.draft.kind="article";rerender()});on("#k-c",()=>{readForm();e.draft.kind="character";rerender()});
   on("#t-w",()=>{readForm();e.tab="write";rerender()});on("#t-p",()=>{readForm();e.tab="prev";rerender()});
@@ -963,7 +1091,7 @@ async function save(force){
   const slug=e.slug||translit(title),prev=articles[e.slug||""];
   const me=GH?("gh:"+(gh.login||"ГМ")):(user?await user.id().catch(()=>null):null);
   const doc={kind:d.kind,title,category:ch?"Персонажи":d.category,summary:d.summary.trim(),aliases:d.aliases.split(",").map(x=>x.trim()).filter(Boolean),
-    body:d.body.replace(/\r/g,""),epigraph:d.epigraph.trim(),epigraphBy:d.epigraphBy.trim(),image:d.image||"",caption:ch?"":d.caption.trim(),facts:(d.facts||"").replace(/\r/g,"").trim(),
+    body:d.body.replace(/\r/g,""),epigraph:d.epigraph.trim(),epigraphBy:d.epigraphBy.trim(),image:d.image||"",caption:ch?"":d.caption.trim(),facts:(d.facts||"").replace(/\r/g,"").trim(),relations:(d.relations||"").replace(/\r/g,"").trim(),
     order:prev?.order??d.order??99,createdAt:prev?.createdAt||Date.now(),updatedAt:Date.now(),updatedBy:me};
   if(ch){doc.group=d.group;doc.role=d.role.trim();doc.status=d.status.trim()}
   e.saving=true;e.warn="";rerender();
