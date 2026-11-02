@@ -48,10 +48,10 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;backgroun
 .brand b{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1;letter-spacing:.02em;white-space:nowrap}
 .tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;min-width:0}
 .tabs::-webkit-scrollbar{display:none}
-.tabs a{position:relative;font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:6px;white-space:nowrap}
+.tabs a{position:relative;font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 9px;border-radius:6px;white-space:nowrap}
 .tabs a:hover{color:var(--ink);background:var(--accent-soft)}
 .tabs a.cur{color:var(--ink)}
-.tabs a.cur::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;border-radius:2px;background:var(--gold);animation:grow .35s var(--ease)}
+.tabs a.cur::after{content:"";position:absolute;left:9px;right:9px;bottom:2px;height:2px;border-radius:2px;background:var(--gold);animation:grow .35s var(--ease)}
 @keyframes grow{from{transform:scaleX(.2);opacity:.4}to{transform:none;opacity:1}}
 .search{flex:1 1 200px;position:relative;min-width:0;max-width:360px;margin-left:auto}
 .search input[type=text]{width:100%;font:inherit;font-size:14.5px;padding:8px 12px 8px 34px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink)}
@@ -462,6 +462,73 @@ aside.info.s-erih-askarios::before{content:"";display:block;height:3px;backgroun
 .dyk-bar{display:flex;align-items:center;gap:var(--s3)}
 @media (max-width:860px){.today{grid-template-columns:minmax(0,1fr)}.aotd-fig{width:110px}}
 
+/* Таблицы */
+.tbl{overflow-x:auto;margin:0 0 var(--s4);border:1px solid var(--line);border-radius:10px}
+.tbl table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+.tbl th{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--surface);padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface) 55%,transparent)}
+article:has(.tbl){max-width:none}
+.page:has(.tbl) article .prose>p,.page:has(.tbl) article .prose>ul{max-width:68ch}
+/* Учебный стол */
+.rt{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.rt-tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);padding:6px 6px 0;overflow-x:auto}
+.rt-tabs button{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.04em;padding:10px 16px;border:0;background:transparent;color:var(--muted);cursor:pointer;border-radius:8px 8px 0 0;white-space:nowrap}
+.rt-tabs button[aria-selected="true"]{background:var(--bg);color:var(--ink);box-shadow:inset 0 -2px 0 var(--gold)}
+#rt-body{padding:var(--s5)}
+.rt-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:var(--s6)}
+.rt-form{display:grid;gap:var(--s3);align-content:start}
+.rt-form.wide{max-width:none}
+.rt-form input[type=number],.rt-form select{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+.rt-l{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rt-out{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:var(--s4)}
+.dice{display:flex;gap:12px;margin-bottom:var(--s3)}
+.die{width:74px;height:74px;display:grid;place-items:center;font-family:var(--f-display);font-size:38px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--muted);transform:rotate(-4deg)}
+.die.pick{color:var(--ink);border-color:var(--gold);transform:none;animation:dieIn .45s var(--ease)}
+.die.crit{color:#1B2125;background:var(--gold);border-color:var(--gold)}
+.die.fumble{color:#fff;background:var(--ember);border-color:var(--ember)}
+.die.idle{font-family:var(--f-mono);font-size:16px}
+@keyframes dieIn{from{transform:rotate(-40deg) scale(.6);opacity:.3}to{transform:none;opacity:1}}
+.total{font-family:var(--f-mono);font-size:15px;color:var(--muted);margin-bottom:6px}
+.total b{color:var(--ink);font-size:20px}
+.v{margin:6px 0;font-size:15.5px}.v.ok b{color:var(--c-hero)}.v.bad b,.v.bad{color:var(--ember)}
+.rt-log{display:flex;gap:6px;flex-wrap:wrap;margin:var(--s3) 0}
+.rt-log span{font-family:var(--f-mono);font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line)}
+.rt-log .ok{border-color:var(--c-hero);color:var(--c-hero)}.rt-log .bad{border-color:var(--ember);color:var(--ember)}
+.hint-s{font-size:13.5px;color:var(--muted);margin:var(--s3) 0 0;line-height:1.5}
+.st-box{display:grid;gap:6px;margin-top:4px}
+.st-row{display:grid;grid-template-columns:1fr auto 40px auto auto;align-items:center;gap:8px}
+.st-row .btn{padding:4px 12px;font-size:16px}
+.st-row b{text-align:center;font-family:var(--f-display);font-size:24px}
+.st-n small{font-family:var(--f-mono);font-size:10.5px;color:var(--gold)}
+.st-def{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);min-width:76px;text-align:right}
+.sh-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:var(--s4)}
+.sh-grid>div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface)}
+.sh-grid span{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sh-grid b{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.1}
+.sh-grid small{display:block;font-size:11.5px;color:var(--muted)}
+.feat{margin:6px 0 0;padding-left:18px;font-size:14.5px;display:grid;gap:4px}
+.rd-top{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap}
+.rd-od{display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:13px}
+.rd-od input{width:64px;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.rd-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);margin:var(--s4) 0}
+.rd-col{min-height:120px;border:1px dashed var(--line);border-radius:12px;padding:var(--s3);cursor:pointer;display:flex;flex-direction:column;gap:6px;align-items:flex-start;transition:border-color .15s,background .15s}
+.rd-col.on{border-style:solid;border-color:var(--gold);background:color-mix(in srgb,var(--gold) 7%,transparent)}
+.rd-h{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rd-col.on .rd-h{color:var(--gold)}
+.rd-act{font:inherit;font-size:14px;padding:5px 12px;border-radius:999px;border:1px solid var(--accent);background:var(--accent-soft);color:var(--ink);cursor:pointer}
+.rd-act small{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.rd-pool{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.path-t{display:grid;gap:8px}
+.path-r{display:grid;grid-template-columns:110px minmax(0,1fr);gap:var(--s3);align-items:start}
+.path-n b{display:block;font-family:var(--f-display);font-size:26px;line-height:1;color:var(--gold)}
+.path-n small{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.path-r textarea{min-height:56px;font-family:var(--f-body);font-size:15px}
+.rule-card .sig{background:var(--night);color:var(--gold)}
+.rnum{font-family:var(--f-display);font-size:26px}
+@media (max-width:860px){.rt-grid{grid-template-columns:minmax(0,1fr)}.sh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rd-cols{grid-template-columns:minmax(0,1fr)}.path-r{grid-template-columns:minmax(0,1fr)}}
+
 @media (max-width:1000px){
   .page{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   aside.info{position:static;max-width:520px;order:-1;margin-top:0}
@@ -498,6 +565,7 @@ aside.info.s-erih-askarios::before{content:"";display:block;height:3px;backgroun
       <a href="#geroi" data-r="geroi">Главные герои</a>
       <a href="#personazhi" data-r="personazhi">Персонажи</a>
       <a href="#hronika" data-r="hronika">Хроника</a>
+      <a href="#pravila" data-r="pravila">Правила</a>
       <a href="#o-mudila-quest" data-r="o-mudila-quest">О проекте</a>
     </nav>
     <div class="search">
@@ -517,12 +585,14 @@ aside.info.s-erih-askarios::before{content:"";display:block;height:3px;backgroun
 <script type="application/json" id="snapshot">{"at":0,"articles":{}}</script>
 <script>
 const SERVICE="Служебное";
+const RULES="Правила";
+const isRule=a=>a&&a.category===RULES;
 const isSvc=a=>a&&a.category===SERVICE;
 const CATS=["Мир","История","Расы","Земли","Магия","Вера и ордена","Существа","Бой","Артефакты","Сказания"];
 const HERO="Главные герои";
 const GROUPS=[HERO,"Силы Пожирателя","Альянс","Великие","Загадочные личности","Внешний космос","Герои былых времён","Древние владыки","Правители нашего дня","Тьма и угрозы","Боги и великие силы"];
-const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye"]);
-const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","settings","sidebar","customize","upgrade","downloads","new","edit"]);
+const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye","pravila"]);
+const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","pravila","settings","sidebar","customize","upgrade","downloads","new","edit"]);
 let db=null,user=null,assets=null,canWrite=null,writeRefused=false,live=false;
 let articles={},snapMeta={at:0};
 let editing=null,filterCat="";
@@ -612,6 +682,7 @@ function blocks(md){
     if(m=ln.match(/^:::\s*(спойлер|гм|секрет)\s*(.*)$/i)){f();const inner=[];i++;while(i<lines.length&&!/^:::\s*$/.test(lines[i].trim()))inner.push(lines[i++]);
       out.push({t:/спойлер/i.test(m[1])?"spoiler":"gm",title:m[2].trim(),v:inner.join("\n")});continue}
     if(!ln.trim()){f();continue}
+    if(/^\s*\|/.test(ln)){f();const rows=[];while(i<lines.length&&/^\s*\|/.test(lines[i])){const r=lines[i].trim().replace(/^\||\|$/g,"").split("|").map(c=>c.trim());if(!r.every(c=>/^:?-{2,}:?$/.test(c)))rows.push(r);i++}i--;out.push({t:"table",v:rows});continue}
     if(m=ln.match(/^###\s+(.*)/)){f();out.push({t:"h3",v:m[1]});continue}
     if(m=ln.match(/^##?\s+(.*)/)){f();out.push({t:"h2",v:m[1]});continue}
     if(m=ln.match(/^\s*[-*]\s+(.*)/)){fp();fq();(l||(l=[])).push(m[1]);continue}
@@ -620,14 +691,15 @@ function blocks(md){
     fl();fq();p.push(ln.trim())}
   f();return out;
 }
-function render(md,opt={}){const idx=nameIndex();let hn=0;return blocks(md).map(b=>b.t==="spoiler"?`<details class="spoiler-b"><summary><span>Спойлер</span>${b.title?" · "+inline(b.title,idx):""}</summary><div class="sp-in">${render(b.v)}</div></details>`:b.t==="gm"?(canW()?`<div class="gm-secret"><div class="gm-tag">Видно только ГМу${b.title?" · "+inline(b.title,idx):""}</div>${render(b.v)}</div>`:""):b.t==="h2"&&opt.ids?`<h2 id="sec-${hn++}">${inline(b.v,idx)}</h2>`:b.t==="p"?`<p>${inline(b.v,idx)}</p>`:b.t==="ul"?`<ul>${b.v.map(i=>`<li>${inline(i,idx)}</li>`).join("")}</ul>`:b.t==="q"?`<blockquote>${inline(b.v,idx)}</blockquote>`:`<${b.t}>${inline(b.v,idx)}</${b.t}>`).join("\n")}
+function cellHtml(c,idx){return inline(c,idx).replace(/⟨br⟩/g,"<br>")}
+function render(md,opt={}){const idx=nameIndex();let hn=0;return blocks(md).map(b=>b.t==="table"?`<div class="tbl"><table>${b.v.length>1?`<thead><tr>${b.v[0].map(c=>`<th>${cellHtml(c,idx)}</th>`).join("")}</tr></thead>`:""}<tbody>${b.v.slice(b.v.length>1?1:0).map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c,idx)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`:b.t==="spoiler"?`<details class="spoiler-b"><summary><span>Спойлер</span>${b.title?" · "+inline(b.title,idx):""}</summary><div class="sp-in">${render(b.v)}</div></details>`:b.t==="gm"?(canW()?`<div class="gm-secret"><div class="gm-tag">Видно только ГМу${b.title?" · "+inline(b.title,idx):""}</div>${render(b.v)}</div>`:""):b.t==="h2"&&opt.ids?`<h2 id="sec-${hn++}">${inline(b.v,idx)}</h2>`:b.t==="p"?`<p>${inline(b.v,idx)}</p>`:b.t==="ul"?`<ul>${b.v.map(i=>`<li>${inline(i,idx)}</li>`).join("")}</ul>`:b.t==="q"?`<blockquote>${inline(b.v,idx)}</blockquote>`:`<${b.t}>${inline(b.v,idx)}</${b.t}>`).join("\n")}
 function linksIn(md){const idx=nameIndex(),s=new Set();for(const m of String(md||"").matchAll(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g)){const x=idx.get(norm(m[1]));if(x)s.add(x)}return s}
 
 /* ---------- данные ---------- */
 const entries=()=>Object.entries(articles);
 const byOrder=(x,y)=>(x[1].order??99)-(y[1].order??99)||x[1].title.localeCompare(y[1].title,"ru");
 function inCat(c){return entries().filter(([,a])=>!isChar(a)&&a.category===c).sort(byOrder)}
-function allCats(){const ex=[...new Set(entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category).filter(c=>c&&!CATS.includes(c)&&c!==SERVICE))].sort();return[...CATS,...ex].filter(c=>inCat(c).length)}
+function allCats(){const ex=[...new Set(entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category).filter(c=>c&&!CATS.includes(c)&&c!==SERVICE&&c!==RULES))].sort();return[...CATS,...ex].filter(c=>inCat(c).length)}
 function chars(g){return entries().filter(([,a])=>isChar(a)&&(a.group||"Прочие")===g).sort(byOrder)}
 function allGroups(){const ex=[...new Set(entries().filter(([,a])=>isChar(a)).map(([,a])=>a.group||"Прочие").filter(g=>!GROUPS.includes(g)))].sort();return[...GROUPS,...ex].filter(g=>chars(g).length)}
 function fmtDate(ms){if(!ms)return"";try{return new Date(ms).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"})}catch{return""}}
@@ -662,7 +734,7 @@ function sky(canvas){
 
 /* ---------- маршрут ---------- */
 function route(){return decodeURIComponent(location.hash.slice(1))}
-function setTabs(r){const a=articles[r];const sec=ROUTES.has(r)||r==="o-mudila-quest"?r:(isChar(a)?(a.group===HERO?"geroi":"personazhi"):a?"mir":"");document.querySelectorAll("#tabs a").forEach(a=>a.classList.toggle("cur",a.dataset.r===sec))}
+function setTabs(r){const a=articles[r];const sec=ROUTES.has(r)||r==="o-mudila-quest"?r:(isChar(a)?(a.group===HERO?"geroi":"personazhi"):isRule(a)?"pravila":a?"mir":"");document.querySelectorAll("#tabs a").forEach(a=>a.classList.toggle("cur",a.dataset.r===sec))}
 async function view(){
   const r=route();setTabs(editing?"":r);
   $("#newbtn").hidden=!canW()||!!editing;
@@ -683,6 +755,7 @@ async function view(){
   else if(r==="gm")html=gmHtml();
   else if(r==="hronika")html=chronicleHtml();
   else if(r==="nuzhnye")html=wantedHtml();
+  else if(r==="pravila")html=rulesHtml();
   else if(articles[r])html=await pageHtml(r);
   else html=`<div class="gut"><div class="inner empty"><div class="eyebrow">Нет такой страницы</div><h1>Здесь пусто</h1><p class="lede">Статью могли переименовать или удалить.</p><p><a href="#">На главную</a></p></div></div>`;
   main.innerHTML=`<div class="view">${html}</div>`;
@@ -780,7 +853,7 @@ async function pageHtml(slug){
       ${ch&&a.role?`<div><dt>Кто это</dt><dd>${esc(a.role)}</dd></div>`:""}
       ${ch&&a.status?`<div><dt>Состояние</dt><dd>${statusPill(a.status)}</dd></div>`:""}
       ${String(a.facts||"").split("\n").map(l=>l.match(/^\s*([^:]{1,40}):\s*(.+)$/)).filter(Boolean).map(m=>`<div class="aside-facts"><dt>${esc(m[1])}</dt><dd>${inline(m[2],nameIndex())}</dd></div>`).join("")}
-      <div><dt>${ch?"Группа":"Раздел"}</dt><dd>${ch?`<a href="#personazhi">${esc(a.group||"Прочие")}</a>`:`<a href="#mir" data-cat="${esc(a.category)}">${esc(a.category)}</a>`}</dd></div>
+      <div><dt>${ch?"Группа":"Раздел"}</dt><dd>${ch?`<a href="#personazhi">${esc(a.group||"Прочие")}</a>`:(isRule(a)?`<a href="#pravila">${esc(a.category)}</a>`:`<a href="#mir" data-cat="${esc(a.category)}">${esc(a.category)}</a>`)}</dd></div>
       ${(a.aliases||[]).length?`<div><dt>Также известно как</dt><dd class="tags">${a.aliases.map(x=>`<span class="tag">${/^~~.*~~$/.test(x)?`<s>${esc(x.slice(2,-2))}</s>`:esc(x)}</span>`).join("")}</dd></div>`:""}
       ${back.length?`<div><dt>Упоминается в</dt><dd class="backlinks">${back.map(([s,t])=>`<a href="#${s}">${esc(t)}</a>`).join("")}</dd></div>`:""}
       <div><dt>Последняя правка</dt><dd>${esc(fmtDate(a.updatedAt))}<br><span class="status">${esc(whoName)}</span></dd></div>
@@ -870,7 +943,7 @@ function wantedData(){
   const idx=nameIndex(),miss=new Map();
   for(const[s,a]of entries()){for(const m of String((a.body||"")+"\n"+(a.facts||"")).matchAll(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g)){const t=m[1].trim();if(idx.get(norm(t)))continue;const k=norm(t);if(!miss.has(k))miss.set(k,{title:t,from:new Set()});miss.get(k).from.add(s)}}
   const missing=[...miss.values()].sort((x,y)=>y.from.size-x.from.size||x.title.localeCompare(y.title,"ru"));
-  const stubs=entries().filter(([,a])=>{if(isSvc(a))return false;const b=String(a.body||"").trim();return b.length<350||/появится позже/i.test(b)}).sort(byOrder);
+  const stubs=entries().filter(([,a])=>{if(isSvc(a)||isRule(a))return false;const b=String(a.body||"").trim();return b.length<350||/появится позже/i.test(b)}).sort(byOrder);
   return{missing,stubs};
 }
 function wantedHtml(){
@@ -893,7 +966,7 @@ document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.tar
 
 /* ---------- текст без разметки (поиск, подсказки) ---------- */
 const plainCache=new Map();
-function plain(md){return String(md||"").replace(/^:::\s*(гм|секрет)[^\n]*\n[\s\S]*?\n:::\s*$/gim,"").replace(/^:::\s*спойлер[^\n]*\n[\s\S]*?\n:::\s*$/gim,"").replace(/^:::.*$/gm,"").replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g,"$2").replace(/\[\[([^\]]+)\]\]/g,"$1").replace(/\|\|[^|]+\|\|/g,"…").replace(/^#+\s*/gm,"").replace(/\*\*|~~|(^|\s)\*|\*(\s|$)/g,"$1$2").replace(/^\s*[-*>]\s+/gm,"").replace(/\s+/g," ").trim()}
+function plain(md){return String(md||"").replace(/^:::\s*(гм|секрет)[^\n]*\n[\s\S]*?\n:::\s*$/gim,"").replace(/^:::\s*спойлер[^\n]*\n[\s\S]*?\n:::\s*$/gim,"").replace(/^:::.*$/gm,"").replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g,"$2").replace(/\[\[([^\]]+)\]\]/g,"$1").replace(/\|\|[^|]+\|\|/g,"…").replace(/⟨br⟩/g," ").replace(/^\s*\|?\s*:?-{3,}.*$/gm,"").replace(/\|/g," ").replace(/^#+\s*/gm,"").replace(/\*\*|~~|(^|\s)\*|\*(\s|$)/g,"$1$2").replace(/^\s*[-*>]\s+/gm,"").replace(/\s+/g," ").trim()}
 function plainOf(s){const a=articles[s];const k=s+"|"+(a.updatedAt||0)+"|"+(a.body||"").length;let v=plainCache.get(s);if(!v||v.k!==k){v={k,t:plain(a.body)};plainCache.set(s,v)}return v.t}
 
 /* ---------- 7. подсказка при наведении на ссылку ---------- */
@@ -940,7 +1013,7 @@ function relationsHtml(slug,a){
 /* ---------- 14. статья дня и «Знаете ли вы» ---------- */
 let dykShift=0;
 function dayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
-function articleOfDay(){const pool=entries().filter(([,a])=>!isChar(a)&&!isSvc(a)&&a.summary&&String(a.body||"").length>1500&&a.category!=="Сказания").sort((x,y)=>x[0].localeCompare(y[0]));if(!pool.length)return null;return pool[hash("aotd"+dayKey())%pool.length]}
+function articleOfDay(){const pool=entries().filter(([,a])=>!isChar(a)&&!isSvc(a)&&!isRule(a)&&a.summary&&String(a.body||"").length>1500&&a.category!=="Сказания").sort((x,y)=>x[0].localeCompare(y[0]));if(!pool.length)return null;return pool[hash("aotd"+dayKey())%pool.length]}
 function dykFacts(){const a=articles["znaete-li-vy"];if(!a)return[];const out=[];for(const b of blocks(a.body))if(b.t==="ul")out.push(...b.v);return out}
 function dykHtml(){const f=dykFacts();if(!f.length)return"";const idx=nameIndex(),n=Math.min(3,f.length),start=(hash("dyk"+dayKey())+dykShift*n)%f.length;
   return Array.from({length:n},(_,i)=>`<li>${inline(f[(start+i)%f.length],idx)}</li>`).join("")}
@@ -953,6 +1026,111 @@ function todayHtml(){
   </div></section>`;
 }
 document.addEventListener("click",e=>{if(e.target.closest("#dyk-more")){dykShift++;const l=$("#dyk-list");if(l)l.innerHTML=dykHtml()}});
+
+
+/* ---------- правила: книга и учебный стол ---------- */
+const rt={tab:"roll",roll:{mod:3,dc:15,mode:"norm",extra:0,last:null,log:[]},ch:{race:"human",lvl:2,st:{m:0,l:0,r:0,v:0}},rd:{phase:1,od:2,acts:[[],[],[]],msg:""},path:null};
+const RACES={human:{n:"Человек",hp:10,en:2,sp:5,feat:["Адаптивность: +1 Очко Развития и 5 Очков Обучения на старте","Инертный: стартовая чувствительность к магии","Дилетант широкого профиля: 7 уровень любого Пути стоит на 2 ОР больше"]},
+ aek:{n:"Эльф-аэклари",hp:8,en:3,sp:6,bonus:"l",slow:"l",feat:["Эльфийская грация: +1 Ловкость, порог стоимости Ловкости растёт каждые 4 уровня","Лёгкий Шаг: Скорость +1","Зелёный Пакт: помеха в металлических доспехах, −2 с металлическим оружием","Родство с Природой: сопротивление природному урону 50%"]},
+ nez:{n:"Эльф-незетари",hp:8,en:4,sp:5,bonus:"l",slow:"l",nez:true,feat:["Эльфийская грация: +1 Ловкость","Пси-Пробуждение в одной дисциплине","Прирождённые менталисты: доп. бонус Энергии от половины Разума и половины Воли","Антимагия"]},
+ ado:{n:"Эльф-адонари",hp:6,en:6,sp:5,bonus:"r",slow:"r",feat:["Мудрость Адон-Тирлейдда: +1 Разум, порог стоимости Разума растёт каждые 4 уровня","Наследие Первых Эльфов: Пробуждённый, но слабость к немагическим металлам"]}};
+const STN={m:"Мощь",l:"Ловкость",r:"Разум",v:"Воля"};
+function pointCost(i,slow){return Math.ceil(i/(slow?4:3))}
+function charCalc(){const c=rt.ch,R=RACES[c.race];let spent=0;const val={};let lowered=0;
+  for(const k in STN){const b=c.st[k],bonus=R.bonus===k?1:0;val[k]=b+bonus;if(b<0)lowered++;for(let i=bonus+1;i<=bonus+Math.max(0,b);i++)spent+=pointCost(i,R.slow===k)}
+  const budget=c.lvl+(lowered?1:0);const{m,l,r,v}=val;
+  const hp=R.hp+m+l+r+v*2,en=R.nez?R.en+m+l+r+v+Math.floor(r/2+v/2):R.en+m+l+r*2+v;
+  return{val,spent,budget,lowered,hp,en,heal:Math.floor(hp/5),kz:10+l,sp:R.sp+Math.floor(Math.max(0,l)/2),carry:3+m,init:l,R,orp:c.lvl+(c.race==="human"?1:0),oo:c.race==="human"?5:0}}
+function rollHtml(){const r=rt.roll,L=r.last;
+  const dice=L?L.dice.map((d,i)=>`<span class="die${i===L.pick?" pick":""}${d===20?" crit":d===1?" fumble":""}">${d}</span>`).join(""):`<span class="die idle">d20</span>`;
+  const verdict=!L?`<p class="status">Задайте модификатор и Класс Сложности, затем бросьте.</p>`:L.nat===20?`<p class="v ok"><b>Критический успех.</b> Натуральная 20: атака гарантированно попадает, урон ×1.5 и критический эффект своего типа урона. Эффект длится на ход дольше, его КС растёт на половину характеристики.</p>`:L.nat===1?`<p class="v bad"><b>Критический провал.</b> Натуральная 1: атака автоматически промахивается.</p>`:L.total>=r.dc?`<p class="v ok"><b>Успех.</b> ${L.total} против КС ${r.dc}.</p>`:`<p class="v bad"><b>Провал.</b> ${L.total} против КС ${r.dc}.</p>`;
+  return `<div class="rt-grid"><div class="rt-form">
+    <label>Модификатор броска<input type="number" data-rr="mod" value="${r.mod}"></label>
+    <label>Класс Сложности<input type="number" data-rr="dc" value="${r.dc}"></label>
+    <div class="rt-l">Режим</div><div class="seg">${[["norm","Обычный"],["adv","Преимущество"],["dis","Помеха"]].map(([k,n])=>`<button type="button" data-rmode="${k}" aria-pressed="${r.mode===k}">${n}</button>`).join("")}</div>
+    ${r.mode!=="norm"?`<label>Ещё ${r.mode==="adv"?"преимуществ":"помех"} сверх первого (каждое ±2)<input type="number" min="0" max="5" data-rr="extra" value="${r.extra}"></label>`:""}
+    <button class="btn primary" type="button" id="rt-roll">Бросить d20</button></div>
+  <div class="rt-out"><div class="dice">${dice}</div>${L?`<div class="total">${L.nat}${r.mod?(r.mod>0?" + ":" − ")+Math.abs(r.mod):""}${L.ex?(L.ex>0?" + ":" − ")+Math.abs(L.ex):""} = <b>${L.total}</b></div>`:""}${verdict}
+    ${r.log.length?`<div class="rt-log">${r.log.map(x=>`<span class="${x.ok?"ok":"bad"}">${x.total}</span>`).join("")}</div>`:""}
+    <p class="hint-s">С преимуществом бросаются две кости и берётся большая, с помехой меньшая. Второе и следующие преимущества или помехи дают +2 или −2. Подробнее в статье <a href="#mqrp-vvedenie">«Введение»</a>.</p></div></div>`}
+function doRoll(){const r=rt.roll,d=()=>1+Math.floor(Math.random()*20);let dice=[d()],pick=0;if(r.mode!=="norm"){dice.push(d());pick=r.mode==="adv"?(dice[1]>dice[0]?1:0):(dice[1]<dice[0]?1:0)}
+  const nat=dice[pick],ex=r.mode==="norm"?0:(r.mode==="adv"?2:-2)*Math.max(0,r.extra|0),total=nat+(r.mod|0)+ex;
+  r.last={dice,pick,nat,ex,total};r.log=[{total,ok:nat===20||(nat!==1&&total>=r.dc)},...r.log].slice(0,8)}
+function charHtml(){const c=rt.ch,k=charCalc(),over=k.spent>k.budget;
+  const row=x=>`<div class="st-row"><span class="st-n">${STN[x]}${k.R.bonus===x?` <small>+1 от расы</small>`:""}</span><button type="button" class="btn" data-st="${x}" data-d="-1" aria-label="Меньше">−</button><b>${k.val[x]}</b><button type="button" class="btn" data-st="${x}" data-d="1" aria-label="Больше">+</button><span class="st-def">Защита ${10+k.val[x]}</span></div>`;
+  return `<div class="rt-grid"><div class="rt-form">
+    <label>Раса<select data-cr="race">${Object.entries(RACES).map(([id,R])=>`<option value="${id}" ${c.race===id?"selected":""}>${R.n}</option>`).join("")}</select></label>
+    <label>Уровень (Очки Характеристик)<input type="number" min="1" max="30" data-cr="lvl" value="${c.lvl}"></label>
+    <div class="st-box">${Object.keys(STN).map(row).join("")}</div>
+    <p class="${over?"v bad":"status"}">Потрачено ОХ: ${k.spent} из ${k.budget}${k.lowered?" (одна характеристика понижена до −1, это дало +1 очко)":""}${over?". Не хватает очков.":""}</p>
+    <p class="hint-s">Цена очка: с 1 по 3 значение по 1 ОХ, с 4 по 6 по 2, с 7 по 9 по 3, дальше по 4. Одну характеристику можно опустить до −1 и получить свободное очко.</p></div>
+  <div class="rt-out sheet"><div class="sh-grid">
+    <div><span>Здоровье</span><b>${k.hp}</b><small>исцеление ${k.heal}</small></div><div><span>Энергия</span><b>${k.en}</b></div>
+    <div><span>Класс Защиты</span><b>${k.kz}</b></div><div><span>Скорость</span><b>${k.sp}</b></div>
+    <div><span>Нагрузка</span><b>${k.carry}</b></div><div><span>Инициатива</span><b>${k.init>=0?"+":""}${k.init}</b></div>
+    <div><span>Очки Развития</span><b>${k.orp}</b></div><div><span>Очки Обучения</span><b>${k.oo}</b></div></div>
+    <div class="rt-l">Особенности расы</div><ul class="feat">${k.R.feat.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    <p class="hint-s">Здоровье = раса + Мощь + Ловкость + Разум + Воля×2. Энергия = раса + Мощь + Ловкость + Разум×2 + Воля. Подробнее в статье <a href="#mqrp-personazh">«Создание персонажа»</a>.</p></div></div>`}
+const ACTS=[["Атака",1,1],["Передвижение",1,1],["Быстрый шаг",1,1],["Взаимодействие",1,1],["Перезарядка",1,1],["Полёт",1,1],["Сопротивление",1,0],["Поднять щит",1,0],["Восстановление",2,2],["Поддержание заклинания",1,1]];
+const PH=["Мгновенная","Быстрая","Медленная"];
+function roundHtml(){const r=rt.rd,used=r.acts.flat().reduce((a,x)=>a+x[1],0);
+  return `<div class="rd-top"><span class="status">Очков Действий: <b>${r.od-used}</b> из ${r.od}</span><label class="rd-od">Максимум ОД<input type="number" min="1" max="6" data-rdod value="${r.od}"></label><button class="btn" type="button" id="rd-reset">Новый раунд</button></div>
+  <p class="hint-s">Выберите фазу, затем действие. Мгновенное действие можно сделать в любой фазе, быстрое только в быстрой или медленной, медленное только в медленной. Потраченное назад не возвращается: что не сделали в прошлой фазе, туда уже не добавить.</p>
+  <div class="rd-cols">${PH.map((n,i)=>`<div class="rd-col${r.phase===i?" on":""}" data-rdph="${i}"><div class="rd-h">${i+1}. ${n} фаза</div>${r.acts[i].map((a,j)=>`<button type="button" class="rd-act" data-rdrm="${i}:${j}">${esc(a[0])} <small>${a[1]} ОД</small> ×</button>`).join("")||`<span class="status">пусто</span>`}</div>`).join("")}</div>
+  <div class="rt-l">Действия</div><div class="rd-pool">${ACTS.map((a,i)=>`<button type="button" class="chip" data-rdadd="${i}">${a[0]} · ${a[1]} ОД · ${PH[a[2]].toLowerCase()}</button>`).join("")}</div>
+  ${r.msg?`<p class="v bad">${esc(r.msg)}</p>`:""}
+  <p class="hint-s">Вне своего хода есть одна Реакция за раунд, свободные действия вроде короткой фразы ОД не тратят. Подробнее в статье <a href="#mqrp-boi">«Боевая система»</a>.</p>`}
+const PATH_COST=[1,1,1,2,2,2,3];
+const PATH_TIP=["Основная способность Пути: активная сила или пассивная механика в начальном виде.","Развитие или усиление основной способности.","Дополнительная способность или чистое усиление персонажа.","Развитие основной или дополнительной способности.","Вторая дополнительная способность или развитие основной.","Законченная версия основной способности. Сильно, но в рамках разумного.","Мастерство: вершина Пути, но не «нажми Х, чтобы победить»."];
+function pathState(){if(!rt.path){let v=null;try{v=JSON.parse(localStorage.getItem("kodeks.path")||"null")}catch{}rt.path=v||{name:"",spec:"",lv:["","","","","","",""]}}return rt.path}
+function pathSave(){try{localStorage.setItem("kodeks.path",JSON.stringify(rt.path))}catch{}}
+function pathHtml(){const P=pathState();let cum=0;
+  return `<div class="rt-form wide"><div class="row"><label>Название Пути<input type="text" data-pf="name" value="${esc(P.name)}" placeholder="Путь Бури"></label><label>Специализация<input type="text" data-pf="spec" value="${esc(P.spec)}" placeholder="Боевые приёмы с двуручным мечом"></label></div>
+  <div class="path-t">${PATH_COST.map((c,i)=>{cum+=c;return `<div class="path-r"><div class="path-n"><b>${i+1}</b><small>${c} ОР · всего ${cum}</small></div><div><textarea data-pl="${i}" rows="2" placeholder="${esc(PATH_TIP[i])}">${esc(P.lv[i])}</textarea></div></div>`}).join("")}</div>
+  <div class="actions"><button class="btn primary" type="button" id="path-copy">Скопировать как текст</button><button class="btn" type="button" id="path-clear">Очистить</button><span class="status" id="path-st"></span></div>
+  <p class="hint-s">Черновик хранится только в этом браузере. Специализация не должна быть ни слишком широкой («Путь Воина»), ни слишком узкой («Путь блока одноручным мечом»). Безусловные бонусы вроде «+1 к атаке» лучше делать редкими. Подробнее в статье <a href="#mqrp-personazh">«Создание персонажа»</a>.</p></div>`}
+function rtBody(){return rt.tab==="roll"?rollHtml():rt.tab==="char"?charHtml():rt.tab==="round"?roundHtml():pathHtml()}
+function rtRefresh(){const el=document.getElementById("rt-body");if(el)el.innerHTML=rtBody();document.querySelectorAll("[data-rtab]").forEach(b=>b.setAttribute("aria-selected",b.dataset.rtab===rt.tab))}
+function rulesHtml(){
+  document.title="Правила · Кодекс Термины";
+  const book=entries().filter(([,a])=>isRule(a)).sort(byOrder),main=book.filter(([,a])=>(a.order??99)<20),sup=book.filter(([,a])=>(a.order??99)>=20);
+  const card=([s,a],i)=>stag(`<a class="card rule-card" href="#${s}"><div class="sig"><span class="rnum">${(a.order??0)<20?(a.order===9||a.order===10||a.order===11?"П":a.order):"+"}</span></div><div style="min-width:0"><b>${esc(a.title.replace(/^MQRP:\s*/,""))}</b><small>${esc(a.summary||"")}</small></div></a>`,i);
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Правила</div><h1>Mudila Quest Roleplaying</h1><p class="lede">Система на d20: четыре характеристики, Пути вместо классов, бой в три фазы. Ниже учебный стол, где механику можно покрутить руками, и вся книга правил с дополнениями.</p></div></section>
+  <div class="gut"><div class="inner" style="padding-bottom:var(--s8)">
+    <section class="block"><h2 class="sec">Учебный стол</h2><div class="rt">
+      <div class="rt-tabs" role="tablist">${[["roll","Бросок"],["char","Персонаж"],["round","Раунд боя"],["path","Конструктор Пути"]].map(([k,n])=>`<button type="button" role="tab" data-rtab="${k}" aria-selected="${rt.tab===k}">${n}</button>`).join("")}</div>
+      <div id="rt-body">${rtBody()}</div></div></section>
+    <section class="block"><h2 class="sec">Книга правил <small>${main.length} ${plural(main.length,"глава","главы","глав")}</small></h2><div class="grid stagger">${main.map(card).join("")}</div></section>
+    ${sup.length?`<section class="block"><h2 class="sec">Дополнения</h2><div class="grid stagger">${sup.map(card).join("")}</div></section>`:""}
+  </div></div>`;
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-rtab]");if(t){rt.tab=t.dataset.rtab;rtRefresh();return}
+  if(e.target.closest("#rt-roll")){doRoll();rtRefresh();return}
+  const m=e.target.closest("[data-rmode]");if(m){rt.roll.mode=m.dataset.rmode;rtRefresh();return}
+  const st=e.target.closest("[data-st]");if(st){const c=rt.ch,k=st.dataset.st,d=+st.dataset.d,nv=c.st[k]+d;const lowOther=Object.entries(c.st).some(([x,v])=>x!==k&&v<0);if(nv<-1||(nv<0&&lowOther)||nv>15)return;c.st[k]=nv;rtRefresh();return}
+  const ph=e.target.closest("[data-rdph]");if(ph&&!e.target.closest("[data-rdrm]")){rt.rd.phase=+ph.dataset.rdph;rt.rd.msg="";rtRefresh();return}
+  const rm=e.target.closest("[data-rdrm]");if(rm){const[i,j]=rm.dataset.rdrm.split(":").map(Number);rt.rd.acts[i].splice(j,1);rt.rd.msg="";rtRefresh();return}
+  const ad=e.target.closest("[data-rdadd]");if(ad){const r=rt.rd,a=ACTS[+ad.dataset.rdadd],used=r.acts.flat().reduce((x,y)=>x+y[1],0);
+    if(a[2]>r.phase)r.msg=`«${a[0]}» — ${["мгновенное","быстрое","медленное"][a[2]]} действие, в ${["мгновенной","быстрой","медленной"][r.phase]} фазе его не сделать.`;
+    else if(r.acts.slice(r.phase+1).some(x=>x.length))r.msg="ОД не тратятся задним числом: в более позднюю фазу уже что-то поставлено.";
+    else if(used+a[1]>r.od)r.msg=`Не хватает Очков Действий: нужно ${a[1]}, осталось ${r.od-used}.`;
+    else{r.acts[r.phase].push(a);r.msg=""}rtRefresh();return}
+  if(e.target.closest("#rd-reset")){rt.rd.acts=[[],[],[]];rt.rd.msg="";rt.rd.phase=0;rtRefresh();return}
+  if(e.target.closest("#path-copy")){const P=pathState();let cum=0;const txt=`**${P.name||"Путь"}**\nСпециализация: ${P.spec}\n\n| Уровень | Эффект | ОР |\n|---|---|---|\n`+P.lv.map((x,i)=>{cum+=PATH_COST[i];return `| ${i+1} | ${x.replace(/\n/g," ")||"…"} | ${PATH_COST[i]} |`}).join("\n");
+    const done=()=>{const s=$("#path-st");if(s)s.textContent="Скопировано"};try{navigator.clipboard.writeText(txt).then(done,()=>{const s=$("#path-st");if(s)s.textContent="Не удалось скопировать"})}catch{}return}
+  if(e.target.closest("#path-clear")){rt.path={name:"",spec:"",lv:["","","","","","",""]};pathSave();rtRefresh();return}
+});
+document.addEventListener("input",e=>{const t=e.target;
+  if(t.dataset.rr){rt.roll[t.dataset.rr]=parseInt(t.value,10)||0;return}
+  if(t.dataset.pf!=null){pathState()[t.dataset.pf]=t.value;pathSave();return}
+  if(t.dataset.pl!=null){pathState().lv[+t.dataset.pl]=t.value;pathSave();return}
+  if(t.matches("[data-rdod]")){rt.rd.od=Math.max(1,parseInt(t.value,10)||2)}});
+document.addEventListener("change",e=>{const t=e.target;
+  if(t.dataset.cr==="race"){rt.ch.race=t.value;rtRefresh()}
+  else if(t.dataset.cr==="lvl"){rt.ch.lvl=Math.max(1,parseInt(t.value,10)||1);rtRefresh()}
+  else if(t.matches("[data-rdod]")){rtRefresh()}
+  else if(t.dataset.rr==="extra"){rtRefresh()}});
 
 /* ---------- просмотр арта ---------- */
 function openLightbox(src,alt){const d=document.createElement("div");d.className="lightbox";d.setAttribute("role","dialog");d.setAttribute("aria-label",alt||"Арт");d.innerHTML=`<img src="${src}" alt="${esc(alt)}"><button type="button" aria-label="Закрыть">×</button>`;document.body.appendChild(d)}
@@ -976,7 +1154,7 @@ document.addEventListener("click",e=>{
   const tb=e.target.closest("#themebtn");if(tb){const t=document.documentElement.dataset.theme==="light"?"dark":"light";applyTheme(t);try{localStorage.setItem(THEME_KEY,t)}catch{};return}
   const z=e.target.closest("[data-zoom]");if(z){openLightbox(z.dataset.zoom,z.querySelector("img.fg")?.alt||"");return}
   const lb=e.target.closest(".lightbox");if(lb){lb.remove();return}
-  if(e.target.closest("#rnd")){const cur=route(),pool=Object.keys(articles).filter(s=>s!==cur&&s!=="o-mudila-quest"&&!isSvc(articles[s])&&(articles[s].body||"").length>60);if(pool.length)location.hash=pool[Math.floor(Math.random()*pool.length)];return}
+  if(e.target.closest("#rnd")){const cur=route(),pool=Object.keys(articles).filter(s=>s!==cur&&s!=="o-mudila-quest"&&!isSvc(articles[s])&&!isRule(articles[s])&&(articles[s].body||"").length>60);if(pool.length)location.hash=pool[Math.floor(Math.random()*pool.length)];return}
   const t=e.target.closest("#tabs a");if(t&&t.dataset.r==="mir"&&!c)filterCat="";
 });
 window.addEventListener("hashchange",()=>{editing=null;view()});
