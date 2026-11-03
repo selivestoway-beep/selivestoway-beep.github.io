@@ -1114,7 +1114,7 @@ function calHtml(){
   <div class="cal-seasons">${seasons}</div>
   <div class="cal-body"><div><div class="cal-mt">Месяц ${CAL_MONTHS[cal.m]}</div><div class="cal-grid">${grid}</div>${dayInfo}</div>
   <div class="cal-yearbox"><h3>${y} год Второй Эры</h3>${ye.length?`<ul>${ye.map(e=>`<li>${e.when?`<strong>${esc(e.when)}</strong> `:""}${inline(e.text,idx)}</li>`).join("")}</ul>`:`<p class="status">Хроники об этом годе молчат. Даты добавляются в статье <a href="#kalendar">«Календарь Термины»</a> и в <a href="#hronologiya">«Хронологии»</a>.</p>`}
-  <div class="cal-jump">${[0,113,322,333,353,383].map(v=>`<button type="button" class="chip" data-calset="${v}" aria-pressed="${v===y}">${v}</button>`).join("")}</div></div></div>`;
+  <div class="cal-jump">${[0,113,303,322,333,353,356,383,384].map(v=>`<button type="button" class="chip" data-calset="${v}" aria-pressed="${v===y}">${v}</button>`).join("")}</div></div></div>`;
 }
 function calRefresh(){const el=document.getElementById("cal");if(el)el.innerHTML=calHtml()}
 document.addEventListener("click",e=>{const t=e.target.closest("[data-calm],[data-cald],[data-caly],[data-calset]");if(!t)return;
