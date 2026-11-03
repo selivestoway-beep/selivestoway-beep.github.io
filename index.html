@@ -529,6 +529,72 @@ article:has(.tbl){max-width:none}
 .rnum{font-family:var(--f-display);font-size:26px}
 @media (max-width:860px){.rt-grid{grid-template-columns:minmax(0,1fr)}.sh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rd-cols{grid-template-columns:minmax(0,1fr)}.path-r{grid-template-columns:minmax(0,1fr)}}
 
+/* Стойка */
+.rack .rack-card{position:relative;align-items:center}
+.rack-card .cover{position:absolute;inset:0;border-radius:12px;z-index:1}
+.rack-card .btn{position:relative;z-index:2;margin-top:8px}
+.rack-card.empty{border-style:dashed;opacity:.85}
+.rk-por{flex:none;width:64px;height:64px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:var(--accent-soft);display:grid;place-items:center}
+.rk-por img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.rk-por svg{width:56px;height:56px}
+.tally{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tally .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tally .t.err{border-color:var(--ember);color:var(--ember)}
+.tally .t.warn{border-color:var(--gold);color:var(--gold)}
+.tally .t.ok{border-color:color-mix(in srgb,var(--c-hero) 60%,var(--line));color:var(--c-hero)}
+.howto{margin:0;padding-left:22px;display:grid;gap:8px;max-width:72ch;line-height:1.6}
+.howto li::marker{color:var(--gold);font-family:var(--f-mono)}
+.sh-head{display:flex;gap:var(--s5);align-items:center}
+.sh-por{flex:none;width:120px;height:120px;border-radius:50%;overflow:hidden;border:2px solid color-mix(in srgb,var(--gold) 60%,transparent);display:grid;place-items:center;background:rgba(0,0,0,.2)}
+.sh-por img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.sh-por svg{width:100px;height:100px}
+.sh-head .eyebrow a{color:inherit}
+.sheet-page{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:var(--s6);padding-top:var(--s6);padding-bottom:var(--s8);align-items:start}
+.sh-side{position:sticky;top:80px;display:grid;gap:var(--s4);max-height:calc(100vh - 100px);overflow:auto;padding-right:2px}
+.sh-box{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s3) var(--s4)}
+.sh-box>.rt-l{margin-bottom:8px}
+.sheet-prose table{font-size:14.5px}
+.review .prose>p:first-of-type::first-letter,.sheet-prose>p:first-of-type::first-letter{float:none;font-size:inherit;padding:0;color:inherit;font-family:inherit;line-height:inherit}
+.sheet-prose p{margin-bottom:.55em}
+.sheet-prose h3{margin-top:1.4em}
+.rack-card>div:last-child{flex:1}
+.sh-head .tally{margin-bottom:var(--s3)}
+.review{margin:0 0 var(--s5);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:12px;background:color-mix(in srgb,var(--accent) 6%,var(--surface));padding:0 var(--s4)}
+.review summary{cursor:pointer;padding:12px 0;color:var(--muted);font-size:15px}
+.review summary span{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.review .prose{padding-bottom:var(--s2)}
+.ck-sec{padding:6px 0 4px;border-top:1px solid var(--line)}
+.ck-sec:first-child{border-top:0}
+.ck-h{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:4px 0}
+.ck{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px;padding:5px 0;font-size:14px;line-height:1.4}
+.ck b{font-weight:600;font-size:14px}
+.ck-i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;margin-top:1px;border:1px solid currentColor}
+.ck.ok .ck-i{color:var(--c-hero)}.ck.err .ck-i{color:var(--ember)}.ck.warn .ck-i{color:var(--gold)}.ck.na .ck-i{color:var(--muted)}
+.ck.err b{color:var(--ember)}
+.ck-v{display:block;color:var(--ink);font-size:13.5px}
+.ck-v code{font-family:var(--f-mono);font-size:12.5px;background:var(--accent-soft);padding:0 5px;border-radius:4px}
+.ck small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.ck.ok small{display:none}
+.pass{display:grid;gap:4px;font-size:14px}
+.pass-row{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding:3px 0}
+.pass-row span{color:var(--muted)}
+.pass-st{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}
+.pass-st>div{border:1px solid var(--line);border-radius:8px;padding:4px 6px;text-align:center}
+.pass-st span{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.pass-st b{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1.1}
+.pass-st small{display:block;font-size:11px;color:var(--muted)}
+.pass-path{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;font-size:13.5px}
+.pips{display:flex;gap:3px;flex:none}
+.pips i{width:9px;height:9px;border-radius:2px;border:1px solid var(--gold);transform:rotate(45deg)}
+.pips i.on{background:var(--gold)}
+.sbx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s5);padding-top:var(--s5)}
+.sbx-in{display:grid;gap:var(--s3)}
+.sbx-in label{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sbx textarea{display:block;margin-top:6px;box-sizing:border-box;height:auto;width:100%;min-height:340px;font-family:var(--f-mono);font-size:13px;line-height:1.5;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);resize:vertical;text-transform:none;letter-spacing:0}
+.sbx-out{display:grid;gap:var(--s3);align-content:start}
+@media (max-width:1000px){.sheet-page,.sbx{grid-template-columns:1fr}.sh-side{position:static;max-height:none}}
+@media (max-width:640px){.sh-head{flex-direction:column;align-items:flex-start;gap:var(--s3)}.sh-por{width:88px;height:88px}}
+
 @media (max-width:1000px){
   .page{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   aside.info{position:static;max-width:520px;order:-1;margin-top:0}
@@ -566,6 +632,7 @@ article:has(.tbl){max-width:none}
       <a href="#personazhi" data-r="personazhi">Персонажи</a>
       <a href="#hronika" data-r="hronika">Хроника</a>
       <a href="#pravila" data-r="pravila">Правила</a>
+      <a href="#stoyka" data-r="stoyka">Стойка</a>
       <a href="#o-mudila-quest" data-r="o-mudila-quest">О проекте</a>
     </nav>
     <div class="search">
@@ -588,11 +655,13 @@ const SERVICE="Служебное";
 const RULES="Правила";
 const isRule=a=>a&&a.category===RULES;
 const isSvc=a=>a&&a.category===SERVICE;
+const SHEETS="Листы";
+const isSheet=a=>a&&a.kind==="sheet";
 const CATS=["Мир","История","Расы","Земли","Магия","Вера и ордена","Существа","Бой","Артефакты","Сказания"];
 const HERO="Главные герои";
 const GROUPS=[HERO,"Силы Пожирателя","Альянс","Великие","Загадочные личности","Внешний космос","Герои былых времён","Древние владыки","Правители нашего дня","Тьма и угрозы","Боги и великие силы"];
-const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye","pravila"]);
-const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","pravila","settings","sidebar","customize","upgrade","downloads","new","edit"]);
+const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye","pravila","stoyka","proverka-lista"]);
+const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","pravila","stoyka","proverka-lista","settings","sidebar","customize","upgrade","downloads","new","edit"]);
 let db=null,user=null,assets=null,canWrite=null,writeRefused=false,live=false;
 let articles={},snapMeta={at:0};
 let editing=null,filterCat="";
@@ -698,8 +767,8 @@ function linksIn(md){const idx=nameIndex(),s=new Set();for(const m of String(md|
 /* ---------- данные ---------- */
 const entries=()=>Object.entries(articles);
 const byOrder=(x,y)=>(x[1].order??99)-(y[1].order??99)||x[1].title.localeCompare(y[1].title,"ru");
-function inCat(c){return entries().filter(([,a])=>!isChar(a)&&a.category===c).sort(byOrder)}
-function allCats(){const ex=[...new Set(entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category).filter(c=>c&&!CATS.includes(c)&&c!==SERVICE&&c!==RULES))].sort();return[...CATS,...ex].filter(c=>inCat(c).length)}
+function inCat(c){return entries().filter(([,a])=>!isChar(a)&&!isSheet(a)&&a.category===c).sort(byOrder)}
+function allCats(){const ex=[...new Set(entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category).filter(c=>c&&!CATS.includes(c)&&c!==SERVICE&&c!==RULES&&c!==SHEETS))].sort();return[...CATS,...ex].filter(c=>inCat(c).length)}
 function chars(g){return entries().filter(([,a])=>isChar(a)&&(a.group||"Прочие")===g).sort(byOrder)}
 function allGroups(){const ex=[...new Set(entries().filter(([,a])=>isChar(a)).map(([,a])=>a.group||"Прочие").filter(g=>!GROUPS.includes(g)))].sort();return[...GROUPS,...ex].filter(g=>chars(g).length)}
 function fmtDate(ms){if(!ms)return"";try{return new Date(ms).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"})}catch{return""}}
@@ -734,7 +803,7 @@ function sky(canvas){
 
 /* ---------- маршрут ---------- */
 function route(){return decodeURIComponent(location.hash.slice(1))}
-function setTabs(r){const a=articles[r];const sec=ROUTES.has(r)||r==="o-mudila-quest"?r:(isChar(a)?(a.group===HERO?"geroi":"personazhi"):isRule(a)?"pravila":a?"mir":"");document.querySelectorAll("#tabs a").forEach(a=>a.classList.toggle("cur",a.dataset.r===sec))}
+function setTabs(r){const a=articles[r];const sec=r==="proverka-lista"||isSheet(a)?"stoyka":ROUTES.has(r)||r==="o-mudila-quest"?r:(isChar(a)?(a.group===HERO?"geroi":"personazhi"):isRule(a)?"pravila":a?"mir":"");document.querySelectorAll("#tabs a").forEach(a=>a.classList.toggle("cur",a.dataset.r===sec))}
 async function view(){
   const r=route();setTabs(editing?"":r);
   $("#newbtn").hidden=!canW()||!!editing;
@@ -756,7 +825,9 @@ async function view(){
   else if(r==="hronika")html=chronicleHtml();
   else if(r==="nuzhnye")html=wantedHtml();
   else if(r==="pravila")html=rulesHtml();
-  else if(articles[r])html=await pageHtml(r);
+  else if(r==="stoyka")html=rackHtml();
+  else if(r==="proverka-lista")html=sandboxHtml();
+  else if(articles[r])html=isSheet(articles[r])?await sheetHtml(r):await pageHtml(r);
   else html=`<div class="gut"><div class="inner empty"><div class="eyebrow">Нет такой страницы</div><h1>Здесь пусто</h1><p class="lede">Статью могли переименовать или удалить.</p><p><a href="#">На главную</a></p></div></div>`;
   main.innerHTML=`<div class="view">${html}</div>`;
   const cv=main.querySelector("canvas.skycv");if(cv)sky(cv);
@@ -834,7 +905,7 @@ function chronicleHtml(){
 async function pageHtml(slug){
   const a=articles[slug],ch=isChar(a);
   document.title=a.title+" · Кодекс Термины";
-  const back=entries().filter(([s,x])=>s!==slug&&!isSvc(x)&&linksIn(x.body).has(slug)).map(([s,x])=>[s,x.title]).sort((p,q)=>p[1].localeCompare(q[1],"ru"));
+  const back=entries().filter(([s,x])=>s!==slug&&!isSvc(x)&&!isSheet(x)&&linksIn(x.body).has(slug)).map(([s,x])=>[s,x.title]).sort((p,q)=>p[1].localeCompare(q[1],"ru"));
   const nm=await names([a.updatedBy]);const whoName=who(a.updatedBy,nm);
   const sib=ch?chars(a.group||"Прочие"):inCat(a.category);const k=sib.findIndex(([s])=>s===slug);
   const prev=sib[k-1],next=sib[k+1];
@@ -852,6 +923,7 @@ async function pageHtml(slug){
       <h3>${esc(a.title)}</h3><dl>
       ${ch&&a.role?`<div><dt>Кто это</dt><dd>${esc(a.role)}</dd></div>`:""}
       ${ch&&a.status?`<div><dt>Состояние</dt><dd>${statusPill(a.status)}</dd></div>`:""}
+      ${ch&&sheetOf(slug)?(()=>{const[ss,sa]=sheetOf(slug),n=sheetCheck(sa).n;return `<div><dt>Лист персонажа</dt><dd><a href="#${ss}">Открыть на Стойке</a>${n.err?` <span class="status">${n.err} ${plural(n.err,"ошибка","ошибки","ошибок")}</span>`:""}</dd></div>`})():""}
       ${String(a.facts||"").split("\n").map(l=>l.match(/^\s*([^:]{1,40}):\s*(.+)$/)).filter(Boolean).map(m=>`<div class="aside-facts"><dt>${esc(m[1])}</dt><dd>${inline(m[2],nameIndex())}</dd></div>`).join("")}
       <div><dt>${ch?"Группа":"Раздел"}</dt><dd>${ch?`<a href="#personazhi">${esc(a.group||"Прочие")}</a>`:(isRule(a)?`<a href="#pravila">${esc(a.category)}</a>`:`<a href="#mir" data-cat="${esc(a.category)}">${esc(a.category)}</a>`)}</dd></div>
       ${(a.aliases||[]).length?`<div><dt>Также известно как</dt><dd class="tags">${a.aliases.map(x=>`<span class="tag">${/^~~.*~~$/.test(x)?`<s>${esc(x.slice(2,-2))}</s>`:esc(x)}</span>`).join("")}</dd></div>`:""}
@@ -943,7 +1015,7 @@ function wantedData(){
   const idx=nameIndex(),miss=new Map();
   for(const[s,a]of entries()){for(const m of String((a.body||"")+"\n"+(a.facts||"")).matchAll(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g)){const t=m[1].trim();if(idx.get(norm(t)))continue;const k=norm(t);if(!miss.has(k))miss.set(k,{title:t,from:new Set()});miss.get(k).from.add(s)}}
   const missing=[...miss.values()].sort((x,y)=>y.from.size-x.from.size||x.title.localeCompare(y.title,"ru"));
-  const stubs=entries().filter(([,a])=>{if(isSvc(a)||isRule(a))return false;const b=String(a.body||"").trim();return b.length<350||/появится позже/i.test(b)}).sort(byOrder);
+  const stubs=entries().filter(([,a])=>{if(isSvc(a)||isRule(a)||isSheet(a))return false;const b=String(a.body||"").trim();return b.length<350||/появится позже/i.test(b)}).sort(byOrder);
   return{missing,stubs};
 }
 function wantedHtml(){
@@ -1013,7 +1085,7 @@ function relationsHtml(slug,a){
 /* ---------- 14. статья дня и «Знаете ли вы» ---------- */
 let dykShift=0;
 function dayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
-function articleOfDay(){const pool=entries().filter(([,a])=>!isChar(a)&&!isSvc(a)&&!isRule(a)&&a.summary&&String(a.body||"").length>1500&&a.category!=="Сказания").sort((x,y)=>x[0].localeCompare(y[0]));if(!pool.length)return null;return pool[hash("aotd"+dayKey())%pool.length]}
+function articleOfDay(){const pool=entries().filter(([,a])=>!isChar(a)&&!isSvc(a)&&!isRule(a)&&!isSheet(a)&&a.summary&&String(a.body||"").length>1500&&a.category!=="Сказания").sort((x,y)=>x[0].localeCompare(y[0]));if(!pool.length)return null;return pool[hash("aotd"+dayKey())%pool.length]}
 function dykFacts(){const a=articles["znaete-li-vy"];if(!a)return[];const out=[];for(const b of blocks(a.body))if(b.t==="ul")out.push(...b.v);return out}
 function dykHtml(){const f=dykFacts();if(!f.length)return"";const idx=nameIndex(),n=Math.min(3,f.length),start=(hash("dyk"+dayKey())+dykShift*n)%f.length;
   return Array.from({length:n},(_,i)=>`<li>${inline(f[(start+i)%f.length],idx)}</li>`).join("")}
@@ -1132,6 +1204,305 @@ document.addEventListener("change",e=>{const t=e.target;
   else if(t.matches("[data-rdod]")){rtRefresh()}
   else if(t.dataset.rr==="extra"){rtRefresh()}});
 
+
+/* ---------- стойка: листы персонажей ---------- */
+const RULES_VER="Книга правил MQRP, сверка 03.11.2026";
+const RACE_ALIAS={"человек":"human","люди":"human","аэклари":"aek","лесной эльф":"aek","эльф-аэклари":"aek","незетари":"nez","темный эльф":"nez","эльф-незетари":"nez","адонари":"ado","высший эльф":"ado","эльф-адонари":"ado"};
+const ST_KEYS={"мощь":"m","ловкость":"l","разум":"r","воля":"v"};
+const ST_GEN={m:"Мощи",l:"Ловкости",r:"Разума",v:"Воли"};
+const BON_T=[[/^(оз|здоровье)/,"hp"],[/^энерги/,"en"],[/^(рейтинг )?исцелени/,"heal"],[/^(кз|класс защиты)/,"kz"],[/^защита мощ/,"dm"],[/^защита ловк/,"dl"],[/^защита разум/,"dr"],[/^защита вол/,"dv"],[/^защиты/,"dall"],[/^скорость/,"sp"],[/^(нагрузка|переносимый вес)/,"cr"],[/^броня/,"arm"],[/^барьер/,"bar"],[/^точность ближ/,"acm"],[/^точность дальн/,"acr"],[/^ячейк/,"slots"],[/^мощь/,"m"],[/^ловкость/,"l"],[/^разум/,"r"],[/^воля/,"v"]];
+const sheetOf=slug=>entries().find(([,a])=>isSheet(a)&&a.hero===slug);
+const numOf=s=>{const m=String(s||"").replace(",",".").match(/-?\d+(?:\.\d+)?/);return m?+m[0]:null};
+const sgn=n=>(n>=0?"+":"−")+Math.abs(n);
+
+function parsePass(txt){
+  const P={race:"",rid:null,rov:{},lvl:null,leg:null,st:{},xox:0,xor:0,paths:[],armor:null,items:[],slots:[],bon:[],said:{},bad:[]};
+  for(const raw of String(txt||"").split("\n")){const ln=raw.trim();if(!ln||ln.startsWith("#"))continue;
+    const i=ln.indexOf(":");if(i<0){P.bad.push(ln);continue}
+    const k=norm(ln.slice(0,i)),v=ln.slice(i+1).trim(),parts=v.split("|").map(x=>x.trim());
+    if(k==="раса"){P.race=parts[0];P.rid=RACE_ALIAS[norm(parts[0])]||null;for(const p of parts.slice(1)){const n=numOf(p),q=norm(p);if(n==null)continue;if(/^здоров/.test(q))P.rov.hp=n;else if(/^энерг/.test(q))P.rov.en=n;else if(/^скор/.test(q))P.rov.sp=n;else if(/^(вес|нагруз|перенос)/.test(q))P.rov.cr=n}}
+    else if(k==="уровень")P.lvl=/\d/.test(v)?numOf(v):null;
+    else if(/^легендарн/.test(k))P.leg=/\d/.test(v)?numOf(v):null;
+    else if(ST_KEYS[k])P.st[ST_KEYS[k]]=numOf(v)??0;
+    else if(/^доп\.?\s*ох/.test(k))P.xox=numOf(v)||0;
+    else if(/^доп\.?\s*ор/.test(k))P.xor=numOf(v)||0;
+    else if(k==="путь")P.paths.push({name:parts[0],lvl:numOf(parts[1])||0});
+    else if(k==="доспех"){const A={name:parts[0],kz:0,t:0,arm:0,bar:0,heavy:false};for(const p of parts.slice(1)){const q=norm(p),n=numOf(p);if(/^(кз|класс)/.test(q))A.kz=n||0;else if(/^тяжест/.test(q))A.t=n||0;else if(/^брон/.test(q))A.arm=n||0;else if(/^барьер/.test(q))A.bar=n||0;else if(/тяж[её]л/.test(q))A.heavy=true}P.armor=A}
+    else if(k==="предмет"){const t=parts.slice(1).map(p=>/тяжест/i.test(p)?numOf(p):null).find(x=>x!=null);P.items.push({name:parts[0],t:t||0})}
+    else if(k==="ячейка"){const ef=parts.slice(1).find(p=>/^эффект/i.test(p));P.slots.push({name:parts[0],eff:ef?norm(ef.replace(/^эффект\s*:?\s*/i,"")):""})}
+    else if(k==="бонус"){const m=parts[0].match(/^(.+?)\s*([+\-−]\s*\d+(?:[.,]\d+)?|[×xх*]\s*\d+(?:[.,]\d+)?)$/i);if(!m){P.bad.push(ln);continue}
+      const tn=norm(m[1]),tt=(BON_T.find(([re])=>re.test(tn))||[])[1];if(!tt){P.bad.push(ln);continue}
+      const op=/^[×xх*]/i.test(m[2])?"mul":"add",val=+m[2].replace(/[×xх*\s]/gi,"").replace("−","-").replace(",",".");
+      const src=parts[1]||"";P.bon.push({t:tt,op,val,src,sup:/сверх/i.test(parts[2]||"")||/сверхъестеств/i.test(src),label:m[1].trim()})}
+    else if(k==="указано"){for(const p of parts){const m=p.match(/^(.+?)\s+(-?\d+)$/);if(!m)continue;const tn=norm(m[1]),tt=(BON_T.find(([re])=>re.test(tn))||[])[1];if(tt)P.said[tt]=+m[2]}}
+    else P.bad.push(ln);
+  }
+  return P;
+}
+
+/* что написано в самом листе */
+function parseSaid(body){
+  const b=String(body||""),S={st:{},paths:[],slots:0,slotLines:0},g=(re,f)=>{const m=b.match(re);return m?f(m):undefined};
+  const N=x=>/^\d+$/.test(x||"")?+x:null;
+  S.hpCur=g(/\*\*ОЗ\*\*\s*:\s*([\dxх]+)\s*\/\s*([\dxх]+)/i,m=>N(m[1]));S.hp=g(/\*\*ОЗ\*\*\s*:\s*([\dxх]+)\s*\/\s*([\dxх]+)/i,m=>N(m[2]));
+  S.arm=g(/\*\*Броня\*\*\s*:\s*([\dxх]+)\s*\/\s*([\dxх]+)/i,m=>N(m[2]));
+  S.en=g(/\*\*Энергия\*\*\s*:\s*([\dxх]+)\s*\/\s*([\dxх]+)/i,m=>N(m[2]));
+  S.heal=g(/Рейтинг Исцеления\*\*\s*:\s*(\d*)/i,m=>N(m[1]));
+  S.kz=g(/\*\*Класс Защиты\*\*\s*[—–:-]\s*(\d+)/i,m=>+m[1]);
+  S.sp=g(/\*\*Скорость\*\*\s*[—–:-]\s*(\d+)/i,m=>+m[1]);
+  g(/\*\*(?:Переносимый Вес|Нагрузка)\*\*\s*[—–:-]\s*(\d+)\s*\/\s*(\d+)/i,m=>{S.crUsed=+m[1];S.cr=+m[2]});
+  for(const[n,k]of Object.entries(ST_KEYS)){const m=b.match(new RegExp("\\*\\*"+n+"\\*\\*\\s*[—–:-]\\s*(-?\\d+)(?:\\s*\\((-?\\d+)\\))?","i"));if(m)S.st[k]={base:+m[1],eff:m[2]!=null?+m[2]:+m[1]}}
+  for(const[k,n]of Object.entries({dm:"Мощи",dl:"Ловкости",dr:"Разума",dv:"Воли"})){const m=b.match(new RegExp("Защита\\s*\\**\\s*"+n+"\\s*\\**\\s*:?\\s*(\\d+)","i"));if(m)S[k]=+m[1]}
+  S.acm=g(/Атака в ближнем бою\s*[—–:-]\s*([+\-−]?\d+)/i,m=>+m[1].replace("−","-"));
+  S.acr=g(/Атака в дальнем бою\s*[—–:-]\s*([+\-−]?\d+)/i,m=>+m[1].replace("−","-"));
+  /* Пути: жирное название, под ним таблица «Уровень Пути» */
+  let name="",inT=false,cur=null;
+  for(const raw of b.split("\n")){const ln=raw.trim();let m;
+    if(/^#/.test(ln)){name="";inT=false;cur=null;continue}
+    if((m=ln.match(/^(?:[*-]\s+)?\*\*([^*]{2,80})\*\*\s*$/))){name=m[1].trim();inT=false;cur=null;continue}
+    if(ln.startsWith("|")){const cells=ln.split("|").slice(1,-1).map(c=>c.trim());
+      if(/^уровень/i.test(cells[0]||"")){inT=!!name;if(inT){cur={name,lvl:0,max:0};S.paths.push(cur)}continue}
+      if(inT&&cur){const lv=numOf(cells[0]);if(lv&&/^\d/.test(cells[0])){cur.max=Math.max(cur.max,lv);const d=(cells[1]||"").replace(/[.\s]/g,"");if(!/не\s*получ/i.test(cells[0])&&d)cur.lvl=Math.max(cur.lvl,lv)}}continue}
+    if(ln&&!/^[-|]/.test(ln)&&inT){inT=false}
+  }
+  S.paths=S.paths.filter(p=>p.max&&p.lvl);
+  for(const m of b.matchAll(/\*\*Ячейка[ \t]*\d+\*\*[ \t]*[—–:-]?[ \t]*(.*)/gi)){S.slotLines++;if(m[1].trim())S.slots++}
+  S.orSaid=g(/Основные Пути\s*\((\d+|[XxХх]+)\s*Очк/i,m=>N(m[1]));
+  S.holes=(b.match(/\b[xх]\s*\/\s*[xх]\b|\([XХ]\s*Очк|\|\s*\.\.\.\s*\|/g)||[]).length;
+  S.extra=[["Путь Восхождения","восхождени"],["Героические Способности","героическ"],["Очки Легенды","очк[иао]в? легенд"],["Сверхъестественный Атрибут","сверхъестественн"],["Урон Равновесию","равновеси"]].filter(([,re])=>new RegExp(re,"i").test(b)).map(([n])=>n);
+  return S;
+}
+
+function pathCost(lvl,human){let c=0;for(let i=0;i<Math.min(lvl,7);i++)c+=PATH_COST[i];return c+(human&&lvl>=7?2:0)}
+function statCost(v,bonus,slow){let c=0;const parts=[];for(let i=bonus+1;i<=v;i++){const p=pointCost(i,slow);c+=p;parts.push(p)}return{c,parts}}
+
+function sheetCheck(a){
+  const P=parsePass(a.calc),S=parseSaid(a.body);for(const k in P.said)S[k]=P.said[k];
+  const out=[],add=(sec,st,t,o={})=>out.push({sec,st,t,...o});
+  const base=RACES[P.rid];
+  const R=base?{...base,cr:P.rid==="human"?3:2}:{n:P.race||"",hp:P.rov.hp,en:P.rov.en,sp:P.rov.sp,cr:P.rov.cr};
+  for(const k of["hp","en","sp","cr"])if(P.rov[k]!=null)R[k]=P.rov[k];
+  const human=P.rid==="human";
+  if(!P.race)add("Основа","err","Раса не указана",{why:"Без расы не посчитать Здоровье, Энергию, Скорость и Нагрузку. Строка паспорта: «Раса: Человек»."});
+  else if(!base&&[R.hp,R.en,R.sp,R.cr].some(x=>x==null))add("Основа","err",`Раса «${P.race}» не из книги правил`,{why:"Для своей расы допишите стартовые значения: «Раса: "+P.race+" | Здоровье 10 | Энергия 2 | Скорость 5 | Вес 3»."});
+  else if(!base)add("Основа","na",`Раса «${P.race}» не из книги правил`,{why:"Стартовые значения взяты из паспорта, сверьте их с ГМом."});
+  for(const s of P.bad)add("Основа","warn","Строка паспорта не разобрана",{got:s,why:"Проверьте написание: «Ключ: значение», части через «|»."});
+  const zr=v=>v==null?0:v;
+  const cR=R.hp??0,bonusOf=k=>R.bonus===k?1:0;
+  /* характеристики */
+  const st={},eff={},acc={},src={};
+  for(const k in STN){st[k]=P.st[k]!=null?P.st[k]:(S.st[k]?.base??0);const bs=P.bon.filter(b=>b.t===k&&b.op==="add");eff[k]=st[k]+bs.reduce((s,b)=>s+b.val,0);acc[k]=st[k]+bs.filter(b=>!b.sup).reduce((s,b)=>s+b.val,0);src[k]=bs}
+  for(const k in STN){const sd=S.st[k];if(!sd)continue;
+    if(sd.base!==st[k])add("Характеристики","err",`${STN[k]}: основа`,{key:"st:"+k,got:sd.base,want:st[k],why:"Значение в листе не совпадает с паспортом."});
+    else if(sd.eff!==eff[k])add("Характеристики","err",`${STN[k]} с бонусами`,{key:"st:"+k,got:sd.eff,want:eff[k],why:`${st[k]}${src[k].map(b=>" "+sgn(b.val)+" ("+b.src+")").join("")} = ${eff[k]}`});
+    else add("Характеристики","ok",STN[k],{got:sd.eff===sd.base?sd.base:`${sd.base} (${sd.eff})`})}
+  /* очки характеристик */
+  const neg=Object.keys(STN).filter(k=>st[k]<0);let spent=0;const br=[];
+  for(const k in STN){const{c,parts}=statCost(st[k],bonusOf(k),R.slow===k);spent+=c;if(parts.length)br.push(`${STN[k]} ${st[k]}: ${parts.join("+")} = ${c}`)}
+  if(neg.length>1||neg.some(k=>st[k]<-1))add("Очки","err","Понижение характеристик",{why:"Понизить можно только одну характеристику и только до −1, это даёт одно свободное ОХ."});
+  const oxB=P.lvl!=null?P.lvl+P.xox+(neg.length===1?1:0):null;
+  if(oxB==null)add("Очки","warn","Очки Характеристик: уровень не указан",{got:spent+" потрачено",want:`уровень ${Math.max(1,spent-P.xox-(neg.length===1?1:0))} или выше`,why:br.join(" · ")+". По 1 ОХ за уровень, порог цены каждые 3 значения."});
+  else add("Очки",spent>oxB?"err":spent<oxB?"warn":"ok","Очки Характеристик",{got:spent,want:oxB,why:(spent<oxB?`Не потрачено ${oxB-spent}. `:spent>oxB?`Перерасход ${spent-oxB}. `:"")+br.join(" · ")});
+  /* пути */
+  const paths=P.paths.length?P.paths:S.paths.map(p=>({name:p.name,lvl:p.lvl}));let orS=0;const pb=[];
+  for(const p of paths){if(p.lvl>7)add("Очки","err",`${p.name}: уровень ${p.lvl}`,{why:"У Пути 7 уровней."});const c=pathCost(p.lvl,human);orS+=c;pb.push(`${p.name} ${p.lvl}: ${c}${human&&p.lvl>=7?" (с наценкой людей +2)":""}`)}
+  if(P.paths.length)for(const sp of S.paths){const pp=P.paths.find(p=>norm(p.name).includes(norm(sp.name).replace(/^путь\s+/,""))||norm(sp.name).includes(norm(p.name).replace(/^путь\s+/,"")));
+    if(!pp)add("Пути","warn",`«${sp.name}» есть в листе, но нет в паспорте`,{got:`уровень ${sp.lvl}`});else if(pp.lvl!==sp.lvl)add("Пути","err",`${sp.name}: уровень`,{got:sp.lvl,want:pp.lvl,why:"В таблице Пути получено другое число уровней, чем в паспорте."});else add("Пути","ok",`${sp.name}`,{got:`уровень ${sp.lvl}`})}
+  else for(const sp of S.paths)add("Пути","ok",sp.name,{got:`уровень ${sp.lvl}`,why:"Уровень взят из таблицы листа: строки с «НЕ ПОЛУЧЕНО» и пустые не считаются."});
+  const orB=P.lvl!=null?P.lvl+(human?1:0)+P.xor:null;
+  if(paths.length){if(orB==null)add("Очки","warn","Очки Развития: уровень не указан",{got:orS+" потрачено",want:`уровень ${Math.max(1,orS-(human?1:0)-P.xor)} или выше`,why:pb.join(" · ")+". Цена уровней Пути 1-1-1-2-2-2-3."});
+    else add("Очки",orS>orB?"err":orS<orB?"warn":"ok","Очки Развития",{got:orS,want:orB,why:(orS<orB?`Не потрачено ${orB-orS}. `:orS>orB?`Перерасход ${orS-orB}. `:"")+pb.join(" · ")+(human?". Людям +1 ОР на старте.":"")});
+    if(S.orSaid==null&&/Основные Пути/i.test(a.body||""))add("Очки","warn","В заголовке Путей не вписано число ОР",{want:orS})}
+  /* атрибуты */
+  const B=t=>P.bon.filter(b=>b.t===t),sum=t=>B(t).filter(b=>b.op==="add").reduce((s,b)=>s+b.val,0),mul=t=>B(t).filter(b=>b.op==="mul").reduce((s,b)=>s*b.val,1);
+  const{m,l,r,v}=eff;const tail=t=>B(t).map(b=>` ${b.op==="mul"?"×"+b.val:sgn(b.val)} (${b.src})`).join("");
+  const cmp=(sec,t,key,got,want,why,soft)=>{if(got==null)add(sec,"warn",t+": не заполнено",{key,want,why});else if(got===want)add(sec,"ok",t,{got,why});else add(sec,soft?"warn":"err",t,{key,got,want,why})};
+  const known=R.hp!=null;
+  let hp=null;
+  if(known){const raw=R.hp+m+l+r+2*v;hp=Math.floor(raw*mul("hp"))+sum("hp");
+    cmp("Атрибуты","Здоровье","hp",S.hp,hp,`${R.hp} (раса) + ${m} + ${l} + ${r} + ${v}×2 = ${raw}${tail("hp")}${mul("hp")!==1?", дробь отброшена":""}`);
+    const heal=Math.floor(hp/5)+sum("heal");cmp("Атрибуты","Рейтинг Исцеления","heal",S.heal,heal,`1/5 от Здоровья ${hp}, дробь отброшена${tail("heal")}`);
+    const en=(R.nez?R.en+m+l+r+v+Math.floor(r/2+v/2):R.en+m+l+2*r+v)+sum("en");
+    cmp("Атрибуты","Энергия","en",S.en,en,R.nez?`${R.en} + ${m} + ${l} + ${r} + ${v} + (${r}+${v})/2${tail("en")}`:`${R.en} (раса) + ${m} + ${l} + ${r}×2 + ${v}${tail("en")}`)}
+  const cr=(R.cr??3)+m+sum("cr"),used=(P.armor?.t||0)+P.items.reduce((s,x)=>s+x.t,0),exc=Math.max(0,used-cr);
+  const crWhy=`${R.cr??3} (раса) + Мощь ${m}${tail("cr")}. Несёт Тяжести: ${[P.armor&&P.armor.t?`${P.armor.name} ${P.armor.t}`:"",...P.items.filter(x=>x.t).map(x=>`${x.name} ${x.t}`)].filter(Boolean).join(" + ")||"0"} = ${used}`;
+  cmp("Атрибуты","Нагрузка","cr",S.cr,cr,crWhy);
+  if(S.crUsed!=null&&(P.armor||P.items.length)&&S.crUsed!==used)add("Атрибуты","err","Занятая Нагрузка",{key:"crUsed",got:S.crUsed,want:used,why:crWhy});
+  if(exc)add("Атрибуты","warn",`Перегруз: активная Тяжесть ${exc}`,{why:"Тяжесть сверх Нагрузки даёт такой же штраф к Защите Ловкости и бонусу Ловкости к КЗ, удорожает приёмы и заклинания на столько же Энергии и отнимает прибавку Ловкости к Скорости."});
+  else if(used)add("Атрибуты","ok","Тяжесть в пределах Нагрузки",{got:`${used} из ${cr}`,why:"Тяжесть, которую покрывает Нагрузка, штрафов не даёт."});
+  const lk=l>0?Math.max(0,l-exc):l;
+  cmp("Защиты","Класс Защиты","kz",S.kz,10+lk+(P.armor?.kz||0)+sum("kz"),`10 + Ловкость ${lk}${exc?` (${l} − перегруз ${exc})`:""}${P.armor?.kz?` + ${P.armor.name} ${P.armor.kz}`:""}${tail("kz")}`);
+  for(const[k,dk]of[["m","dm"],["l","dl"],["r","dr"],["v","dv"]]){const val=10+eff[k]-(k==="l"?exc:0)+sum("dall")+sum(dk);
+    cmp("Защиты",`Защита ${ST_GEN[k]}`,dk,S[dk],val,`10 + ${STN[k]} ${eff[k]}${k==="l"&&exc?` − перегруз ${exc}`:""}${tail("dall")}${tail(dk)}`)}
+  if(R.sp!=null){const spv=R.sp+(exc?0:Math.floor(Math.max(0,l)/2))+sum("sp");cmp("Атрибуты","Скорость","sp",S.sp,spv,`${R.sp} (раса) + ${exc?"0 (перегруз)":`Ловкость ${l}/2 = ${Math.floor(Math.max(0,l)/2)}`}${tail("sp")}`)}
+  if(P.armor&&P.armor.arm&&hp!=null){const av=Math.floor(hp*P.armor.arm/100)+sum("arm");cmp("Атрибуты","Броня","arm",S.arm,av,`${P.armor.arm}% от Здоровья ${hp}${tail("arm")}`)}
+  const supNote=k=>src[k].some(b=>b.sup)?` (без сверхъестественных ${src[k].filter(b=>b.sup).map(b=>sgn(b.val)).join(" ")})`:"";
+  if(S.acm!=null)cmp("Броски","Атака в ближнем бою","acm",S.acm,acc.m+sum("acm"),`Мощь ${acc.m}${supNote("m")}${tail("acm")}`);
+  if(S.acr!=null)cmp("Броски","Атака в дальнем бою","acr",S.acr,acc.l+sum("acr"),`Ловкость ${acc.l}${supNote("l")}${tail("acr")}`,true);
+  /* снаряжение */
+  const capS=9+sum("slots"),nS=P.slots.length||S.slots;
+  if(!nS)add("Снаряжение","warn","Ячейки экипировки не заполнены",{want:`до ${capS}`,why:"Без них не проверить, что именно надето и какие бонусы действуют."});
+  else add("Снаряжение",nS>capS?"err":"ok","Ячейки экипировки",{got:nS,want:`не больше ${capS}`});
+  const effs={};for(const s of P.slots)if(s.eff)(effs[s.eff]=effs[s.eff]||[]).push(s.name);
+  for(const[e,list]of Object.entries(effs))if(list.length>2)add("Снаряжение","warn",`Эффект «${e}» от ${list.length} предметов`,{why:`Действуют только два сильнейших: ${list.join(", ")}.`});
+  if(S.holes)add("Снаряжение","warn",`Незаполненных мест в листе: ${S.holes}`,{why:"Остались «x/x», «X Очков» или «...» в таблицах."});
+  for(const e of S.extra)add("Вне книги","na",e,{why:"В книге правил этого нет, автоматически не проверяется. Смотрите разбор."});
+  return{list:out,P,S,R,eff,st,acc,spent,oxB,orS,orB,paths,hp,cr,used,
+    n:{err:out.filter(x=>x.st==="err").length,warn:out.filter(x=>x.st==="warn").length,ok:out.filter(x=>x.st==="ok").length,na:out.filter(x=>x.st==="na").length}};
+}
+
+/* подставить расчёт в текст листа */
+function fixBody(body,K){let b=String(body||"");const w=key=>K.list.find(x=>x.key===key&&x.st!=="ok"&&typeof x.want==="number")?.want;
+  const sub=(re,fn)=>{b=b.replace(re,fn)};
+  let x;if((x=w("hp"))!=null)sub(/(\*\*ОЗ\*\*\s*:\s*)([\dxх]+)\s*\/\s*([\dxх]+)/i,(_,p)=>`${p}${x}/${x}`);
+  const e=w("en");if(e!=null)sub(/(\*\*Энергия\*\*\s*:\s*)([\dxх]+)\s*\/\s*([\dxх]+)(\([\dxх]+\))?/i,(_,p)=>`${p}${e}/${e}`);
+  const ar=w("arm");if(ar!=null)sub(/(\*\*Броня\*\*\s*:\s*)([\dxх]+)\s*\/\s*([\dxх]+)/i,(_,p)=>`${p}${ar}/${ar}`);
+  const h=w("heal");if(h!=null)sub(/(Рейтинг Исцеления\*\*\s*:)[ \t]*\d*/i,(_,p)=>`${p} ${h}`);
+  const kz=w("kz");if(kz!=null)sub(/(\*\*Класс Защиты\*\*\s*[—–:-]\s*)\d+/i,(_,p)=>p+kz);
+  const sp=w("sp");if(sp!=null)sub(/(\*\*Скорость\*\*\s*[—–:-]\s*)\d+/i,(_,p)=>p+sp);
+  const cr=w("cr"),cu=w("crUsed");if(cr!=null||cu!=null)sub(/(\*\*(?:Переносимый Вес|Нагрузка)\*\*\s*[—–:-]\s*)(\d+)\s*\/\s*(\d+)/i,(_,p,a1,a2)=>`${p}${cu??a1}/${cr??a2}`);
+  for(const[n,k]of Object.entries(ST_KEYS)){if(!K.list.some(c=>c.key==="st:"+k&&c.st==="err"))continue;const bs=K.st[k],ef=K.eff[k];
+    b=b.replace(new RegExp("(\\*\\*"+n+"\\*\\*\\s*[—–:-]\\s*)(-?\\d+)(\\s*\\(-?\\d+\\))?","i"),(_,p)=>`${p}${bs}${ef!==bs?` (${ef})`:""}`)}
+  for(const[k,n]of Object.entries({dm:"Мощи",dl:"Ловкости",dr:"Разума",dv:"Воли"})){const val=w(k);if(val!=null)b=b.replace(new RegExp("(Защита\\s*\\**\\s*"+n+"\\s*\\**\\s*:?\\s*)\\d+","i"),(_,p)=>p+val)}
+  const am=w("acm");if(am!=null)sub(/(Атака в ближнем бою\s*[—–:-]\s*)[+\-−]?\d+/i,(_,p)=>p+(am>=0?"+":"")+am);
+  const ac=w("acr");if(ac!=null)sub(/(Атака в дальнем бою\s*[—–:-]\s*)[+\-−]?\d+/i,(_,p)=>p+(ac>=0?"+":"")+ac);
+  const ors=K.list.find(c=>/вписано число ОР/.test(c.t));if(ors)sub(/(Основные Пути\s*\()[XxХх]+(\s*Очк)/,(_,p,q)=>`${p}${ors.want}${q}`);
+  return b;
+}
+
+/* паспорт из текста листа */
+function passFromSheet(body){const S=parseSaid(body),L=["# Паспорт для автопроверки. Строки «Ключ: значение», части через «|».","Раса: ","# своя раса: Раса: Орк | Здоровье 12 | Энергия 2 | Скорость 5 | Вес 3","Уровень: ","Легендарный уровень: "];
+  for(const[n,k]of Object.entries(ST_KEYS))L.push(`${STN[k]}: ${S.st[k]?.base??0}`);
+  const fromSheet=Object.entries(S.st).filter(([,x])=>x.eff!==x.base).map(([k,x])=>`Бонус: ${STN[k]} ${sgn(x.eff-x.base)} | из листа, укажите источник`);
+  L.push("Доп. ОХ: 0","Доп. ОР: 0");
+  for(const p of S.paths)L.push(`Путь: ${p.name} | ${p.lvl}`);
+  const b=String(body||"");const am=b.match(/\*\*Требования:?\*\*:?\s*Тяжесть\s*(\d+)[\s\S]{0,200}?Класс Защиты\s*\+(\d+)[^\n]*?(\d+)%/i);
+  const an=b.match(/\*\*Доспех\*\*\s*[—–:-]\s*([^\n*]+)/i)||b.match(/^[-*]?\s*\*\*([^*]*(?:доспех|латы)[^*]*)\*\*/im);
+  if(am)L.push(`Доспех: ${an?an[1].trim():"Доспех"} | КЗ +${am[2]} | Тяжесть ${am[1]} | Броня ${am[3]}%${+am[1]>=3||/тяж[её]л|лат/i.test(an?.[1]||"")?" | тяжёлый":""}`);else L.push("# Доспех: Название | КЗ +3 | Тяжесть 3 | Броня 100% | тяжёлый");
+  for(const m of b.matchAll(/^\*\*([^*\n]+)\*\*[^\n]*\n(?:[^\n]*\n){0,4}?[^\n]*Свойства:\*\*[^\n]*Тяжесть\s*(\d+)/gm))L.push(`Предмет: ${m[1].replace(/\s*\+\d+$/,"").trim()} | Тяжесть ${m[2]}`);
+  L.push(...fromSheet);L.push("# Ячейка: Кольцо силы | эффект: Нагрузка","# Бонус: Ловкость +1 | Усиление Тела (инфузия)","# Бонус: Мощь +2 | Сверхъестественная Мощь   ← сверхъестественные не идут в точность","# Бонус: Здоровье ×1.5 | Героическая живучесть","# Бонус: Защиты +1 | Путь Авангарда, 2 уровень   ← все Защиты, кроме КЗ","# Бонус: Точность ближняя +4 | оружие Мастерское II");
+  return L.join("\n")}
+
+
+/* лист из Obsidian в разметку вики: каждая строка своим абзацем, вложенные списки плоские */
+function sheetMd(b){const out=[];let prev="";const put=(x,kind)=>{if(kind!==prev&&out.length&&out[out.length-1]!=="")out.push("");out.push(x);if(kind==="p"){out.push("");prev=""}else prev=kind};
+  for(const raw of String(b||"").replace(/\r/g,"").split("\n")){const t=raw.replace(/<br\s*\/?>/gi,"⟨br⟩").trim();let m;
+    if(!t||/^-{3,}$/.test(t)){if(out.length&&out[out.length-1]!=="")out.push("");prev="";continue}
+    if((m=t.match(/^#{1,2}\s+(.*)/))){put("## "+m[1],"h");prev="";out.push("");continue}
+    if((m=t.match(/^#{3,6}\s+(.*)/))){put("### "+m[1],"h");prev="";out.push("");continue}
+    if(t.startsWith("|")){put(t,"t");continue}
+    if(/^\*\*[^*]+\*\*$/.test(t)&&!/^\s/.test(raw)){put("### "+t.slice(2,-2),"h");prev="";out.push("");continue}
+    if((m=t.match(/^[*-]\s*(\S.*)$/))&&!/^\*\*/.test(t)||(m=t.match(/^-(\*\*.*)$/))){put("- "+m[1],"l");continue}
+    put(t,"p")}
+  return out.join("\n")}
+/* ---------- страницы стойки ---------- */
+const ST_IC={ok:"✓",warn:"!",err:"×",na:"?"};
+function checksHtml(K){const secs=[...new Set(K.list.map(x=>x.sec))];const order={err:0,warn:1,na:2,ok:3};
+  return secs.map(s=>`<div class="ck-sec"><div class="ck-h">${esc(s)}</div>${K.list.filter(x=>x.sec===s).sort((p,q)=>order[p.st]-order[q.st]).map(x=>`<div class="ck ${x.st}"><span class="ck-i" aria-hidden="true">${ST_IC[x.st]}</span><div><b>${esc(x.t)}</b>${x.got!=null||x.want!=null?`<span class="ck-v">${x.got!=null?`в листе <code>${esc(x.got)}</code>`:""}${x.want!=null&&x.st!=="ok"?`${x.got!=null?" · ":""}по правилам <code>${esc(x.want)}</code>`:""}</span>`:""}${x.why?`<small>${esc(x.why)}</small>`:""}</div></div>`).join("")}</div>`).join("")}
+function tallyHtml(n){return `<span class="tally">${n.err?`<span class="t err">${n.err} ${plural(n.err,"ошибка","ошибки","ошибок")}</span>`:""}${n.warn?`<span class="t warn">${n.warn} ${plural(n.warn,"замечание","замечания","замечаний")}</span>`:""}<span class="t ok">${n.ok} сходится</span>${n.na?`<span class="t na">${n.na} вне книги</span>`:""}</span>`}
+function passCardHtml(K){const{P,R,st,eff}=K;
+  return `<div class="pass"><div class="pass-row"><span>Раса</span><b>${esc(R.n||P.race||"—")}</b></div><div class="pass-row"><span>Уровень</span><b>${P.lvl??"не указан"}</b></div>${P.leg!=null?`<div class="pass-row"><span>Легендарный уровень</span><b>${P.leg}</b></div>`:""}
+  <div class="pass-st">${Object.keys(STN).map(k=>`<div><span>${STN[k]}</span><b>${eff[k]}</b>${eff[k]!==st[k]?`<small>основа ${st[k]}</small>`:"<small>&nbsp;</small>"}</div>`).join("")}</div>
+  <div class="pass-row"><span>ОХ потрачено</span><b>${K.spent}${K.oxB!=null?" из "+K.oxB:""}</b></div>${K.paths.length?`<div class="pass-row"><span>ОР потрачено</span><b>${K.orS}${K.orB!=null?" из "+K.orB:""}</b></div>`:""}
+  ${K.paths.map(p=>`<div class="pass-path"><span>${esc(p.name)}</span><span class="pips">${[1,2,3,4,5,6,7].map(i=>`<i class="${i<=p.lvl?"on":""}"></i>`).join("")}</span></div>`).join("")}</div>`}
+function rackHtml(){
+  document.title="Стойка · Кодекс Термины";
+  const heroes=entries().filter(([,a])=>isChar(a)&&a.group===HERO).sort(byOrder);
+  const sheets=entries().filter(([,a])=>isSheet(a));
+  const extra=sheets.filter(([,a])=>!heroes.some(([s])=>s===a.hero));
+  const card=([s,a],i)=>{const sh=sheetOf(s);const K=sh?sheetCheck(sh[1]):null;const src=imgSrc(a.image);
+    return stag(`<div class="card rack-card${sh?"":" empty"}">${sh?`<a class="cover" href="#${sh[0]}" aria-label="Лист: ${esc(a.title)}"></a>`:""}<div class="rk-por">${src?`<img src="${src}" alt="" ${imgErr}>`:medallion(a,s)}</div><div style="min-width:0"><b>${esc(a.title)}</b>
+      ${sh?`<small>${sh[1].player?"Игрок: "+esc(sh[1].player)+" · ":""}обновлён ${esc(fmtDate(sh[1].updatedAt))}</small>${tallyHtml(K.n)}`:`<small>Лист ещё не сдан</small>${canW()?`<button class="btn" type="button" data-newsheet="${s}">Завести лист</button>`:""}`}</div></div>`,i)};
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Стойка</div><h1>Листы персонажей</h1><p class="lede">Сюда сдают листы героев. Сайт сам сверяет каждый лист с книгой правил: очки, атрибуты, защиты, Нагрузку и ячейки. Что формулами не поймать, разбирает Клод, и его разбор лежит здесь же.</p>
+    <div class="actions"><a class="btn primary" href="#proverka-lista">Проверить лист без сохранения</a>${canW()?`<button class="btn" type="button" data-newsheet="">Новый лист</button>`:""}</div></div></section>
+  <div class="gut"><div class="inner" style="padding-bottom:var(--s8)">
+    <section class="block"><h2 class="sec">Герои Багерта</h2><div class="grid rack stagger">${heroes.map(card).join("")}</div></section>
+    ${extra.length?`<section class="block"><h2 class="sec">Другие листы</h2><div class="grid rack stagger">${extra.map(([s,a],i)=>{const K=sheetCheck(a);return stag(`<a class="card rack-card" href="#${s}"><div style="min-width:0"><b>${esc(a.title)}</b><small>${a.player?"Игрок: "+esc(a.player):""}</small>${tallyHtml(K.n)}</div></a>`,i)}).join("")}</div></section>`:""}
+    <section class="block"><h2 class="sec">Как сдать лист</h2><ol class="howto">
+      <li>Пришлите лист ГМу или Тиму: текстом или файлом .md, в привычном формате листа.</li>
+      <li>ГМ заводит лист на Стойке и вставляет текст. Кнопка «Заполнить паспорт из листа» сама вытащит характеристики, Пути, доспех и Тяжесть оружия. Расу, уровень и бонусы от предметов и способностей дописывают руками.</li>
+      <li>Сайт сразу показывает, где цифры не сходятся, и может подставить расчёт в лист. Перед сохранением всё видно и можно поправить.</li>
+      <li>Когда меняются правила, ГМ просит Клода пройтись по Стойке: тот пересчитывает листы под новую версию и пишет разбор с тем, что изменилось.</li></ol>
+      <p class="hint-s">Проверка идёт по: ${esc(RULES_VER)}. Путь Восхождения, Героические Способности и Очки Легенды в книгу правил пока не входят, их сайт помечает знаком «?» и не считает.</p></section>
+  </div></div>`;
+}
+async function sheetHtml(slug){
+  const a=articles[slug],h=articles[a.hero],K=sheetCheck(a);
+  document.title=a.title+" · Стойка · Кодекс Термины";
+  const src=h?imgSrc(h.image):"";const old=a.review&&a.reviewSys&&a.reviewSys!==RULES_VER;
+  const fixable=K.list.some(x=>x.key&&x.st!=="ok"&&x.want!=null);
+  return `<section class="sky small gut sheet-top"><div class="inner sh-head">${h?`<a class="sh-por" href="#${a.hero}">${src?`<img src="${src}" alt="" ${imgErr}>`:medallion(h,a.hero)}</a>`:""}<div style="min-width:0"><div class="eyebrow"><a href="#stoyka">Стойка</a> · лист персонажа</div><h1>${esc(h?h.title:a.title)}</h1>
+    <p class="lede">${a.player?"Игрок: "+esc(a.player)+" · ":""}лист обновлён ${esc(fmtDate(a.updatedAt))}</p>${tallyHtml(K.n)}
+    <div class="actions">${h?`<a class="btn" href="#${a.hero}">Статья о герое</a>`:""}<button class="btn" type="button" id="sh-copy">Скопировать для Клода</button>${canW()?`<button class="btn" type="button" id="editbtn">Редактировать</button>${fixable?`<button class="btn primary" type="button" id="sh-fix">Подставить верные цифры</button>`:""}`:""}<span class="status" id="sh-st"></span></div></div></div></section>
+  <div class="gut"><div class="inner sheet-page">
+    <div class="sh-main">
+      ${a.review?`<details class="review" open><summary><span>Разбор Клода</span>${a.reviewedAt?" · "+esc(fmtDate(a.reviewedAt)):""}</summary>${old?`<p class="v bad">Разбор сделан по прошлой версии правил (${esc(a.reviewSys)}).</p>`:""}<div class="prose">${render(a.review)}</div></details>`:""}
+      <div class="prose sheet-prose">${render(sheetMd(a.body))}</div>
+    </div>
+    <aside class="sh-side"><div class="sh-box"><div class="rt-l">Паспорт</div>${passCardHtml(K)}</div><div class="sh-box"><div class="rt-l">Автопроверка</div>${checksHtml(K)}</div></aside>
+  </div></div>`;
+}
+function sheetText(a,K){return [`Лист персонажа: ${a.title}`,a.player?`Игрок: ${a.player}`:"",`Проверено по: ${RULES_VER}`,"","## Паспорт",a.calc||"","","## Автопроверка сайта",...K.list.filter(x=>x.st!=="ok").map(x=>`- [${({err:"ошибка",warn:"замечание",na:"вне книги"})[x.st]}] ${x.t}${x.got!=null?`; в листе ${x.got}`:""}${x.want!=null?`; по правилам ${x.want}`:""}${x.why?` (${x.why})`:""}`),"","## Лист",a.body||""].join("\n")}
+async function copyText(t){try{await navigator.clipboard.writeText(t);return true}catch{const ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand("copy")}catch{}ta.remove();return ok}}
+
+/* песочница: проверка без сохранения */
+const SBX_LS="kodeks.sheet.draft";
+function sbx(){if(!rt.sbx){let v=null;try{v=JSON.parse(localStorage.getItem(SBX_LS)||"null")}catch{}rt.sbx=v||{body:"",calc:""}}return rt.sbx}
+function sbxSave(){try{localStorage.setItem(SBX_LS,JSON.stringify(rt.sbx))}catch{}}
+function sbxOut(){const s=sbx();if(!s.body.trim()&&!s.calc.trim())return `<p class="status">Вставьте текст листа слева. Паспорт можно заполнить из листа одной кнопкой.</p>`;const K=sheetCheck({body:s.body,calc:s.calc});return `${tallyHtml(K.n)}<div class="sh-box" style="margin-top:var(--s3)">${passCardHtml(K)}</div><div class="sh-box">${checksHtml(K)}</div>`}
+function sandboxHtml(){
+  document.title="Проверка листа · Стойка · Кодекс Термины";const s=sbx();
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow"><a href="#stoyka">Стойка</a></div><h1>Проверить лист</h1><p class="lede">Вставьте свой лист и проверьте его до того, как сдавать. Ничего не сохраняется на сайте, черновик остаётся только в этом браузере.</p></div></section>
+  <div class="gut"><div class="inner sbx" style="padding-bottom:var(--s8)">
+    <div class="sbx-in"><label>Лист персонажа<textarea id="sbx-body" spellcheck="false" placeholder="**Атрибуты**&#10;* **ОЗ**: 30/30 ...">${esc(s.body)}</textarea></label>
+      <div class="facts-head"><span>Паспорт: раса, уровень, бонусы</span><button class="btn" type="button" id="sbx-fill">Заполнить паспорт из листа</button></div>
+      <textarea id="sbx-calc" spellcheck="false" style="min-height:220px">${esc(s.calc)}</textarea>
+      <div class="actions"><button class="btn" type="button" id="sbx-copy">Скопировать для Клода</button><button class="btn" type="button" id="sbx-clear">Очистить</button><span class="status" id="sbx-st"></span></div></div>
+    <div class="sbx-out" id="sbx-out">${sbxOut()}</div>
+  </div></div>`;
+}
+let sbxT=0;
+document.addEventListener("input",e=>{const t=e.target;if(t.id!=="sbx-body"&&t.id!=="sbx-calc")return;const s=sbx();s[t.id==="sbx-body"?"body":"calc"]=t.value;sbxSave();clearTimeout(sbxT);sbxT=setTimeout(()=>{const o=$("#sbx-out");if(o)o.innerHTML=sbxOut()},250)});
+document.addEventListener("click",async e=>{
+  const t=e.target;
+  if(t.closest("#sbx-fill")){const s=sbx();if(s.calc.trim()&&!confirmFill(t))return;s.calc=passFromSheet(s.body);sbxSave();$("#sbx-calc").value=s.calc;$("#sbx-out").innerHTML=sbxOut();return}
+  if(t.closest("#sbx-clear")){rt.sbx={body:"",calc:""};sbxSave();view();return}
+  if(t.closest("#sbx-copy")){const s=sbx();const ok=await copyText(sheetText({title:"черновик",body:s.body,calc:s.calc},sheetCheck(s)));const st=$("#sbx-st");if(st)st.textContent=ok?"Скопировано, вставьте в чат с Клодом.":"Не получилось скопировать.";return}
+  if(t.closest("#sh-copy")){const s=route(),a=articles[s];const ok=await copyText(sheetText(a,sheetCheck(a)));const st=$("#sh-st");if(st)st.textContent=ok?"Скопировано, вставьте в чат с Клодом.":"Не получилось скопировать.";return}
+  if(t.closest("#sh-fix")){const s=route(),a=articles[s];const nb=fixBody(a.body,sheetCheck(a));startEdit(s);editing.draft.body=nb;editing.warn="Цифры в листе заменены расчётом по правилам. Проверьте текст и сохраните, или нажмите «Отмена».";view();return}
+  const ns=t.closest("[data-newsheet]");if(ns){const h=ns.dataset.newsheet;startEdit(null,h&&articles[h]?"Лист: "+articles[h].title:"","sheet");editing.draft.hero=h;view();return}
+  if(t.closest("#e-fill")){const ta=$("#e-calc"),bd=$("#e-body");if(!ta||!bd)return;if(ta.value.trim()&&!confirmFill(t))return;ta.value=passFromSheet(bd.value);return}
+});
+function confirmFill(btn){if(btn.dataset.sure==="1"){delete btn.dataset.sure;return true}btn.dataset.sure="1";btn.textContent="Паспорт перепишется. Нажмите ещё раз";setTimeout(()=>{if(btn.isConnected){delete btn.dataset.sure;btn.textContent="Заполнить паспорт из листа"}},4000);return false}
+
+/* редактор листа */
+function sheetEditorHtml(){
+  const e=editing,d=e.draft,isNew=!e.slug;
+  document.title=(isNew?"Новый лист":"Правка: "+d.title)+" · Стойка";
+  const heroes=entries().filter(([,a])=>isChar(a)).sort((x,y)=>(x[1].group===HERO?0:1)-(y[1].group===HERO?0:1)||x[1].title.localeCompare(y[1].title,"ru"));
+  const K=sheetCheck({body:d.body,calc:d.calc});
+  return `<div class="gut"><div class="inner editor view">
+    <div class="eyebrow">${isNew?"Новый лист":"Правка листа"} · Стойка</div><h1>${esc(d.title||"Лист персонажа")}</h1>
+    <div class="form">
+      ${e.warn?`<div class="notice ${e.warnErr?"err":""}">${e.warn}</div>`:""}
+      <div class="row"><label for="e-hero">Чей лист<select id="e-hero"><option value="">—</option>${heroes.map(([s,a])=>`<option value="${s}" ${d.hero===s?"selected":""}>${esc(a.title)}</option>`).join("")}</select></label>
+        <label for="e-player">Игрок<input id="e-player" type="text" value="${esc(d.player)}" placeholder="Кто ведёт персонажа"></label></div>
+      <label for="e-title">Название<input id="e-title" type="text" value="${esc(d.title)}" placeholder="Лист: Эрих Аскариос"></label>
+      <div>
+        <div class="wtabs" role="tablist"><button type="button" role="tab" id="t-w" aria-selected="${e.tab==="write"}">Лист</button><button type="button" role="tab" id="t-p" aria-selected="${e.tab==="prev"}">Проверка</button></div>
+        ${e.tab==="write"?`<textarea id="e-body" aria-label="Текст листа" spellcheck="false">${esc(d.body)}</textarea>`:`<div class="preview">${tallyHtml(K.n)}<div class="sh-box" style="margin-top:12px">${checksHtml(K)}</div></div>`}
+      </div>
+      <div class="facts-head"><span>Паспорт для автопроверки: раса, уровень, бонусы</span>${e.tab==="write"?`<button class="btn" id="e-fill" type="button">Заполнить паспорт из листа</button>`:""}</div>
+      <textarea id="e-calc" spellcheck="false" style="min-height:220px;font-family:var(--f-mono);font-size:13.5px">${esc(d.calc)}</textarea>
+      <label for="e-review">Разбор Клода (виден всем над листом)<textarea id="e-review" style="min-height:140px">${esc(d.review)}</textarea></label>
+      <div class="actions">
+        <button class="btn primary" id="e-save" type="button" ${e.saving?"disabled":""}>${e.saving?"Сохраняем…":"Сохранить"}</button>
+        <button class="btn" id="e-cancel" type="button">Отмена</button>
+        ${!isNew?(e.confirmDel?`<span class="confirm">Удалить лист насовсем? <button class="btn danger" id="e-del2" type="button">Да, удалить</button><button class="btn" id="e-del0" type="button">Нет</button></span>`:`<button class="btn danger" id="e-del" type="button">Удалить</button>`):""}
+      </div>
+    </div></div></div>`;
+}
+
 /* ---------- просмотр арта ---------- */
 function openLightbox(src,alt){const d=document.createElement("div");d.className="lightbox";d.setAttribute("role","dialog");d.setAttribute("aria-label",alt||"Арт");d.innerHTML=`<img src="${src}" alt="${esc(alt)}"><button type="button" aria-label="Закрыть">×</button>`;document.body.appendChild(d)}
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){const l=document.querySelector(".lightbox");if(l)l.remove()}if((e.key==="Enter"||e.key===" ")&&e.target.matches?.("[data-zoom]")){e.preventDefault();e.target.click()}});
@@ -1154,7 +1525,7 @@ document.addEventListener("click",e=>{
   const tb=e.target.closest("#themebtn");if(tb){const t=document.documentElement.dataset.theme==="light"?"dark":"light";applyTheme(t);try{localStorage.setItem(THEME_KEY,t)}catch{};return}
   const z=e.target.closest("[data-zoom]");if(z){openLightbox(z.dataset.zoom,z.querySelector("img.fg")?.alt||"");return}
   const lb=e.target.closest(".lightbox");if(lb){lb.remove();return}
-  if(e.target.closest("#rnd")){const cur=route(),pool=Object.keys(articles).filter(s=>s!==cur&&s!=="o-mudila-quest"&&!isSvc(articles[s])&&!isRule(articles[s])&&(articles[s].body||"").length>60);if(pool.length)location.hash=pool[Math.floor(Math.random()*pool.length)];return}
+  if(e.target.closest("#rnd")){const cur=route(),pool=Object.keys(articles).filter(s=>s!==cur&&s!=="o-mudila-quest"&&!isSvc(articles[s])&&!isRule(articles[s])&&!isSheet(articles[s])&&(articles[s].body||"").length>60);if(pool.length)location.hash=pool[Math.floor(Math.random()*pool.length)];return}
   const t=e.target.closest("#tabs a");if(t&&t.dataset.r==="mir"&&!c)filterCat="";
 });
 window.addEventListener("hashchange",()=>{editing=null;view()});
@@ -1185,20 +1556,22 @@ function startEdit(slug,title,kind,group){
   const a=slug?articles[slug]:null;
   editing={slug,base:a?.updatedAt||0,tab:"write",confirmDel:false,warn:"",saving:false,uploading:false,
     draft:{kind:a?.kind||kind||"article",title:a?.title||title||"",category:a?.category&&a.category!=="Персонажи"?a.category:"Мир",group:a?.group||group||"Силы Пожирателя",role:a?.role||"",status:a?.status||"",
-      summary:a?.summary||"",aliases:(a?.aliases||[]).join(", "),body:a?.body||"",epigraph:a?.epigraph||"",epigraphBy:a?.epigraphBy||"",image:a?.image||"",caption:a?.caption||"",facts:a?.facts||"",relations:a?.relations||"",order:a?.order??99}};
+      summary:a?.summary||"",aliases:(a?.aliases||[]).join(", "),body:a?.body||"",epigraph:a?.epigraph||"",epigraphBy:a?.epigraphBy||"",image:a?.image||"",caption:a?.caption||"",facts:a?.facts||"",relations:a?.relations||"",order:a?.order??99,
+      hero:a?.hero||"",player:a?.player||"",calc:a?.calc||"",review:a?.review||""}};
   view();
 }
 function readForm(){
   const d=editing.draft;
-  for(const k of["title","summary","aliases","body","epigraph","epigraphBy","caption","role","status","facts","relations"]){const el=$("#e-"+k);if(el)d[k]=el.value}
+  for(const k of["title","summary","aliases","body","epigraph","epigraphBy","caption","role","status","facts","relations","player","calc","review","hero"]){const el=$("#e-"+k);if(el)d[k]=el.value}
   const c=$("#e-category");if(c)d.category=c.value==="__new"?$("#e-newcat").value.trim():c.value;
   const g=$("#e-group");if(g)d.group=g.value==="__new"?$("#e-newgroup").value.trim():g.value;
 }
 function selectField(id,label,opts,val,newId,newPh){const custom=val&&!opts.includes(val);return `<label for="${id}">${label}<select id="${id}">${opts.map(o=>`<option ${o===val?"selected":""}>${esc(o)}</option>`).join("")}<option value="__new" ${custom?"selected":""}>Новый…</option></select><input id="${newId}" type="text" value="${custom?esc(val):""}" placeholder="${newPh}" ${custom?"":"hidden"}></label>`}
 function editorHtml(){
+  if(editing.draft.kind==="sheet")return sheetEditorHtml();
   const e=editing,d=e.draft,isNew=!e.slug,ch=d.kind==="character";
   document.title=(isNew?"Новая статья":"Правка: "+d.title)+" · Кодекс Термины";
-  const cats=[...new Set([...CATS,...entries().filter(([,a])=>!isChar(a)).map(([,a])=>a.category)])].filter(Boolean);
+  const cats=[...new Set([...CATS,...entries().filter(([,a])=>!isChar(a)&&!isSheet(a)).map(([,a])=>a.category)])].filter(c=>c&&c!==SHEETS);
   const groups=[...new Set([...GROUPS,...entries().filter(([,a])=>isChar(a)).map(([,a])=>a.group)])].filter(Boolean);
   const src=imgSrc(d.image);
   return `<div class="gut"><div class="inner editor view">
@@ -1256,7 +1629,9 @@ function bindEditor(){
     e.uploading=false;rerender()};
 }
 async function save(force){
-  readForm();const e=editing,d=e.draft,ch=d.kind==="character",title=d.title.trim();
+  readForm();const e=editing,d=e.draft,ch=d.kind==="character";
+  if(d.kind==="sheet"){d.category=SHEETS;if(!d.title.trim()&&articles[d.hero])d.title="Лист: "+articles[d.hero].title}
+  const title=d.title.trim();
   const fail=m=>{e.warn=m;e.warnErr=true;rerender()};
   if(!title)return fail("Нужно название.");
   if(!ch&&!d.category)return fail("Укажите раздел.");
@@ -1272,6 +1647,8 @@ async function save(force){
     body:d.body.replace(/\r/g,""),epigraph:d.epigraph.trim(),epigraphBy:d.epigraphBy.trim(),image:d.image||"",caption:ch?"":d.caption.trim(),facts:(d.facts||"").replace(/\r/g,"").trim(),relations:(d.relations||"").replace(/\r/g,"").trim(),
     order:prev?.order??d.order??99,createdAt:prev?.createdAt||Date.now(),updatedAt:Date.now(),updatedBy:me};
   if(ch){doc.group=d.group;doc.role=d.role.trim();doc.status=d.status.trim()}
+  if(d.kind==="sheet"){Object.assign(doc,{category:SHEETS,hero:d.hero||"",player:(d.player||"").trim(),calc:(d.calc||"").replace(/\r/g,""),review:(d.review||"").replace(/\r/g,"").trim()});
+    const rv=doc.review!==(prev?.review||"");doc.reviewSys=rv?RULES_VER:(prev?.reviewSys||RULES_VER);doc.reviewedAt=rv?Date.now():(prev?.reviewedAt||0)}
   e.saving=true;e.warn="";rerender();
   try{if(GH)await ghWrite(slug,doc);else await db.collection("articles").doc(slug).set(doc);articles[slug]=doc;editing=null;if(route()!==slug)location.hash=slug;else view()}
   catch(err){e.saving=false;
