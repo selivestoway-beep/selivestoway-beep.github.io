@@ -595,6 +595,20 @@ article:has(.tbl){max-width:none}
 @media (max-width:1000px){.sheet-page,.sbx{grid-template-columns:1fr}.sh-side{position:static;max-height:none}}
 @media (max-width:640px){.sh-head{flex-direction:column;align-items:flex-start;gap:var(--s3)}.sh-por{width:88px;height:88px}}
 
+/* Скрытая механика */
+.btn.mechbtn{gap:6px;padding:8px 12px}
+.mechbtn span{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.mechbtn[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 12%,transparent)}
+.nomech #tabs a[data-r="pravila"],.nomech #tabs a[data-r="stoyka"]{display:none}
+.linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mech-b{margin:0 0 var(--s4);border:1px solid color-mix(in srgb,var(--gold) 40%,var(--line));border-radius:10px;padding:var(--s3) var(--s4) 2px;background:color-mix(in srgb,var(--gold) 4%,var(--surface))}
+.mech-tag,.mech-b summary span{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.mech-tag{margin-bottom:6px}
+details.mech-b{padding:0}
+.mech-b summary{cursor:pointer;padding:10px 14px;color:var(--muted);font-size:15px}
+.mech-b summary small{font-size:12.5px;opacity:.8}
+details.mech-b[open] summary{border-bottom:1px solid var(--line)}
+
 @media (max-width:1000px){
   .page{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   aside.info{position:static;max-width:520px;order:-1;margin-top:0}
@@ -641,13 +655,14 @@ article:has(.tbl){max-width:none}
       <div class="results" id="results" hidden></div>
     </div>
     <button class="btn rnd" id="rnd" type="button" title="Случайная статья" aria-label="Случайная статья"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="2.5"/><circle cx="5.5" cy="5.5" r=".9" fill="currentColor" stroke="none"/><circle cx="10.5" cy="10.5" r=".9" fill="currentColor" stroke="none"/><circle cx="8" cy="8" r=".9" fill="currentColor" stroke="none"/></svg><span>Случайная</span></button>
+    <button class="btn theme mechbtn" id="mechbtn" type="button" aria-pressed="false" title="Показать правила и механику" aria-label="Показать правила и механику"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M8 1.5l5.6 3.25v6.5L8 14.5l-5.6-3.25v-6.5z"/><path d="M8 1.5L5 6.5h6zM5 6.5l-2.6 4.75M11 6.5l2.6 4.75M5 6.5L8 14.5l3-8"/></svg><span>Механика</span></button>
     <button class="btn theme" id="themebtn" type="button" title="Сменить тему" aria-label="Сменить тему"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5 5.6 5.6 0 1 0 13.5 9.6z"/></svg></button>
     <button class="btn primary" id="newbtn" type="button" hidden>Новая статья</button>
   </div>
 </header>
 <div class="banner gut" id="banner" hidden><div class="inner" id="bannertext"></div></div>
 <main id="main"></main>
-<footer class="gut"><div class="inner"><span>Кодекс Термины · вики мира Mudila Quest · сведения на 383–384 год Второй Эры</span><span class="foot-links"><a href="#nuzhnye">Нужные статьи</a><a href="#gm" id="gmlink" hidden>Вход для ГМа</a></span></div></footer>
+<footer class="gut"><div class="inner"><span>Кодекс Термины · вики мира Mudila Quest · сведения на 383–384 год Второй Эры</span><span class="foot-links"><button type="button" class="linkbtn" id="mechfoot">Показать правила</button><a href="#nuzhnye">Нужные статьи</a><a href="#gm" id="gmlink" hidden>Вход для ГМа</a></span></div></footer>
 
 <script type="application/json" id="snapshot">{"at":0,"articles":{}}</script>
 <script>
@@ -657,6 +672,12 @@ const isRule=a=>a&&a.category===RULES;
 const isSvc=a=>a&&a.category===SERVICE;
 const SHEETS="Листы";
 const isSheet=a=>a&&a.kind==="sheet";
+const isMech=a=>isRule(a)||isSheet(a);
+const MECH_KEY="kodeks.mech";
+let mechOn=false;try{mechOn=localStorage.getItem(MECH_KEY)==="1"}catch{}
+const MECH_ROUTES=new Set(["pravila","stoyka","proverka-lista"]);
+function setMech(v){mechOn=v;try{localStorage.setItem(MECH_KEY,v?"1":"0")}catch{}applyMech();view()}
+function applyMech(){document.documentElement.classList.toggle("nomech",!mechOn);const b=document.getElementById("mechbtn");if(b){b.setAttribute("aria-pressed",mechOn);b.title=mechOn?"Скрыть правила и механику":"Показать правила и механику";b.setAttribute("aria-label",b.title)}const f=document.getElementById("mechfoot");if(f)f.textContent=mechOn?"Скрыть правила":"Показать правила"}
 const CATS=["Мир","История","Расы","Земли","Магия","Вера и ордена","Существа","Бой","Артефакты","Сказания"];
 const HERO="Главные герои";
 const GROUPS=[HERO,"Силы Пожирателя","Альянс","Великие","Загадочные личности","Внешний космос","Герои былых времён","Древние владыки","Правители нашего дня","Тьма и угрозы","Боги и великие силы"];
@@ -674,6 +695,7 @@ const imgErr=`onerror="imgFallback(this)"`;
 const IMGV="?v=3";
 /* тема: тёмная по умолчанию */
 const THEME_KEY="kodeks.theme";
+document.addEventListener("DOMContentLoaded",applyMech);applyMech();
 function applyTheme(t){document.documentElement.dataset.theme=t;const b=document.getElementById("themebtn");if(b)b.innerHTML=t==="light"?'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5 5.6 5.6 0 1 0 13.5 9.6z"/></svg>':'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3"/></svg>'}
 try{applyTheme(localStorage.getItem(THEME_KEY)||"dark")}catch{applyTheme("dark")}
 /* фракции и знамёна */
@@ -748,8 +770,8 @@ function blocks(md){
   const fp=()=>{if(p.length){out.push({t:"p",v:p.join(" ")});p=[]}},fl=()=>{if(l){out.push({t:"ul",v:l});l=null}},fq=()=>{if(q.length){out.push({t:"q",v:q.join(" ")});q=[]}},f=()=>{fp();fl();fq()};
   const lines=String(md||"").split("\n");
   for(let i=0;i<lines.length;i++){const raw=lines[i];const ln=raw.trimEnd();let m;
-    if(m=ln.match(/^:::\s*(спойлер|гм|секрет)\s*(.*)$/i)){f();const inner=[];i++;while(i<lines.length&&!/^:::\s*$/.test(lines[i].trim()))inner.push(lines[i++]);
-      out.push({t:/спойлер/i.test(m[1])?"spoiler":"gm",title:m[2].trim(),v:inner.join("\n")});continue}
+    if(m=ln.match(/^:::\s*(спойлер|гм|секрет|механика)\s*(.*)$/i)){f();const inner=[];i++;while(i<lines.length&&!/^:::\s*$/.test(lines[i].trim()))inner.push(lines[i++]);
+      out.push({t:/спойлер/i.test(m[1])?"spoiler":/механика/i.test(m[1])?"mech":"gm",title:m[2].trim(),v:inner.join("\n")});continue}
     if(!ln.trim()){f();continue}
     if(/^\s*\|/.test(ln)){f();const rows=[];while(i<lines.length&&/^\s*\|/.test(lines[i])){const r=lines[i].trim().replace(/^\||\|$/g,"").split("|").map(c=>c.trim());if(!r.every(c=>/^:?-{2,}:?$/.test(c)))rows.push(r);i++}i--;out.push({t:"table",v:rows});continue}
     if(m=ln.match(/^###\s+(.*)/)){f();out.push({t:"h3",v:m[1]});continue}
@@ -761,7 +783,7 @@ function blocks(md){
   f();return out;
 }
 function cellHtml(c,idx){return inline(c,idx).replace(/⟨br⟩/g,"<br>")}
-function render(md,opt={}){const idx=nameIndex();let hn=0;return blocks(md).map(b=>b.t==="table"?`<div class="tbl"><table>${b.v.length>1?`<thead><tr>${b.v[0].map(c=>`<th>${cellHtml(c,idx)}</th>`).join("")}</tr></thead>`:""}<tbody>${b.v.slice(b.v.length>1?1:0).map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c,idx)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`:b.t==="spoiler"?`<details class="spoiler-b"><summary><span>Спойлер</span>${b.title?" · "+inline(b.title,idx):""}</summary><div class="sp-in">${render(b.v)}</div></details>`:b.t==="gm"?(canW()?`<div class="gm-secret"><div class="gm-tag">Видно только ГМу${b.title?" · "+inline(b.title,idx):""}</div>${render(b.v)}</div>`:""):b.t==="h2"&&opt.ids?`<h2 id="sec-${hn++}">${inline(b.v,idx)}</h2>`:b.t==="p"?`<p>${inline(b.v,idx)}</p>`:b.t==="ul"?`<ul>${b.v.map(i=>`<li>${inline(i,idx)}</li>`).join("")}</ul>`:b.t==="q"?`<blockquote>${inline(b.v,idx)}</blockquote>`:`<${b.t}>${inline(b.v,idx)}</${b.t}>`).join("\n")}
+function render(md,opt={}){const idx=nameIndex();let hn=0;return blocks(md).map(b=>b.t==="mech"?(mechOn?`<div class="mech-b"><div class="mech-tag">Механика${b.title?" · "+inline(b.title,idx):""}</div>${render(b.v)}</div>`:`<details class="mech-b closed"><summary><span>Механика</span>${b.title?" · "+inline(b.title,idx):""} <small>скрыто, нажмите, чтобы раскрыть</small></summary><div class="sp-in">${render(b.v)}</div></details>`):b.t==="table"?`<div class="tbl"><table>${b.v.length>1?`<thead><tr>${b.v[0].map(c=>`<th>${cellHtml(c,idx)}</th>`).join("")}</tr></thead>`:""}<tbody>${b.v.slice(b.v.length>1?1:0).map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c,idx)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`:b.t==="spoiler"?`<details class="spoiler-b"><summary><span>Спойлер</span>${b.title?" · "+inline(b.title,idx):""}</summary><div class="sp-in">${render(b.v)}</div></details>`:b.t==="gm"?(canW()?`<div class="gm-secret"><div class="gm-tag">Видно только ГМу${b.title?" · "+inline(b.title,idx):""}</div>${render(b.v)}</div>`:""):b.t==="h2"&&opt.ids?`<h2 id="sec-${hn++}">${inline(b.v,idx)}</h2>`:b.t==="p"?`<p>${inline(b.v,idx)}</p>`:b.t==="ul"?`<ul>${b.v.map(i=>`<li>${inline(i,idx)}</li>`).join("")}</ul>`:b.t==="q"?`<blockquote>${inline(b.v,idx)}</blockquote>`:`<${b.t}>${inline(b.v,idx)}</${b.t}>`).join("\n")}
 function linksIn(md){const idx=nameIndex(),s=new Set();for(const m of String(md||"").matchAll(/\[\[([^\]|]+)(?:\|[^\]]+)?\]\]/g)){const x=idx.get(norm(m[1]));if(x)s.add(x)}return s}
 
 /* ---------- данные ---------- */
@@ -824,6 +846,7 @@ async function view(){
   else if(r==="gm")html=gmHtml();
   else if(r==="hronika")html=chronicleHtml();
   else if(r==="nuzhnye")html=wantedHtml();
+  else if(!mechOn&&(MECH_ROUTES.has(r)||isMech(articles[r])))html=mechGateHtml(r);
   else if(r==="pravila")html=rulesHtml();
   else if(r==="stoyka")html=rackHtml();
   else if(r==="proverka-lista")html=sandboxHtml();
@@ -838,8 +861,8 @@ let viewerChecked=false;
 /* ---------- главная ---------- */
 async function homeHtml(){
   document.title="Кодекс Термины";
-  const n=entries().filter(([,a])=>!isChar(a)).length,pc=entries().filter(([,a])=>isChar(a)).length;
-  const recent=entries().sort((x,y)=>(y[1].updatedAt||0)-(x[1].updatedAt||0)).slice(0,6);
+  const n=entries().filter(([,a])=>!isChar(a)&&!isMech(a)&&!isSvc(a)).length,pc=entries().filter(([,a])=>isChar(a)).length;
+  const recent=entries().filter(([,a])=>mechOn||!isMech(a)).sort((x,y)=>(y[1].updatedAt||0)-(x[1].updatedAt||0)).slice(0,6);
   const nm=await names(recent.map(([,a])=>a.updatedBy));
   const path=[["termina","Мир под двумя лунами"],["merkleid","Западные Земли, где всё происходит"],["hronologiya","От Эры Древа до наших дней"],["voina-chervya","Что творится прямо сейчас"],["#geroi","Те, вокруг кого всё вертится"]]
     .map(([s,d])=>{const a=articles[s.replace("#","")];const href=s.startsWith("#")?s:"#"+s;const t=s==="#geroi"?"Герои Багерта":a?.title;return t?`<a class="step" href="${href}"><b>${esc(t)}</b><span>${esc(d)}</span></a>`:""}).join("");
@@ -890,6 +913,13 @@ function peopleHtml(){
   <div class="gut"><div class="inner" style="padding-bottom:var(--s8)">${body}</div></div>`;
 }
 
+/* ---------- скрытая механика ---------- */
+function mechGateHtml(r){const a=articles[r];document.title=(a?a.title:"Правила")+" · Кодекс Термины";
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Правила и механика</div><h1>${esc(a?a.title.replace(/^MQRP:\s*/,""):isSheet(a)||r==="stoyka"||r==="proverka-lista"?"Стойка":"Правила MQRP")}</h1>
+  <p class="lede">Здесь лежат правила MQRP и листы персонажей. Сейчас механика скрыта, и вики показывает только мир: земли, народы, героев и историю.</p>
+  <div class="actions"><button class="btn primary" type="button" data-mech-on>Показать механику</button><a class="btn" href="#">На главную</a></div>
+  <p class="hint-s">Переключатель «Механика» в шапке сайта. Выбор запоминается в этом браузере.</p></div></section>`}
+
 /* ---------- хроника ---------- */
 function chronicleHtml(){
   document.title="Хроника · Кодекс Термины";
@@ -923,7 +953,7 @@ async function pageHtml(slug){
       <h3>${esc(a.title)}</h3><dl>
       ${ch&&a.role?`<div><dt>Кто это</dt><dd>${esc(a.role)}</dd></div>`:""}
       ${ch&&a.status?`<div><dt>Состояние</dt><dd>${statusPill(a.status)}</dd></div>`:""}
-      ${ch&&sheetOf(slug)?(()=>{const[ss,sa]=sheetOf(slug),n=sheetCheck(sa).n;return `<div><dt>Лист персонажа</dt><dd><a href="#${ss}">Открыть на Стойке</a>${n.err?` <span class="status">${n.err} ${plural(n.err,"ошибка","ошибки","ошибок")}</span>`:""}</dd></div>`})():""}
+      ${ch&&mechOn&&sheetOf(slug)?(()=>{const[ss,sa]=sheetOf(slug),n=sheetCheck(sa).n;return `<div><dt>Лист персонажа</dt><dd><a href="#${ss}">Открыть на Стойке</a>${n.err?` <span class="status">${n.err} ${plural(n.err,"ошибка","ошибки","ошибок")}</span>`:""}</dd></div>`})():""}
       ${String(a.facts||"").split("\n").map(l=>l.match(/^\s*([^:]{1,40}):\s*(.+)$/)).filter(Boolean).map(m=>`<div class="aside-facts"><dt>${esc(m[1])}</dt><dd>${inline(m[2],nameIndex())}</dd></div>`).join("")}
       <div><dt>${ch?"Группа":"Раздел"}</dt><dd>${ch?`<a href="#personazhi">${esc(a.group||"Прочие")}</a>`:(isRule(a)?`<a href="#pravila">${esc(a.category)}</a>`:`<a href="#mir" data-cat="${esc(a.category)}">${esc(a.category)}</a>`)}</dd></div>
       ${(a.aliases||[]).length?`<div><dt>Также известно как</dt><dd class="tags">${a.aliases.map(x=>`<span class="tag">${/^~~.*~~$/.test(x)?`<s>${esc(x.slice(2,-2))}</s>`:esc(x)}</span>`).join("")}</dd></div>`:""}
@@ -1522,6 +1552,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#results a"))setTimeout(closeSearch,0);
   const c=e.target.closest("[data-cat]");if(c)filterCat=c.dataset.cat;
   const mk=e.target.closest("a.wl.missing");if(mk){e.preventDefault();if(canW()&&!editing)startEdit(null,mk.dataset.create)}
+  if(e.target.closest("#mechbtn,#mechfoot,[data-mech-on]")){setMech(e.target.closest("#mechbtn,#mechfoot")?!mechOn:true);return}
   const tb=e.target.closest("#themebtn");if(tb){const t=document.documentElement.dataset.theme==="light"?"dark":"light";applyTheme(t);try{localStorage.setItem(THEME_KEY,t)}catch{};return}
   const z=e.target.closest("[data-zoom]");if(z){openLightbox(z.dataset.zoom,z.querySelector("img.fg")?.alt||"");return}
   const lb=e.target.closest(".lightbox");if(lb){lb.remove();return}
@@ -1536,7 +1567,7 @@ let sel=-1;
 $("#q").addEventListener("input",e=>{
   const q=norm(e.target.value),box=$("#results");if(!q){box.hidden=true;return}
   const words=q.split(/\s+/).filter(w=>w.length>1);if(!words.length){box.hidden=true;return}
-  const hits=[];for(const[s,a]of entries()){if(isSvc(a))continue;const t=norm(a.title),al=(a.aliases||[]).map(norm).join(" "),meta=norm((a.role||"")+" "+(a.summary||""));
+  const hits=[];for(const[s,a]of entries()){if(isSvc(a)||(!mechOn&&isMech(a)))continue;const t=norm(a.title),al=(a.aliases||[]).map(norm).join(" "),meta=norm((a.role||"")+" "+(a.summary||""));
     let sc=t.startsWith(q)?6:t.includes(q)?5:al.includes(q)?4:meta.includes(q)?3:words.every(w=>(t+" "+al+" "+meta).includes(w))?2:0,snip="";
     if(sc<3){const pt=plainOf(s),np=norm(pt);if(words.every(w=>np.includes(w))){if(!sc)sc=1;const i=np.indexOf(words[0]);const a0=Math.max(0,i-60),b0=Math.min(pt.length,i+110);snip=(a0?"…":"")+pt.slice(a0,b0)+(b0<pt.length?"…":"")}}
     if(sc)hits.push([sc,s,a,snip])}
@@ -1603,7 +1634,7 @@ function editorHtml(){
         <div class="wtabs" role="tablist"><button type="button" role="tab" id="t-w" aria-selected="${e.tab==="write"}">Текст</button><button type="button" role="tab" id="t-p" aria-selected="${e.tab==="prev"}">Предпросмотр</button></div>
         ${e.tab==="write"?`<textarea id="e-body" aria-label="Текст">${esc(d.body)}</textarea>`:`<div class="preview"><article class="prose">${render(d.body)||'<p class="status">Пока пусто.</p>'}</article></div>`}
       </div>
-      <div class="hint"><code>## Заголовок</code> раздел · <code>- пункт</code> список · <code>**жирный**</code> · <code>*курсив*</code> · <code>&gt; цитата</code><br><code>[[Казакия]]</code> ссылка на статью · <code>[[Казакия|город магов]]</code> ссылка со своим текстом. Ссылка на статью, которой ещё нет, будет красной, по клику её можно создать.<br><code>||текст||</code> спойлер в строке · блок-спойлер: <code>:::спойлер Название</code>, текст, <code>:::</code> · секрет только для ГМа: <code>:::гм</code>, текст, <code>:::</code></div>
+      <div class="hint"><code>## Заголовок</code> раздел · <code>- пункт</code> список · <code>**жирный**</code> · <code>*курсив*</code> · <code>&gt; цитата</code><br><code>[[Казакия]]</code> ссылка на статью · <code>[[Казакия|город магов]]</code> ссылка со своим текстом. Ссылка на статью, которой ещё нет, будет красной, по клику её можно создать.<br><code>||текст||</code> спойлер в строке · блок-спойлер: <code>:::спойлер Название</code>, текст, <code>:::</code> · правила внутри статьи: <code>:::механика Название</code>, текст, <code>:::</code> · секрет только для ГМа: <code>:::гм</code>, текст, <code>:::</code></div>
       <div class="actions">
         <button class="btn primary" id="e-save" type="button" ${e.saving||e.uploading?"disabled":""}>${e.saving?"Сохраняем…":"Сохранить"}</button>
         <button class="btn" id="e-cancel" type="button">Отмена</button>
