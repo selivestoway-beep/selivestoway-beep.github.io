@@ -844,7 +844,7 @@ function translit(s){
 }
 function inline(s,idx){
   s=esc(s);
-  s=s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,(_,t,l)=>{const sl=idx.get(norm(t)),x=l||t;return sl?`<a class="wl" href="#${sl}">${x}</a>`:`<a class="wl missing" href="#" data-create="${t}" title="Статьи пока нет">${x}</a>`});
+  s=s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,(_,t,l)=>{const sl=idx.get(norm(t.replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&amp;/g,"&"))),x=l||t;return sl?`<a class="wl" href="#${sl}">${x}</a>`:`<a class="wl missing" href="#" data-create="${t}" title="Статьи пока нет">${x}</a>`});
   s=s.replace(/~~([^~]+)~~/g,"<s>$1</s>");
   s=s.replace(/\|\|([^|]+?)\|\|/g,'<span class="sp" tabindex="0" role="button" title="Спойлер: нажмите, чтобы открыть">$1</span>');
   return s.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*\s][^*]*)\*/g,"$1<em>$2</em>").replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
