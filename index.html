@@ -1768,7 +1768,7 @@ function proposeHtml(slug){
       <div class="actions"><button class="btn primary" type="button" id="pe-make">Получить код для ГМа</button>${a?`<a class="btn" href="#${slug}">Отмена</a>`:`<a class="btn" href="#">Отмена</a>`}<button class="btn" type="button" id="pe-reset">Начать заново</button></div>
       ${pe.code?`<div class="pe-out"><div class="rt-l">Код предложения · ${pe.code.length} знаков</div><textarea readonly id="pe-code">${esc(pe.code)}</textarea>
         <div class="actions"><button class="btn primary" type="button" id="pe-copy">Скопировать</button>${GH?`<button class="btn" type="button" id="pe-file">Скачать файлом</button>`:""}<span class="status" id="pe-st"></span></div>
-        <p class="hint-s">Отправьте код ГМу в личные сообщения или в чат. ${pe.code.length>3500?"Код длинный, в одно сообщение Telegram может не влезть: ${GH?"лучше отправить файлом":"отправьте его в двух сообщениях подряд, ГМ вставит оба"}.":"Он влезет в одно сообщение."}</p></div>`:""}
+        <p class="hint-s">Отправьте код ГМу в личные сообщения или в чат. ${pe.code.length>3500?"Код длинный, в одно сообщение Telegram может не влезть: ${GH?"лучше отправить файлом":"лучше разбить правку на две поменьше"}.":"Он влезет в одно сообщение."}</p></div>`:""}
     </div></div></div>`;
 }
 function peRead(){const d=pe.draft;for(const k of["title","summary","facts","note","body"]){const el=$("#pe-"+k);if(el)d[k]=el.value}const c=$("#pe-cat");if(c)d.cat=c.value;const w=$("#pe-who");if(w){whoName=w.value.trim();try{localStorage.setItem("kodeks.who",whoName)}catch{}}peSave()}
