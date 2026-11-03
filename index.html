@@ -677,8 +677,9 @@ svg.hlon .ge.hl line{opacity:1;stroke-width:2.4}svg.hlon .ge.hl text{opacity:1}
 .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--s4)}
 .beast{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);color:var(--ink);text-decoration:none;transition:transform .2s var(--ease),border-color .2s}
 .beast:hover{transform:translateY(-3px);border-color:var(--c-worm)}
-.bimg{aspect-ratio:4/3;background:var(--night);overflow:hidden;display:grid;place-items:center}
-.bimg img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.bimg{position:relative;flex:none;height:0;padding-top:75%;background:var(--night);overflow:hidden}
+.bimg img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 25%;display:block}
+.bsig{position:absolute;inset:0;display:grid;place-items:center}
 .bsig svg{width:90px;height:90px;color:var(--gold)}
 .btxt{padding:var(--s3) var(--s4) var(--s4);display:grid;gap:4px}
 .btxt b{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.15}
