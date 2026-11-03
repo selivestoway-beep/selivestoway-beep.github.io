@@ -609,6 +609,89 @@ details.mech-b{padding:0}
 .mech-b summary small{font-size:12.5px;opacity:.8}
 details.mech-b[open] summary{border-bottom:1px solid var(--line)}
 
+/* История, лента, предложения */
+.art-actions{flex-wrap:wrap}
+.hist{display:grid;grid-template-columns:300px minmax(0,1fr);gap:var(--s5);padding-top:var(--s5);align-items:start}
+.hv-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow:auto}
+.hv{display:grid;gap:2px;width:100%;text-align:left;font:inherit;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);cursor:pointer}
+.hv.on{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,var(--surface))}
+.hv time{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.hv b{font-weight:600;font-size:14.5px}
+.hv small{color:var(--muted);font-size:12.5px}
+.hv-head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:var(--s3)}
+.diff{border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:14.5px;line-height:1.55;background:var(--surface)}
+.df{padding:4px 12px;white-space:pre-wrap;word-break:break-word;border-left:3px solid transparent}
+.df.del{background:color-mix(in srgb,var(--ember) 13%,transparent);border-left-color:var(--ember);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ember) 60%,transparent)}
+.df.ins{background:color-mix(in srgb,var(--c-hero) 13%,transparent);border-left-color:var(--c-hero)}
+.df.mod{border-left-color:var(--gold)}
+.df del{background:color-mix(in srgb,var(--ember) 22%,transparent);text-decoration:line-through}
+.df ins{background:color-mix(in srgb,var(--c-hero) 24%,transparent);text-decoration:none}
+.df.gap{color:var(--muted);font-family:var(--f-mono);font-size:11.5px;background:var(--bg);text-align:center}
+.df.eq{color:var(--muted)}
+.fds{display:grid;gap:8px;margin-bottom:var(--s3)}
+.fd{display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px;font-size:14.5px}
+.fd>span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.fd del{background:color-mix(in srgb,var(--ember) 22%,transparent)}.fd ins{background:color-mix(in srgb,var(--c-hero) 24%,transparent);text-decoration:none}
+.news-l{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.news-l li{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;border-bottom:1px dotted var(--line);padding-bottom:8px}
+.news-l time{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:44px}
+.na{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.na.create{color:var(--c-hero);border-color:var(--c-hero)}.na.delete{color:var(--ember);border-color:var(--ember)}.na.revert,.na.accept{color:var(--gold);border-color:var(--gold)}
+.sec .more{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-left:10px;color:var(--accent)}
+.pe-out{border:1px solid var(--gold);border-radius:12px;padding:var(--s3) var(--s4);background:color-mix(in srgb,var(--gold) 6%,var(--surface));display:grid;gap:8px}
+.pe-out textarea{min-height:90px;font-family:var(--f-mono);font-size:12px;word-break:break-all}
+.prop{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s3) var(--s4);margin-bottom:var(--s3)}
+.prop.ok{opacity:.7}.prop.no{opacity:.55}
+.prop-h p{margin:6px 0 0;font-size:15px}
+.prop details{margin:var(--s3) 0}
+.prop summary{cursor:pointer;color:var(--muted);font-size:14px}
+.inbox .form{margin:var(--s5) 0}
+.inbox .block{display:block}.inbox .prop{max-width:900px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s3)}
+.chk{display:inline-flex;gap:8px;align-items:center;font-size:14.5px;color:var(--muted);cursor:pointer}
+/* Плашки */
+.navboxes{display:grid;gap:10px;margin-top:var(--s6)}
+.navbox{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.nb-h{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:7px 14px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--gold) 6%,transparent)}
+.nb-l{padding:10px 14px;display:flex;flex-wrap:wrap;gap:4px 8px;font-size:14.5px;line-height:1.5}
+.nb-l span{color:var(--muted)}
+.nb-l b{font-weight:600}
+/* Древо */
+.graph{border:1px solid var(--line);border-radius:14px;background:radial-gradient(ellipse at center,color-mix(in srgb,var(--accent) 6%,var(--surface)),var(--surface));padding:8px;margin-top:var(--s5)}
+.graph svg{width:100%;height:min(78vh,820px);display:block;cursor:grab;touch-action:none}
+.graph.ego svg{height:min(72vh,640px)}
+.ge line{stroke:var(--muted);stroke-width:1.6;opacity:.55}
+.ge.ment line{stroke-dasharray:3 4;opacity:.22;stroke-width:1}
+.ge text{font-family:var(--f-mono);font-size:10px;fill:var(--gold);text-anchor:middle;opacity:0;pointer-events:none;paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.graph.ego .ge text{opacity:1}
+.ge.rel line{stroke:var(--gold);opacity:.6}
+.gn{cursor:pointer}
+.gn .gt{font-size:12px;fill:var(--ink);text-anchor:middle;paint-order:stroke;stroke:var(--surface);stroke-width:3px;pointer-events:none}
+.gn .gi{font-family:var(--f-display);font-size:14px;fill:var(--muted);text-anchor:middle}
+.gn.foc .gt{font-size:15px;font-weight:600}
+svg.hlon .gn:not(.hl){opacity:.18}svg.hlon .ge:not(.hl){opacity:.06}
+svg.hlon .ge.hl line{opacity:1;stroke-width:2.4}svg.hlon .ge.hl text{opacity:1}
+.g-legend{display:flex;flex-wrap:wrap;gap:12px;padding:8px 10px 2px;font-size:13px;color:var(--muted)}
+.g-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+/* Бестиарий */
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--s4)}
+.beast{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);color:var(--ink);text-decoration:none;transition:transform .2s var(--ease),border-color .2s}
+.beast:hover{transform:translateY(-3px);border-color:var(--c-worm)}
+.bimg{aspect-ratio:4/3;background:var(--night);overflow:hidden;display:grid;place-items:center}
+.bimg img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.bsig svg{width:90px;height:90px;color:var(--gold)}
+.btxt{padding:var(--s3) var(--s4) var(--s4);display:grid;gap:4px}
+.btxt b{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.15}
+.btxt .meta{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-worm)}
+.btxt small{color:var(--muted);font-size:14px;line-height:1.45}
+/* Глоссарий */
+.gl{text-decoration:underline dotted color-mix(in srgb,var(--gold) 80%,transparent);text-underline-offset:4px;cursor:help}
+.gltip{position:absolute;z-index:60;max-width:340px;background:var(--surface);border:1px solid var(--gold);border-radius:10px;padding:10px 14px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:14.5px;line-height:1.5}
+.gltip b{font-family:var(--f-display);font-weight:400;font-size:19px}
+.gltip p{margin:4px 0 6px}
+.gltip>a{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:1000px){.hist{grid-template-columns:1fr}.hv-list{position:static;max-height:260px}.fd{grid-template-columns:1fr}}
+
 @media (max-width:1000px){
   .page{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
   aside.info{position:static;max-width:520px;order:-1;margin-top:0}
@@ -662,7 +745,7 @@ details.mech-b[open] summary{border-bottom:1px solid var(--line)}
 </header>
 <div class="banner gut" id="banner" hidden><div class="inner" id="bannertext"></div></div>
 <main id="main"></main>
-<footer class="gut"><div class="inner"><span>Кодекс Термины · вики мира Mudila Quest · сведения на 383–384 год Второй Эры</span><span class="foot-links"><button type="button" class="linkbtn" id="mechfoot">Показать правила</button><a href="#nuzhnye">Нужные статьи</a><a href="#gm" id="gmlink" hidden>Вход для ГМа</a></span></div></footer>
+<footer class="gut"><div class="inner"><span>Кодекс Термины · вики мира Mudila Quest · сведения на 383–384 год Второй Эры</span><span class="foot-links"><button type="button" class="linkbtn" id="mechfoot">Показать правила</button><a href="#novoe">Что нового</a><a href="#nuzhnye">Нужные статьи</a><a href="#predlozheniya" id="inboxlink" hidden>Предложения</a><a href="#gm" id="gmlink" hidden>Вход для ГМа</a></span></div></footer>
 
 <script type="application/json" id="snapshot">{"at":0,"articles":{}}</script>
 <script>
@@ -681,8 +764,8 @@ function applyMech(){document.documentElement.classList.toggle("nomech",!mechOn)
 const CATS=["Мир","История","Расы","Земли","Магия","Вера и ордена","Существа","Бой","Артефакты","Сказания"];
 const HERO="Главные герои";
 const GROUPS=[HERO,"Силы Пожирателя","Альянс","Великие","Загадочные личности","Внешний космос","Герои былых времён","Древние владыки","Правители нашего дня","Тьма и угрозы","Боги и великие силы"];
-const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye","pravila","stoyka","proverka-lista"]);
-const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","pravila","stoyka","proverka-lista","settings","sidebar","customize","upgrade","downloads","new","edit"]);
+const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye","pravila","stoyka","proverka-lista","novoe","predlozheniya","bestiariy","svyazi","predlozhit"]);
+const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","pravila","stoyka","proverka-lista","novoe","predlozheniya","bestiariy","svyazi","predlozhit","istoriya","settings","sidebar","customize","upgrade","downloads","new","edit"]);
 let db=null,user=null,assets=null,canWrite=null,writeRefused=false,live=false;
 let articles={},snapMeta={at:0};
 let editing=null,filterCat="";
@@ -796,7 +879,7 @@ function allGroups(){const ex=[...new Set(entries().filter(([,a])=>isChar(a)).ma
 function fmtDate(ms){if(!ms)return"";try{return new Date(ms).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"})}catch{return""}}
 async function names(ids){ids=[...new Set(ids.filter(x=>x&&!String(x).startsWith("gh:")))];if(!ids.length||!user)return{};try{return await user.profiles(ids)}catch{return{}}}
 const canW=()=>GH?!!gh.token:(!!db&&live&&canWrite!==false&&!writeRefused);
-const who=(id,nm)=>!id?"первая версия":String(id).startsWith("gh:")?String(id).slice(3):(nm[id]?.name||"участник");
+const who=(id,nm)=>!id?"первая версия":id==="gh:Клод"?"Клод по просьбе Тима":String(id).startsWith("gh:")?String(id).slice(3):(nm[id]?.name||"участник");
 function plural(n,a,b,c){const m=n%10,h=n%100;return m===1&&h!==11?a:m>=2&&m<=4&&(h<12||h>14)?b:c}
 function statusPill(s){if(!s)return"";const n=norm(s);const cls=/мерт|уничтож|погиб|раздроб/.test(n)?"dead":/правит|актив|жив|воюет|ведет|вернул/.test(n)?"live":"";return `<span class="pill ${cls}">${esc(s)}</span>`}
 function stag(html,i){return html.replace(/^<(\w+)/,`<$1 style="--i:${i}"`)}
@@ -825,12 +908,13 @@ function sky(canvas){
 
 /* ---------- маршрут ---------- */
 function route(){return decodeURIComponent(location.hash.slice(1))}
-function setTabs(r){const a=articles[r];const sec=r==="proverka-lista"||isSheet(a)?"stoyka":ROUTES.has(r)||r==="o-mudila-quest"?r:(isChar(a)?(a.group===HERO?"geroi":"personazhi"):isRule(a)?"pravila":a?"mir":"");document.querySelectorAll("#tabs a").forEach(a=>a.classList.toggle("cur",a.dataset.r===sec))}
+function setTabs(r){const a=articles[r];const sec=r==="proverka-lista"||isSheet(a)?"stoyka":/^(novoe|bestiariy|svyazi|predlozhit|istoriya)(\/|$)/.test(r)?"mir":ROUTES.has(r)||r==="o-mudila-quest"?r:(isChar(a)?(a.group===HERO?"geroi":"personazhi"):isRule(a)?"pravila":a?"mir":"");document.querySelectorAll("#tabs a").forEach(a=>a.classList.toggle("cur",a.dataset.r===sec))}
 async function view(){
   const r=route();setTabs(editing?"":r);
   $("#newbtn").hidden=!canW()||!!editing;
   const b=$("#banner");
   $("#gmlink").hidden=!GH;
+  if(canW()&&(!GH||lock.state==="open"))inboxLoad().then(inboxBadge);else{const l=$("#inboxlink");if(l)l.hidden=true}
   if(window.claude&&!live&&Object.keys(articles).length){b.hidden=false;$("#bannertext").textContent=db===null&&viewerChecked?"Вы читаете сохранённую копию кодекса"+(snapMeta.at?" от "+fmtDate(snapMeta.at):"")+(snapMeta.at?" Свежие":". Свежие")+" правки видны тем, кто вошёл в claude.ai и кому открыта вики.":"Подключаемся к общей базе статей…"}else b.hidden=true;
   if(skyStop&&!["","personazhi","geroi"].includes(r))skyStop();
   const main=$("#main");
@@ -846,6 +930,12 @@ async function view(){
   else if(r==="gm")html=gmHtml();
   else if(r==="hronika")html=chronicleHtml();
   else if(r==="nuzhnye")html=wantedHtml();
+  else if(r.startsWith("istoriya/"))html=await histHtml(r.slice(9));
+  else if(r==="novoe")html=await newsHtml();
+  else if(r==="predlozhit"||r.startsWith("predlozhit/"))html=proposeHtml(r.slice(11)||null);
+  else if(r==="predlozheniya")html=await inboxHtml();
+  else if(r==="svyazi"||r.startsWith("svyazi/"))html=graphHtml(r.slice(7));
+  else if(r==="bestiariy")html=bestiaryHtml();
   else if(!mechOn&&(MECH_ROUTES.has(r)||isMech(articles[r])))html=mechGateHtml(r);
   else if(r==="pravila")html=rulesHtml();
   else if(r==="stoyka")html=rackHtml();
@@ -854,7 +944,7 @@ async function view(){
   else html=`<div class="gut"><div class="inner empty"><div class="eyebrow">Нет такой страницы</div><h1>Здесь пусто</h1><p class="lede">Статью могли переименовать или удалить.</p><p><a href="#">На главную</a></p></div></div>`;
   main.innerHTML=`<div class="view">${html}</div>`;
   const cv=main.querySelector("canvas.skycv");if(cv)sky(cv);
-  bindView();window.scrollTo({top:0});
+  bindView();glossify(main);bindGraph();window.scrollTo({top:0});
 }
 let viewerChecked=false;
 
@@ -880,7 +970,7 @@ async function homeHtml(){
       <section class="block"><h2 class="sec">Календарь Термины <small><a href="#kalendar">как устроен год</a></small></h2><div class="cal" id="cal">${calHtml()}</div></section>
       <section class="block"><h2 class="sec">Разделы</h2><div class="grid stagger">${cats}</div></section>
       ${feat?`<section class="block"><h2 class="sec">Лица эпохи <small><a href="#personazhi">все персонажи</a></small></h2><div class="strip">${feat}</div></section>`:""}
-      <section class="block recent" style="padding-bottom:var(--s8)"><h2 class="sec">Последние правки</h2><ol>${recent.map(([s,a])=>`<li><time>${esc(fmtDate(a.updatedAt))}</time><a href="#${s}">${esc(a.title)}</a><span class="status">${esc(who(a.updatedBy,nm))}</span></li>`).join("")}</ol></section>
+      <section class="block recent" style="padding-bottom:var(--s8)"><h2 class="sec">Последние правки <a class="more" href="#novoe">все правки</a></h2><ol>${recent.map(([s,a])=>`<li><time>${esc(fmtDate(a.updatedAt))}</time><a href="#${s}">${esc(a.title)}</a><span class="status">${esc(who(a.updatedBy,nm))}</span></li>`).join("")}</ol></section>
     </div></div>`;
 }
 
@@ -889,7 +979,7 @@ function mirHtml(){
   document.title="Энциклопедия · Кодекс Термины";
   const cats=allCats();
   const list=(filterCat?[filterCat]:cats).map(c=>{const l=inCat(c);if(!l.length)return"";return `<section class="block"><h2 class="sec">${esc(c)} <small>${l.length}</small></h2><div class="grid stagger">${l.map(([s,a],i)=>stag(`<a class="card" href="#${s}"><div class="sig">${thumb(a,s)}</div><div style="min-width:0"><b>${esc(a.title)}</b><small>${esc(a.summary||"")}</small></div></a>`,i)).join("")}</div></section>`}).join("");
-  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Энциклопедия</div><h1>Мир Термины</h1><p class="lede">Земли, народы, силы и события. Выберите раздел или просто листайте.</p>${(()=>{const w=wantedData();return w.missing.length?`<a class="btn wantbtn" href="#nuzhnye">Нужные статьи · ${w.missing.length}</a>`:""})()}</div></section>
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Энциклопедия</div><h1>Мир Термины</h1><p class="lede">Земли, народы, силы и события. Выберите раздел или просто листайте.</p><div class="quick"><a class="btn" href="#bestiariy">Бестиарий</a><a class="btn" href="#glossariy">Глоссарий</a><a class="btn" href="#svyazi">Древо связей</a><a class="btn" href="#novoe">Что нового</a>${canW()?"":`<a class="btn" href="#predlozhit">Предложить статью</a>`}</div>${(()=>{const w=wantedData();return w.missing.length?`<a class="btn wantbtn" href="#nuzhnye">Нужные статьи · ${w.missing.length}</a>`:""})()}</div></section>
   <div class="gut"><div class="inner" style="padding-bottom:var(--s8)">
     <div class="filters chips" role="group" aria-label="Фильтр по разделам">
       <button type="button" class="chip" data-f="" aria-pressed="${!filterCat}">Все</button>
@@ -968,9 +1058,10 @@ async function pageHtml(slug){
       <div class="readtime">${mins} мин чтения</div>
       ${tocHtml(a.body)}
       ${a.epigraph?`<blockquote class="epigraph">${esc(a.epigraph)}${a.epigraphBy?`<cite>${esc(a.epigraphBy)}</cite>`:""}</blockquote>`:""}
-      ${canW()?`<div class="actions"><button class="btn" id="editbtn" type="button">Редактировать</button></div>`:""}
-      <div class="prose">${render(a.body,{ids:true})}</div>
+      <div class="actions art-actions">${canW()?`<button class="btn" id="editbtn" type="button">Редактировать</button>`:(isMech(a)||isSvc(a)?"":`<a class="btn" href="#predlozhit/${slug}">Предложить правку</a>`)}<a class="btn" href="#istoriya/${slug}">История правок</a>${ch?`<a class="btn" href="#svyazi/${slug}">На древе связей</a>`:""}</div>
+      <div class="prose">${render(slug==="glossariy"?glossPageBody(a.body):a.body,{ids:true})}</div>
       ${relationsHtml(slug,a)}
+      ${navboxesHtml(slug,a)}
       ${prev||next?`<nav class="pager" aria-label="Соседние статьи">${prev?`<a href="#${prev[0]}"><span>Назад</span><b>${esc(prev[1].title)}</b></a>`:""}${next?`<a class="next" href="#${next[0]}"><span>Дальше</span><b>${esc(next[1].title)}</b></a>`:""}</nav>`:""}
     </article>${info}</div></div>`;
 }
@@ -1533,6 +1624,322 @@ function sheetEditorHtml(){
     </div></div></div>`;
 }
 
+
+/* ================= история правок, лента, предложения ================= */
+let siteLog=[];
+const LOG_MAX=300,HIST_MAX=30,HIST_BYTES=700000;
+const ACT_N={create:"новая статья",edit:"правка",delete:"удалена",revert:"откат",accept:"принято предложение",base:"исходная версия"};
+async function meId(){return GH?("gh:"+(gh.login||"ГМ")):(user?await user.id().catch(()=>null):null)}
+
+/* хранилище: на GitHub отдельные зашифрованные файлы data/<путь>.enc.json, в артефакте коллекции базы */
+const DPATH=p=>`${GH.dir}data/${p}.enc.json`;
+async function ghGetFile(p){
+  try{const j=await ghApi(`contents/${DPATH(p)}?ref=${GH.branch}&t=${Date.now()}`);let text;
+    if(j.content)text=new TextDecoder().decode(b64dec(j.content));else{const r=await fetch(j.download_url+"?t="+Date.now());text=await r.text()}
+    const env=JSON.parse(text);return{obj:env.ct?await decryptData(env,lock.key):env,sha:j.sha}}
+  catch(e){if(e.status===404)return{obj:null,sha:undefined};throw e}}
+async function ghPutFile(p,obj,sha,msg){const body={message:msg,content:b64enc(new TextEncoder().encode(JSON.stringify(await encryptData(obj,lock.key)))),branch:GH.branch};if(sha)body.sha=sha;return ghApi(`contents/${DPATH(p)}`,{method:"PUT",body:JSON.stringify(body)})}
+async function pubGet(p){try{const r=await fetch(`data/${p}.enc.json?t=${Date.now()}`,{cache:"no-store"});if(!r.ok)return null;const env=await r.json();return env.ct?await decryptData(env,lock.key):env}catch{return null}}
+const stPath=(kind,id)=>kind==="hist"?`hist/${id}`:kind;
+async function stGet(kind,id){
+  if(GH)return gh.token?(await ghGetFile(stPath(kind,id))).obj:await pubGet(stPath(kind,id));
+  if(!db)return null;try{const s=await db.collection(kind).doc(id||"main").get();return s.exists?s.data():null}catch{return null}}
+async function stUpdate(kind,id,fn,msg){
+  if(GH){let last;for(let i=0;i<3;i++){const p=stPath(kind,id);const{obj,sha}=await ghGetFile(p);const next=fn(obj);try{await ghPutFile(p,next,sha,msg||"Служебное: "+p);return next}catch(e){last=e;if(e.status!==409&&e.status!==422)throw e}}throw last}
+  const ref=db.collection(kind).doc(id||"main");const s=await ref.get();const next=fn(s.exists?s.data():null);await ref.set(next);return next}
+
+function logEntry(slug,prev,doc,meta){return{s:slug,t:(doc||prev)?.title||slug,at:Date.now(),by:meta.by||null,act:meta.act||(doc?(prev?"edit":"create"):"delete"),d:String(doc?.body||"").length-String(prev?.body||"").length,n:meta.note||""}}
+function pushVer(o,doc,prev,meta){o=o&&Array.isArray(o.v)?o:{v:[]};
+  if(!o.v.length&&prev)o.v.push({at:prev.updatedAt||0,by:prev.updatedBy||null,act:"base",doc:prev});
+  o.v.unshift({at:Date.now(),by:meta.by||null,act:meta.act||(doc?(prev?"edit":"create"):"delete"),note:meta.note||"",doc:doc||null});
+  o.v=o.v.slice(0,HIST_MAX);while(o.v.length>2&&JSON.stringify(o).length>HIST_BYTES)o.v.pop();return o}
+/* единая запись статьи: сама статья, лента и история */
+async function commitDoc(slug,doc,meta={}){
+  meta.by=meta.by||await meId();const prev=articles[slug];
+  if(GH){await ghWrite(slug,doc,meta)}
+  else{const ref=db.collection("articles").doc(slug);if(doc)await ref.set(doc);else await ref.delete();
+    try{await stUpdate("meta","log",o=>({items:[logEntry(slug,prev,doc,meta),...((o&&o.items)||[])].slice(0,LOG_MAX)}));}catch{}}
+  if(doc)articles[slug]=doc;else delete articles[slug];
+  try{await stUpdate("hist",slug,o=>pushVer(o,doc,prev,meta),"История: "+((doc||prev)?.title||slug))}catch(e){console.warn("history",e)}
+}
+async function loadLog(){if(GH)return siteLog;try{const o=await stGet("meta","log");siteLog=(o&&o.items)||[]}catch{}return siteLog}
+
+/* ---------- сравнение текстов ---------- */
+function lcsOps(a,b){const n=a.length,m=b.length;let s=0;while(s<n&&s<m&&a[s]===b[s])s++;let e=0;while(e<n-s&&e<m-s&&a[n-1-e]===b[m-1-e])e++;
+  const A=a.slice(s,n-e),B=b.slice(s,m-e),N=A.length,M=B.length;let mid=[];
+  if(N*M>3e6)mid=[...A.map(v=>({t:"-",v})),...B.map(v=>({t:"+",v}))];
+  else{const L=Array.from({length:N+1},()=>new Uint32Array(M+1));for(let i=N-1;i>=0;i--)for(let j=M-1;j>=0;j--)L[i][j]=A[i]===B[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+    let i=0,j=0;while(i<N&&j<M){if(A[i]===B[j]){mid.push({t:"=",v:A[i]});i++;j++}else if(L[i+1][j]>=L[i][j+1])mid.push({t:"-",v:A[i++]});else mid.push({t:"+",v:B[j++]})}
+    while(i<N)mid.push({t:"-",v:A[i++]});while(j<M)mid.push({t:"+",v:B[j++]})}
+  return[...a.slice(0,s).map(v=>({t:"=",v})),...mid,...a.slice(n-e).map(v=>({t:"=",v}))]}
+function wordDiff(x,y){const ops=lcsOps(x.split(/(\s+)/),y.split(/(\s+)/));return ops.map(o=>o.t==="="?esc(o.v):o.t==="-"?`<del>${esc(o.v)}</del>`:`<ins>${esc(o.v)}</ins>`).join("")}
+function diffHtml(oldT,newT){const ops=lcsOps(String(oldT||"").split("\n"),String(newT||"").split("\n"));
+  if(!ops.some(o=>o.t!=="="))return `<p class="status">Текст статьи не менялся.</p>`;
+  const rows=[];let i=0;
+  while(i<ops.length){if(ops[i].t==="="){rows.push({k:"eq",v:ops[i].v});i++;continue}
+    const dl=[],ad=[];while(i<ops.length&&ops[i].t!=="="){(ops[i].t==="-"?dl:ad).push(ops[i].v);i++}
+    const k=Math.min(dl.length,ad.length);for(let j=0;j<k;j++)rows.push({k:"mod",h:wordDiff(dl[j],ad[j])});
+    for(const v of dl.slice(k))rows.push({k:"del",v});for(const v of ad.slice(k))rows.push({k:"ins",v})}
+  const keep=rows.map((r,j)=>r.k!=="eq"||rows.slice(Math.max(0,j-1),j+2).some(x=>x.k!=="eq"));
+  let out="",skip=0;const flush=()=>{if(skip){out+=`<div class="df gap">… ${skip} ${plural(skip,"строка","строки","строк")} без изменений</div>`;skip=0}};
+  rows.forEach((r,j)=>{if(!keep[j]){skip++;return}flush();if(r.k==="eq"&&!r.v.trim())return;
+    out+=r.k==="mod"?`<div class="df mod">${r.h}</div>`:`<div class="df ${r.k}">${esc(r.v)||"&nbsp;"}</div>`});flush();
+  return `<div class="diff">${out}</div>`}
+const FIELD_N={title:"Название",summary:"Кратко",aliases:"Другие имена",facts:"Сведения",relations:"Связи",role:"Кто это",status:"Состояние",group:"Группа",category:"Раздел",image:"Картинка",epigraph:"Эпиграф",epigraphBy:"Чьи слова",caption:"Подпись"};
+function fieldsDiffHtml(a,b){a=a||{};b=b||{};const rows=[];for(const[k,n]of Object.entries(FIELD_N)){const x=Array.isArray(a[k])?a[k].join(", "):String(a[k]??""),y=Array.isArray(b[k])?b[k].join(", "):String(b[k]??"");if(x!==y)rows.push(`<div class="fd"><span>${n}</span><div>${x.includes("\n")||y.includes("\n")?diffHtml(x,y):wordDiff(x,y)}</div></div>`)}
+  return rows.length?`<div class="fds">${rows.join("")}</div>`:""}
+
+/* ---------- страница истории ---------- */
+const hs={slug:"",sel:0,data:null};
+async function histHtml(slug){
+  const a=articles[slug];document.title="История: "+(a?.title||slug)+" · Кодекс Термины";
+  if(hs.slug!==slug){hs.slug=slug;hs.sel=0;hs.data=await stGet("hist",slug).catch(()=>null)}
+  const v=(hs.data&&hs.data.v)||[];const nm=await names(v.map(x=>x.by));
+  const sel=Math.min(hs.sel,Math.max(0,v.length-1)),cur=v[sel],prev=v[sel+1];
+  const list=v.map((x,i)=>{const d=String(x.doc?.body||"").length-String(v[i+1]?.doc?.body||"").length;
+    return `<li><button type="button" class="hv${i===sel?" on":""}" data-hv="${i}"><time>${esc(fmtDateTime(x.at))}</time><b>${esc(ACT_N[x.act]||x.act)}</b><span class="status">${esc(who(x.by,nm))}${v[i+1]&&d?` · ${d>0?"+":"−"}${Math.abs(d)} зн.`:""}</span>${x.note?`<small>${esc(x.note)}</small>`:""}</button></li>`}).join("");
+  const canBack=canW()&&cur&&cur.doc&&sel>0;
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">История правок</div><h1>${a?`<a href="#${slug}">${esc(a.title)}</a>`:esc(slug)}</h1><p class="lede">Все сохранённые версии статьи. Выберите версию слева, справа видно, что в ней поменялось по сравнению с предыдущей.</p></div></section>
+  <div class="gut"><div class="inner hist" style="padding-bottom:var(--s8)">
+    ${v.length?`<ol class="hv-list">${list}</ol>
+    <div class="hv-view">${cur?`<div class="hv-head"><div><b>${esc(ACT_N[cur.act]||cur.act)}</b> · ${esc(fmtDateTime(cur.at))} · ${esc(who(cur.by,nm))}</div>${canBack?`<button class="btn primary" type="button" id="hv-back">Вернуть эту версию</button>`:""}<span class="status" id="hv-st"></span></div>
+      ${prev?"":`<p class="status">${cur.act==="base"?"Самая ранняя сохранённая версия.":"Первая версия статьи."}</p>`}
+      ${cur.doc?fieldsDiffHtml(prev?.doc,cur.doc)+diffHtml(prev?.doc?.body||"",cur.doc.body||""):`<p class="v bad">В этой версии статья была удалена.</p>`}`:""}</div>`
+    :`<p class="lede">Сохранённых версий пока нет. Они появятся со следующей правкой.</p>`}
+  </div></div>`;
+}
+function fmtDateTime(ms){if(!ms)return"";try{return new Date(ms).toLocaleString("ru-RU",{day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"})}catch{return""}}
+document.addEventListener("click",async e=>{
+  const b=e.target.closest("[data-hv]");if(b){hs.sel=+b.dataset.hv;view();return}
+  if(e.target.closest("#hv-back")){const x=hs.data.v[hs.sel];const st=$("#hv-st");if(st)st.textContent="Сохраняем…";
+    try{const s=hs.slug;const doc={...x.doc,updatedAt:Date.now(),updatedBy:await meId()};await commitDoc(s,doc,{act:"revert",note:"возврат к версии от "+fmtDateTime(x.at)});hs.slug="";location.hash=s}
+    catch(err){if(st)st.textContent="Не удалось: "+(err?.message||"нет связи")}return}
+});
+
+/* ---------- что нового ---------- */
+async function newsHtml(){
+  document.title="Что нового · Кодекс Термины";
+  const log=(await loadLog()).filter(x=>mechOn||!isMech(articles[x.s]));const nm=await names(log.map(x=>x.by));
+  const days=[];for(const x of log){const d=fmtDate(x.at);let g=days[days.length-1];if(!g||g.d!==d){g={d,items:[]};days.push(g)}g.items.push(x)}
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Энциклопедия</div><h1>Что нового</h1><p class="lede">Все правки по порядку: что дописали, что поправили, что вернули. Нажмите «что изменилось», чтобы увидеть саму правку.</p></div></section>
+  <div class="gut"><div class="inner news" style="padding-bottom:var(--s8)">${days.length?days.map(g=>`<section class="block"><h2 class="sec">${esc(g.d)}</h2><ol class="news-l">${g.items.map(x=>`<li><time>${esc(new Date(x.at).toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"}))}</time><span class="na ${x.act}">${esc(ACT_N[x.act]||x.act)}</span>${articles[x.s]?`<a href="#${x.s}">${esc(x.t)}</a>`:`<b>${esc(x.t)}</b>`}<span class="status">${esc(who(x.by,nm))}${x.d?` · ${x.d>0?"+":"−"}${Math.abs(x.d)} зн.`:""}${x.n?` · ${esc(x.n)}`:""}</span><a class="status" href="#istoriya/${encodeURIComponent(x.s)}">что изменилось</a></li>`).join("")}</ol></section>`).join(""):`<p class="lede">Пока пусто.</p>`}</div></div>`;
+}
+
+/* ---------- предложения правок ---------- */
+const PROP_PREFIX="KT1.";
+const b64u=bytes=>{let s="";for(let i=0;i<bytes.length;i+=0x8000)s+=String.fromCharCode(...bytes.subarray(i,i+0x8000));return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")};
+const b64uDec=str=>{str=str.replace(/-/g,"+").replace(/_/g,"/");while(str.length%4)str+="=";const s=atob(str);const u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u};
+async function zip(obj){const cs=new Blob([JSON.stringify(obj)]).stream().pipeThrough(new CompressionStream("deflate-raw"));return new Uint8Array(await new Response(cs).arrayBuffer())}
+async function unzip(bytes){const ds=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));return JSON.parse(await new Response(ds).text())}
+async function encodeProp(p){return PROP_PREFIX+b64u(await zip(p))}
+async function decodeProps(text){const out=[];for(const m of String(text||"").matchAll(/KT1\.([A-Za-z0-9_-]+)/g)){try{const p=await unzip(b64uDec(m[1]));if(p&&p.v===1)out.push(p)}catch{}}return out}
+function makePatch(oldT,newT){const ops=lcsOps(String(oldT||"").split("\n"),String(newT||"").split("\n"));const P=[];
+  for(const o of ops){const last=P[P.length-1];if(o.t==="="){if(last&&last[0]==="=")last[1]++;else P.push(["=",1,o.v.slice(0,40)])}else{if(last&&last[0]===o.t)last[1].push(o.v);else P.push([o.t,[o.v]])}}return P}
+function applyPatch(text,P){const L=String(text||"").split("\n"),out=[];let i=0;
+  for(const op of P){if(op[0]==="="){if((L[i]||"").slice(0,40)!==op[2])return null;for(let k=0;k<op[1];k++)out.push(L[i++])}
+    else if(op[0]==="-"){for(const v of op[1]){if(L[i]!==v)return null;i++}}else out.push(...op[1])}
+  if(i!==L.length)return null;return out.join("\n")}
+const PROP_FIELDS=["title","summary","facts","aliases"];
+const pe={slug:null,tab:"write",code:"",draft:null};
+function peDraftKey(s){return "kodeks.prop."+(s||"_new")}
+function peDraft(slug){if(pe.draft&&pe.slug===slug)return pe.draft;pe.slug=slug;pe.code="";pe.tab="write";let d=null;try{d=JSON.parse(localStorage.getItem(peDraftKey(slug))||"null")}catch{}
+  const a=articles[slug];if(!d||(a&&d.base!==a.updatedAt))d={base:a?.updatedAt||0,title:a?.title||"",summary:a?.summary||"",facts:a?.facts||"",aliases:(a?.aliases||[]).join(", "),body:a?.body||"",note:"",cat:"Мир"};
+  pe.draft=d;return d}
+function peSave(){try{localStorage.setItem(peDraftKey(pe.slug),JSON.stringify(pe.draft))}catch{}}
+let whoName="";try{whoName=localStorage.getItem("kodeks.who")||""}catch{}
+function proposeHtml(slug){
+  const a=slug?articles[slug]:null;if(slug&&!a)return `<div class="gut"><div class="inner empty"><h1>Статьи нет</h1><p><a href="#">На главную</a></p></div></div>`;
+  const d=peDraft(slug);document.title=(a?"Правка: "+a.title:"Новая статья")+" · Предложение";
+  const cats=[...CATS,"Персонажи"];
+  return `<div class="gut"><div class="inner editor view">
+    <div class="eyebrow">Предложить ${a?"правку":"новую статью"}</div><h1>${a?`<a href="#${slug}">${esc(a.title)}</a>`:"Новая статья"}</h1>
+    <p class="lede" style="max-width:68ch">Поправьте текст как считаете нужным. Сайт соберёт из правки короткий код, его нужно отправить ГМу. ГМ увидит, что именно изменилось, и примет правку или откажет. Черновик хранится в этом браузере.</p>
+    <div class="form">
+      <div class="row"><label for="pe-who">Ваше имя<input id="pe-who" type="text" value="${esc(whoName)}" placeholder="Как вас знает ГМ"></label>
+        ${a?`<label for="pe-title">Название<input id="pe-title" type="text" value="${esc(d.title)}"></label>`:`<label for="pe-title">Название<input id="pe-title" type="text" value="${esc(d.title)}" placeholder="Например, Векс Раддайт"></label>`}</div>
+      ${a?"":`<label for="pe-cat">Раздел<select id="pe-cat">${cats.map(c=>`<option ${c===d.cat?"selected":""}>${esc(c)}</option>`).join("")}</select></label>`}
+      <label for="pe-summary">Кратко, одной строкой<input id="pe-summary" type="text" value="${esc(d.summary)}"></label>
+      <div>
+        <div class="wtabs" role="tablist"><button type="button" role="tab" id="pe-tw" aria-selected="${pe.tab==="write"}">Текст</button>${a?`<button type="button" role="tab" id="pe-tp" aria-selected="${pe.tab==="diff"}">Что изменится</button>`:""}</div>
+        ${pe.tab==="write"||!a?`<textarea id="pe-body" aria-label="Текст">${esc(d.body)}</textarea>`:`<div class="preview">${fieldsDiffHtml(a,peDoc(a,d))}${diffHtml(a.body,d.body)}</div>`}
+      </div>
+      <label for="pe-facts">Сведения в карточке, по строке «Метка: значение»<textarea id="pe-facts" style="min-height:80px;font-family:var(--f-body)">${esc(d.facts)}</textarea></label>
+      <label for="pe-note">Что и зачем поменяли<input id="pe-note" type="text" value="${esc(d.note)}" placeholder="Например, дописал битву при Винтерстейне по итогам сессии"></label>
+      <div class="actions"><button class="btn primary" type="button" id="pe-make">Получить код для ГМа</button>${a?`<a class="btn" href="#${slug}">Отмена</a>`:`<a class="btn" href="#">Отмена</a>`}<button class="btn" type="button" id="pe-reset">Начать заново</button></div>
+      ${pe.code?`<div class="pe-out"><div class="rt-l">Код предложения · ${pe.code.length} знаков</div><textarea readonly id="pe-code">${esc(pe.code)}</textarea>
+        <div class="actions"><button class="btn primary" type="button" id="pe-copy">Скопировать</button><button class="btn" type="button" id="pe-file">Скачать файлом</button><span class="status" id="pe-st"></span></div>
+        <p class="hint-s">Отправьте код ГМу в личные сообщения или в чат. ${pe.code.length>3500?"Код длинный, в одно сообщение Telegram может не влезть: лучше отправить файлом.":"Он влезет в одно сообщение."}</p></div>`:""}
+    </div></div></div>`;
+}
+function peRead(){const d=pe.draft;for(const k of["title","summary","facts","note","body"]){const el=$("#pe-"+k);if(el)d[k]=el.value}const c=$("#pe-cat");if(c)d.cat=c.value;const w=$("#pe-who");if(w){whoName=w.value.trim();try{localStorage.setItem("kodeks.who",whoName)}catch{}}peSave()}
+function peDoc(a,d){return{...a,title:d.title,summary:d.summary,facts:d.facts,aliases:a.aliases,body:d.body}}
+async function peMake(){peRead();const d=pe.draft,a=pe.slug?articles[pe.slug]:null;const st=()=>$("#pe-st");
+  if(!whoName){alertBox("Впишите своё имя, чтобы ГМ знал, от кого правка.");return}
+  const p={v:1,id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),slug:pe.slug,from:whoName,note:d.note.trim(),at:Date.now()};
+  if(a){p.base=a.updatedAt||0;p.f={};for(const k of["title","summary","facts"])if((d[k]||"")!==(a[k]||""))p.f[k]=d[k];
+    if(d.body!==(a.body||""))p.p=makePatch(a.body,d.body);if(!p.p&&!Object.keys(p.f).length){alertBox("Пока ничего не изменилось.");return}}
+  else{if(!d.title.trim()){alertBox("Нужно название статьи.");return}p.f={title:d.title.trim(),summary:d.summary,facts:d.facts};p.nb=d.body;p.cat=d.cat}
+  pe.code=await encodeProp(p);view()}
+function alertBox(m){const n=document.querySelector(".editor .form");if(!n)return;let x=n.querySelector(".notice.err.pe");if(!x){x=document.createElement("div");x.className="notice err pe";n.prepend(x)}x.textContent=m}
+document.addEventListener("click",async e=>{const t=e.target;
+  if(t.closest("#pe-tw")){peRead();pe.tab="write";view();return}
+  if(t.closest("#pe-tp")){peRead();pe.tab="diff";view();return}
+  if(t.closest("#pe-make")){await peMake();return}
+  if(t.closest("#pe-reset")){try{localStorage.removeItem(peDraftKey(pe.slug))}catch{}pe.draft=null;pe.slug=undefined;view();return}
+  if(t.closest("#pe-copy")){const ok=await copyText(pe.code);const s=$("#pe-st");if(s)s.textContent=ok?"Скопировано.":"Не получилось, выделите код вручную.";return}
+  if(t.closest("#pe-file")){const a=pe.slug?articles[pe.slug]:null;const blob=new Blob([pe.code],{type:"text/plain"});const u=URL.createObjectURL(blob);const l=document.createElement("a");l.href=u;l.download=`правка-${translit((a?.title||pe.draft.title||"statya"))}.txt`;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);return}
+});
+document.addEventListener("input",e=>{if(e.target.id&&e.target.id.startsWith("pe-")&&pe.draft){peRead();if(pe.code){pe.code="";const o=document.querySelector(".pe-out");if(o)o.remove()}}});
+
+/* входящие ГМа */
+const inbox={data:null,loaded:false,busy:false,msg:""};
+async function inboxLoad(force){if(!canW())return null;if(inbox.loaded&&!force)return inbox.data;try{inbox.data=(await stGet("inbox"))||{items:[]}}catch{inbox.data={items:[]}}inbox.loaded=true;inboxBadge();return inbox.data}
+function inboxBadge(){const l=$("#inboxlink");if(!l)return;const n=(inbox.data?.items||[]).filter(x=>!x.status).length;l.hidden=!canW();l.textContent=n?`Предложения · ${n}`:"Предложения"}
+function propResult(p){const a=p.slug?articles[p.slug]:null;if(!p.slug)return{doc:null,body:p.nb||"",ok:true};if(!a)return{ok:false,why:"Статью удалили."};
+  let body=a.body||"",ok=true,stale=(a.updatedAt||0)!==p.base;
+  if(p.p){const r=applyPatch(a.body,p.p);if(r==null){ok=false}else body=r}
+  return{ok,stale,body,why:ok?"":"Статья изменилась после того, как игрок начал правку, и текст уже не совпадает. Откройте правку в редакторе и перенесите вручную."}}
+async function inboxHtml(){
+  document.title="Предложения · Кодекс Термины";
+  if(!canW())return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Предложения</div><h1>Входящие правки</h1><p class="lede">Эту страницу видит только ГМ. Чтобы предложить правку, откройте статью и нажмите «Предложить правку».</p></div></section>`;
+  const D=await inboxLoad();const items=(D.items||[]).slice().sort((x,y)=>(x.status?1:0)-(y.status?1:0)||y.at-x.at);
+  const pend=items.filter(x=>!x.status),done=items.filter(x=>x.status);
+  const card=p=>{const a=p.slug?articles[p.slug]:null;const R=propResult(p);
+    return `<article class="prop ${p.status||""}"><div class="prop-h"><div><b>${a?`<a href="#${p.slug}">${esc(a.title)}</a>`:`Новая статья: ${esc(p.f?.title||"")}`}</b><span class="status"> · от ${esc(p.from)} · ${esc(fmtDateTime(p.at))}${p.status?` · ${p.status==="ok"?"принято":"отклонено"}`:""}</span></div>${p.note?`<p>${esc(p.note)}</p>`:""}</div>
+      ${!p.status&&R.stale&&R.ok?`<p class="v bad" style="font-size:14px">Статью успели поправить после того, как игрок начал. Изменения игрока легли поверх без конфликтов, но проверьте.</p>`:""}
+      ${!R.ok?`<p class="v bad" style="font-size:14px">${esc(R.why)}</p>`:""}
+      ${p.status?"":`<details ${pend.length<4?"open":""}><summary>Что изменится</summary>${a?fieldsDiffHtml(a,{...a,...(p.f||{})})+(R.ok?diffHtml(a.body,R.body):""):`<div class="prose">${render(p.nb||"")}</div>`}</details>
+      <div class="actions">${R.ok?`<button class="btn primary" type="button" data-pacc="${p.id}">Принять</button>`:""}<button class="btn" type="button" data-pedit="${p.id}">Открыть в редакторе</button><button class="btn danger" type="button" data-prej="${p.id}">Отклонить</button></div>`}</article>`};
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Для ГМа</div><h1>Предложения правок</h1><p class="lede">Игроки правят статьи у себя и присылают вам код. Вставьте его сюда: сайт покажет, что изменится, а вы примете правку или откажете.</p></div></section>
+  <div class="gut"><div class="inner inbox" style="padding-bottom:var(--s8)">
+    <div class="form"><label for="ib-in">Код или несколько кодов от игроков<textarea id="ib-in" style="min-height:90px;font-family:var(--f-mono);font-size:13px" placeholder="KT1.…"></textarea></label>
+      <div class="actions"><button class="btn primary" type="button" id="ib-add">Добавить во входящие</button><label class="btn" for="ib-file" style="text-transform:none;letter-spacing:.03em">Загрузить файл<input id="ib-file" type="file" accept=".txt,text/plain" hidden></label><span class="status" id="ib-st">${esc(inbox.msg)}</span></div></div>
+    <section class="block"><h2 class="sec">Ждут решения <small>${pend.length}</small></h2>${pend.map(card).join("")||`<p class="lede">Новых предложений нет.</p>`}</section>
+    ${done.length?`<section class="block"><details><summary class="sec" style="cursor:pointer">Архив <small>${done.length}</small></summary>${done.map(card).join("")}</details></section>`:""}
+  </div></div>`;
+}
+async function inboxAdd(text){const ps=await decodeProps(text);if(!ps.length){inbox.msg="Код не распознан. Проверьте, что он скопирован целиком.";return view()}
+  inbox.busy=true;try{inbox.data=await stUpdate("inbox",null,o=>{o=o&&Array.isArray(o.items)?o:{items:[]};for(const p of ps)if(!o.items.some(x=>x.id===p.id))o.items.unshift(p);o.items=o.items.slice(0,120);return o},"Предложения: новые");inbox.msg=`Добавлено: ${ps.length}.`}
+  catch(e){inbox.msg="Не удалось сохранить: "+(e?.message||"нет связи")}inbox.busy=false;inboxBadge();view()}
+async function inboxMark(id,status){inbox.data=await stUpdate("inbox",null,o=>{o=o||{items:[]};const x=o.items.find(i=>i.id===id);if(x){x.status=status;x.doneAt=Date.now()}return o},"Предложения: решение");inboxBadge()}
+async function propAccept(p,bodyOverride){const a=p.slug?articles[p.slug]:null;const R=propResult(p);const me=await meId();const now=Date.now();
+  let slug=p.slug,doc;
+  if(a){doc={...a,...(p.f||{}),body:bodyOverride??R.body,updatedAt:now,updatedBy:me}}
+  else{slug=translit(p.f.title);const ch=p.cat==="Персонажи";doc={kind:ch?"character":"article",title:p.f.title,category:ch?"Персонажи":p.cat||"Мир",group:ch?"Прочие":undefined,summary:p.f.summary||"",facts:p.f.facts||"",aliases:[],body:bodyOverride??p.nb??"",epigraph:"",epigraphBy:"",image:"",caption:"",relations:"",order:99,createdAt:now,updatedAt:now,updatedBy:me};if(!ch)delete doc.group}
+  await commitDoc(slug,doc,{act:"accept",note:"предложение от "+p.from+(p.note?": "+p.note:"")});await inboxMark(p.id,"ok");return slug}
+document.addEventListener("click",async e=>{const t=e.target;
+  if(t.closest("#ib-add")){await inboxAdd($("#ib-in").value);return}
+  const ac=t.closest("[data-pacc]");if(ac){ac.disabled=true;ac.textContent="Сохраняем…";const p=inbox.data.items.find(x=>x.id===ac.dataset.pacc);try{await propAccept(p);inbox.msg="Правка принята.";}catch(err){inbox.msg="Не удалось: "+(err?.message||"нет связи")}view();return}
+  const rj=t.closest("[data-prej]");if(rj){try{await inboxMark(rj.dataset.prej,"no");inbox.msg="Отклонено."}catch(err){inbox.msg="Не удалось: "+(err?.message||"нет связи")}view();return}
+  const ed=t.closest("[data-pedit]");if(ed){const p=inbox.data.items.find(x=>x.id===ed.dataset.pedit);const R=propResult(p);
+    if(p.slug&&articles[p.slug]){startEdit(p.slug);Object.assign(editing.draft,p.f||{});editing.draft.body=R.ok?R.body:editing.draft.body;editing.fromProp=p.id;editing.warn=R.ok?`Правка от ${esc(p.from)} уже подставлена. Поправьте и сохраните, предложение отметится принятым.`:`Правка от ${esc(p.from)} не легла на текущий текст. Её версия текста ниже в разделе «Что изменится» на странице предложений; перенесите нужное вручную.`}
+    else{startEdit(null,p.f?.title||"",p.cat==="Персонажи"?"character":"article");Object.assign(editing.draft,{summary:p.f?.summary||"",facts:p.f?.facts||"",body:p.nb||"",category:p.cat==="Персонажи"?"Мир":(p.cat||"Мир")});editing.fromProp=p.id}
+    view();return}
+});
+document.addEventListener("change",async e=>{if(e.target.id==="ib-file"){const f=e.target.files&&e.target.files[0];if(!f)return;await inboxAdd(await f.text())}});
+
+/* ================= навигационные плашки ================= */
+function curatedBoxes(){const nb=articles.navigaciya;if(!nb)return[];const idx=nameIndex(),boxes=[];let cur=null;
+  for(const b of blocks(nb.body||"")){if(b.t==="h2"){cur={t:b.v,items:[]};boxes.push(cur)}else if(cur){const txt=b.t==="ul"?b.v.join(" "):b.t==="p"?b.v:"";for(const m of txt.matchAll(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g)){const s=idx.get(norm(m[1]));if(s&&!cur.items.includes(s))cur.items.push(s)}}}
+  return boxes.filter(x=>x.items.length)}
+function navboxesHtml(slug,a){if(isMech(a)||isSvc(a))return"";const out=[];
+  for(const b of curatedBoxes())if(b.items.includes(slug))out.push({t:b.t,items:b.items});
+  const auto=isChar(a)?{t:a.group===HERO?"Герои Багерта":(a.group||"Прочие"),items:chars(a.group||"Прочие").map(([s])=>s),href:a.group===HERO?"#geroi":"#personazhi"}:{t:a.category,items:inCat(a.category).map(([s])=>s),href:"#mir"};
+  if(auto.items.length>1&&auto.items.length<=40&&!out.some(b=>b.items.length===auto.items.length&&b.items.every(s=>auto.items.includes(s))))out.push(auto);
+  if(!out.length)return"";
+  return `<div class="navboxes">${out.map(b=>`<nav class="navbox" aria-label="${esc(b.t)}"><div class="nb-h">${esc(b.t)}</div><div class="nb-l">${b.items.filter(s=>articles[s]).map(s=>s===slug?`<b>${esc(articles[s].title)}</b>`:`<a href="#${s}">${esc(articles[s].title)}</a>`).join('<span aria-hidden="true">·</span>')}</div></nav>`).join("")}</div>`}
+
+/* ================= древо связей ================= */
+const GCOL={"Главные герои":"--c-hero","Силы Пожирателя":"--c-worm","Альянс":"--c-gold","Великие":"--c-great","Загадочные личности":"--c-myst","Внешний космос":"--c-outer"};
+function graphData(){const idx=nameIndex(),nodes=entries().filter(([,a])=>isChar(a)).map(([s,a])=>({s,a})),ids=new Set(nodes.map(n=>n.s)),E=[],seen=new Set();
+  const key=(x,y)=>x<y?x+"|"+y:y+"|"+x;
+  for(const n of nodes)for(const g of relList(n.a))for(const it of g.items){const t=idx.get(norm(it.name));if(!t||t===n.s)continue;
+    if(!ids.has(t)){const ta=articles[t];if(!ta||isMech(ta))continue;nodes.push({s:t,a:ta,extra:true});ids.add(t)}
+    const k=key(n.s,t);const ex=E.find(e=>e.k===k&&e.kind==="rel");if(ex){if(!ex.labels.includes(g.label))ex.labels.push(g.label);continue}E.push({k,a:n.s,b:t,kind:"rel",labels:[g.label]});seen.add(k)}
+  for(const n of nodes){if(n.extra)continue;for(const t of linksIn(n.a.body)){if(!ids.has(t)||t===n.s)continue;const k=key(n.s,t);if(seen.has(k))continue;seen.add(k);E.push({k,a:n.s,b:t,kind:"ment",labels:[]})}}
+  return{nodes,edges:E}}
+function layout(nodes,edges,W,H){const P={},grp=[...new Set(nodes.map(n=>n.a.group||n.a.category))];
+  nodes.forEach((n,i)=>{const g=grp.indexOf(n.a.group||n.a.category),ang=g/grp.length*Math.PI*2+(hash(n.s)%100)/100*.9,r=Math.min(W,H)*.32+(hash(n.s+"r")%60);P[n.s]={x:W/2+Math.cos(ang)*r,y:H/2+Math.sin(ang)*r,vx:0,vy:0}});
+  const deg={};for(const e of edges){deg[e.a]=(deg[e.a]||0)+1;deg[e.b]=(deg[e.b]||0)+1}
+  for(let it=0;it<380;it++){const T=1-it/380;
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const p=P[nodes[i].s],q=P[nodes[j].s];let dx=p.x-q.x,dy=p.y-q.y,d2=dx*dx+dy*dy+.01;const f=5200/d2;const d=Math.sqrt(d2);dx/=d;dy/=d;p.vx+=dx*f;p.vy+=dy*f;q.vx-=dx*f;q.vy-=dy*f}
+    for(const e of edges){const p=P[e.a],q=P[e.b];const dx=q.x-p.x,dy=q.y-p.y,d=Math.sqrt(dx*dx+dy*dy)+.01;const L=e.kind==="rel"?120:190,k=e.kind==="rel"?.05:.012;const f=(d-L)*k;p.vx+=dx/d*f;p.vy+=dy/d*f;q.vx-=dx/d*f;q.vy-=dy/d*f}
+    for(const n of nodes){const p=P[n.s];p.vx+=(W/2-p.x)*.006;p.vy+=(H/2-p.y)*.008;if(!deg[n.s]){p.vx+=(W/2-p.x)*.004}
+      const sp=Math.hypot(p.vx,p.vy),mx=30*T+2;if(sp>mx){p.vx*=mx/sp;p.vy*=mx/sp}p.x+=p.vx;p.y+=p.vy;p.vx*=.55;p.vy*=.55}}
+  return P}
+const gv={focus:"",ment:true,vb:null};
+function graphHtml(focus){
+  document.title="Древо связей · Кодекс Термины";
+  let{nodes,edges}=graphData();if(!gv.ment)edges=edges.filter(e=>e.kind==="rel");
+  if(focus&&articles[focus]){const nb=new Set([focus]);for(const e of edges){if(e.a===focus)nb.add(e.b);if(e.b===focus)nb.add(e.a)}nodes=nodes.filter(n=>nb.has(n.s));edges=edges.filter(e=>nb.has(e.a)&&nb.has(e.b)&&(e.a===focus||e.b===focus||e.kind==="rel"))}
+  const W=focus?900:1400,H=focus?640:1000;let P;
+  if(focus){P={};const others=nodes.filter(n=>n.s!==focus);P[focus]={x:W/2,y:H/2};others.sort((x,y)=>(edges.find(e=>e.k.includes(y.s)&&e.kind==="rel")?1:0)-(edges.find(e=>e.k.includes(x.s)&&e.kind==="rel")?1:0));others.forEach((n,i)=>{const ang=i/others.length*Math.PI*2-Math.PI/2,r=others.length>10?250:220;P[n.s]={x:W/2+Math.cos(ang)*r*1.35,y:H/2+Math.sin(ang)*r}})}
+  else P=layout(nodes,edges,W,H);
+  const xs=nodes.map(n=>P[n.s].x),ys=nodes.map(n=>P[n.s].y);const pad=70,x0=Math.min(...xs)-pad,y0=Math.min(...ys)-pad,x1=Math.max(...xs)+pad,y1=Math.max(...ys)+pad;
+  const col=a=>`var(${GCOL[a.group]||"--muted"})`;
+  const nodeSvg=n=>{const a=n.a,p=P[n.s],r=n.s===focus?40:a.group===HERO?26:20,src=imgSrc(a.image),id="gc-"+n.s.replace(/[^a-z0-9-]/gi,"");
+    return `<g class="gn${n.s===focus?" foc":""}" data-gs="${n.s}" transform="translate(${p.x.toFixed(1)},${p.y.toFixed(1)})" tabindex="0" role="button" aria-label="${esc(a.title)}">
+      <circle r="${r+3}" fill="none" stroke="${col(a)}" stroke-width="2"/>${src?`<clipPath id="${id}"><circle r="${r}"/></clipPath><image href="${src}" x="${-r}" y="${-r}" width="${r*2}" height="${r*2}" preserveAspectRatio="xMidYMin slice" clip-path="url(#${id})"/>`:`<circle r="${r}" fill="var(--surface)"/><text class="gi" dy=".35em">${esc(a.title.split(/\s+/).map(w=>w[0]).join("").slice(0,2))}</text>`}
+      <text class="gt" y="${r+16}">${esc(a.title)}</text></g>`};
+  const edgeSvg=e=>{const p=P[e.a],q=P[e.b];const mx=(p.x+q.x)/2,my=(p.y+q.y)/2;
+    return `<g class="ge ${e.kind}" data-ga="${e.a}" data-gb="${e.b}"><line x1="${p.x.toFixed(1)}" y1="${p.y.toFixed(1)}" x2="${q.x.toFixed(1)}" y2="${q.y.toFixed(1)}"/>${e.labels.length?`<text x="${mx.toFixed(1)}" y="${my.toFixed(1)}" dy="-4">${esc(e.labels.join(", "))}</text>`:""}</g>`};
+  const fa=focus&&articles[focus];
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Энциклопедия</div><h1>${fa?`Связи: ${esc(fa.title)}`:"Древо связей"}</h1><p class="lede">${fa?"Кто связан с этим персонажем. Подписи берутся из поля «Связи» в карточках.":"Кто кому наставник, враг, сир или спутник. Яркие линии взяты из поля «Связи» в карточках персонажей, бледные значат, что один упоминает другого в статье. Наведите на портрет, чтобы подсветить его связи, нажмите, чтобы разглядеть ближе."}</p>
+    <div class="actions">${fa?`<a class="btn primary" href="#${focus}">Открыть статью</a><a class="btn" href="#svyazi">Всё древо</a>`:""}<label class="chk"><input type="checkbox" id="g-ment" ${gv.ment?"checked":""}> Показывать упоминания</label></div></div></section>
+  <div class="gut"><div class="inner" style="padding-bottom:var(--s8)"><div class="graph${fa?" ego":""}"><svg id="gsvg" viewBox="${x0} ${y0} ${x1-x0} ${y1-y0}" role="img" aria-label="Древо связей персонажей">${edges.map(edgeSvg).join("")}${nodes.map(nodeSvg).join("")}</svg>
+    ${fa?"":`<div class="g-legend">${Object.entries(GCOL).map(([g,c])=>`<span><i style="background:var(${c})"></i>${esc(g)}</span>`).join("")}</div><p class="hint-s">Колесо мыши приближает, перетаскивание двигает схему.</p>`}</div></div></div>`;
+}
+function bindGraph(){const svg=$("#gsvg");if(!svg)return;const vb=svg.viewBox.baseVal;
+  const hl=s=>{svg.classList.toggle("hlon",!!s);svg.querySelectorAll(".gn").forEach(g=>g.classList.remove("hl"));svg.querySelectorAll(".ge").forEach(g=>{const on=s&&(g.dataset.ga===s||g.dataset.gb===s);g.classList.toggle("hl",!!on);if(on){svg.querySelector(`.gn[data-gs="${g.dataset.ga}"]`)?.classList.add("hl");svg.querySelector(`.gn[data-gs="${g.dataset.gb}"]`)?.classList.add("hl")}});if(s)svg.querySelector(`.gn[data-gs="${s}"]`)?.classList.add("hl")};
+  svg.addEventListener("mouseover",e=>{const g=e.target.closest(".gn");hl(g?g.dataset.gs:"")});svg.addEventListener("mouseleave",()=>hl(""));
+  let drag=null,moved=false;
+  svg.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y};moved=false});
+  window.addEventListener("pointermove",e=>{if(!drag)return;const k=vb.width/svg.clientWidth;const dx=(e.clientX-drag.x)*k,dy=(e.clientY-drag.y)*k;if(Math.abs(dx)+Math.abs(dy)>3)moved=true;vb.x=drag.vx-dx;vb.y=drag.vy-dy});
+  window.addEventListener("pointerup",()=>{drag=null},{once:false});
+  svg.addEventListener("click",e=>{if(moved)return;const g=e.target.closest(".gn");if(!g)return;const s=g.dataset.gs;location.hash=route()==="svyazi/"+s?s:"svyazi/"+s});
+  svg.addEventListener("keydown",e=>{const g=e.target.closest(".gn");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();location.hash="svyazi/"+g.dataset.gs}});
+  svg.addEventListener("wheel",e=>{e.preventDefault();const k=e.deltaY>0?1.12:1/1.12;const r=svg.getBoundingClientRect();const px=vb.x+(e.clientX-r.left)/r.width*vb.width,py=vb.y+(e.clientY-r.top)/r.height*vb.height;vb.width*=k;vb.height*=k;vb.x=px-(e.clientX-r.left)/r.width*vb.width;vb.y=py-(e.clientY-r.top)/r.height*vb.height},{passive:false});
+  const m=$("#g-ment");if(m)m.onchange=()=>{gv.ment=m.checked;view()}}
+
+/* ================= бестиарий ================= */
+const BEAST={"Легион Голода":["golodnye","golodnye-kapitany","golodnye-rycari","golodnye-ohotniki","derokku","goddhi","obitateli-glubin","umbralnye-kolossy"],"Древние роды и иные народы":["drakony","giganty","demony","vampiry","raitriari"]};
+function bestiaryHtml(){
+  document.title="Бестиарий · Кодекс Термины";
+  const extra=entries().filter(([s,a])=>a.category==="Существа"&&!Object.values(BEAST).flat().includes(s)).map(([s])=>s);
+  const secs=Object.entries(BEAST).map(([t,l])=>[t,t.startsWith("Древние")?[...l,...extra]:l]);
+  const card=(s,i)=>{const a=articles[s];if(!a)return"";const src=imgSrc(a.image);
+    return stag(`<a class="beast" href="#${s}"><div class="bimg">${src?`<img src="${src}" alt="" loading="lazy" ${imgErr}>`:`<div class="bsig">${sigil(s,a.category,a.title)}</div>`}</div><div class="btxt"><b>${esc(a.title)}</b>${a.role?`<span class="meta">${esc(a.role)}</span>`:""}<small>${esc(a.summary||"")}</small></div></a>`,i)};
+  return `<section class="sky small gut"><div class="inner"><div class="eyebrow">Энциклопедия</div><h1>Бестиарий</h1><p class="lede">Твари, порождения и древние роды, с которыми сталкиваются герои. Нажмите на карточку, чтобы открыть статью.</p></div></section>
+  <div class="gut"><div class="inner" style="padding-bottom:var(--s8)">${secs.map(([t,l])=>`<section class="block"><h2 class="sec">${esc(t)} <small>${l.filter(s=>articles[s]).length}</small></h2><div class="bgrid stagger">${l.map(card).join("")}</div></section>`).join("")}</div></div>`;
+}
+
+/* ================= глоссарий ================= */
+let glossCache=null;
+function glossData(){const a=articles.glossariy;const key=a?a.updatedAt:0;if(glossCache&&glossCache.key===key)return glossCache;
+  const items=[];for(const b of blocks(a?.body||""))if(b.t==="ul")for(const li of b.v){const m=li.match(/^\*\*([^*]+)\*\*\s*(?:\{([^}]*)\})?\s*[—–-]\s*(.+)$/);if(m){const term=m[1].trim();const forms=[term,...(m[2]||"").split(",").map(x=>x.trim()).filter(Boolean)];items.push({term,forms,def:m[3].trim()})}}
+  const alts=[...new Set(items.flatMap(x=>x.forms))].sort((x,y)=>y.length-x.length).map(f=>f.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
+  const map=new Map();for(const it of items)for(const f of it.forms)map.set(f,it);
+  glossCache={key,items,map,re:alts.length?new RegExp(`(?<![\\p{L}\\d'’])(${alts.join("|")})(?![\\p{L}\\d'’])`,"u"):null};return glossCache}
+function glossify(root){const G=glossData();const r=route();if(!G.re||!root||r==="glossariy"||isMech(articles[r])||!articles[r])return;
+  const scope=root.querySelectorAll(".prose:not(.sheet-prose)");const used=new Set();
+  for(const pr of scope){const w=document.createTreeWalker(pr,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest("a,code,h1,h2,h3,summary,.gl,.sp,.gm-secret,blockquote.epigraph,.tbl")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+    const nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+    for(const n of nodes){let node=n;
+      while(node){const re=new RegExp(G.re.source,"gu");let m,hit=null;while((m=re.exec(node.nodeValue))){const it=G.map.get(m[1]);if(it&&!used.has(it.term)){hit=m;break}}
+        if(!hit)break;const it=G.map.get(hit[1]);used.add(it.term);
+        const after=node.splitText(hit.index);const rest=after.splitText(hit[1].length);
+        const sp=document.createElement("span");sp.className="gl";sp.tabIndex=0;sp.dataset.gt=it.term;sp.textContent=after.nodeValue;after.replaceWith(sp);node=rest}}}}
+let glTip=null;
+function showGl(el){hideGl();const it=glossData().items.find(x=>x.term===el.dataset.gt);if(!it)return;const d=document.createElement("div");d.className="gltip";d.setAttribute("role","tooltip");
+  d.innerHTML=`<b>${esc(it.term)}</b><p>${inline(it.def,nameIndex())}</p><a href="#glossariy">Глоссарий</a>`;document.body.appendChild(d);const r=el.getBoundingClientRect();const w=d.offsetWidth;
+  d.style.left=Math.max(8,Math.min(window.innerWidth-w-8,r.left+r.width/2-w/2))+"px";d.style.top=(r.bottom+window.scrollY+8)+"px";glTip=d;
+  d.addEventListener("mouseleave",hideGl)}
+function hideGl(){if(glTip){glTip.remove();glTip=null}}
+document.addEventListener("mouseover",e=>{const g=e.target.closest(".gl");if(g){showGl(g);return}if(glTip&&!e.target.closest(".gltip"))hideGl()});
+document.addEventListener("focusin",e=>{const g=e.target.closest?.(".gl");if(g)showGl(g)});
+document.addEventListener("click",e=>{const g=e.target.closest(".gl");if(g){glTip?hideGl():showGl(g)}});
+function glossPageBody(md){return String(md||"").replace(/^(\s*[-*]\s+\*\*[^*]+\*\*)\s*\{[^}]*\}/gm,"$1")}
+
 /* ---------- просмотр арта ---------- */
 function openLightbox(src,alt){const d=document.createElement("div");d.className="lightbox";d.setAttribute("role","dialog");d.setAttribute("aria-label",alt||"Арт");d.innerHTML=`<img src="${src}" alt="${esc(alt)}"><button type="button" aria-label="Закрыть">×</button>`;document.body.appendChild(d)}
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){const l=document.querySelector(".lightbox");if(l)l.remove()}if((e.key==="Enter"||e.key===" ")&&e.target.matches?.("[data-zoom]")){e.preventDefault();e.target.click()}});
@@ -1681,14 +2088,14 @@ async function save(force){
   if(d.kind==="sheet"){Object.assign(doc,{category:SHEETS,hero:d.hero||"",player:(d.player||"").trim(),calc:(d.calc||"").replace(/\r/g,""),review:(d.review||"").replace(/\r/g,"").trim()});
     const rv=doc.review!==(prev?.review||"");doc.reviewSys=rv?RULES_VER:(prev?.reviewSys||RULES_VER);doc.reviewedAt=rv?Date.now():(prev?.reviewedAt||0)}
   e.saving=true;e.warn="";rerender();
-  try{if(GH)await ghWrite(slug,doc);else await db.collection("articles").doc(slug).set(doc);articles[slug]=doc;editing=null;if(route()!==slug)location.hash=slug;else view()}
+  const fp=e.fromProp;try{await commitDoc(slug,doc,{act:prev?"edit":"create"});if(fp){try{await inboxMark(fp,"ok")}catch{}}editing=null;if(route()!==slug)location.hash=slug;else view()}
   catch(err){e.saving=false;
     if(err?.code==="invalid_argument"&&canWrite!==true){writeRefused=true;fail("У вас нет прав на правку. Попросите владельца выдать вам доступ редактора.")}
     else if(err?.code==="quota_exceeded")fail("База вики заполнена. Удалите ненужные записи и попробуйте снова.");
     else if(GH&&err?.status===403)fail("Ключ пускает на сайт, но не даёт права записи. Откройте ключ на github.com/settings/personal-access-tokens, в «Repository permissions» у «Contents» выберите «Read and write» и сохраните. Новый ключ не нужен. Текст остался в форме.")
     else fail("Не удалось сохранить: "+esc(err?.message||"нет связи")+". Текст остался в форме.")}
 }
-async function remove(){const s=editing.slug;try{if(GH)await ghWrite(s,null);else await db.collection("articles").doc(s).delete();delete articles[s];editing=null;location.hash="";view()}catch(err){editing.confirmDel=false;editing.warn="Не удалось удалить: "+esc(err?.message||"нет связи");editing.warnErr=true;rerender()}}
+async function remove(){const s=editing.slug;try{await commitDoc(s,null,{act:"delete"});editing=null;location.hash="";view()}catch(err){editing.confirmDel=false;editing.warn="Не удалось удалить: "+esc(err?.message||"нет связи");editing.warnErr=true;rerender()}}
 
 
 /* ---------- GitHub: чтение и правки через репозиторий ---------- */
@@ -1707,7 +2114,7 @@ async function encryptData(data,pass){const salt=crypto.getRandomValues(new Uint
 async function unlock(pass){
   const data=await decryptData(lock.env,pass);
   lock.key=pass;lock.state="open";lock.err="";try{localStorage.setItem(KEY_LS,pass)}catch{}
-  articles=data.articles||{};snapMeta={at:data.at||0};return true;
+  articles=data.articles||{};siteLog=data.log||[];snapMeta={at:data.at||0};return true;
 }
 function lockHtml(){
   document.title="Кодекс Термины";
@@ -1732,17 +2139,18 @@ async function ghRead(){
   const env=JSON.parse(text);
   return{data:env.ct?await decryptData(env,lock.key):env,sha:j.sha};
 }
-async function ghWrite(slug,doc){
+async function ghWrite(slug,doc,meta){
   let last;
   for(let i=0;i<3;i++){
     let cur={data:{articles:{}},sha:undefined};
     try{cur=await ghRead()}catch(e){if(e.status!==404)throw e}
     const data=cur.data;data.articles=data.articles||{};
-    if(doc)data.articles[slug]=doc;else delete data.articles[slug];
+    const prevDoc=data.articles[slug];if(doc)data.articles[slug]=doc;else delete data.articles[slug];
+    if(meta)data.log=[logEntry(slug,prevDoc,doc,meta),...(data.log||[])].slice(0,LOG_MAX);
     data.at=Date.now();
     const body={message:(doc?"Правка: ":"Удалено: ")+(doc?.title||articles[slug]?.title||slug),content:b64enc(new TextEncoder().encode(JSON.stringify(await encryptData(data,lock.key)))),branch:GH.branch};
     if(cur.sha)body.sha=cur.sha;
-    try{await ghApi(`contents/${DATA_PATH()}`,{method:"PUT",body:JSON.stringify(body)});articles=data.articles;return}
+    try{await ghApi(`contents/${DATA_PATH()}`,{method:"PUT",body:JSON.stringify(body)});articles=data.articles;siteLog=data.log||siteLog;return}
     catch(e){last=e;if(e.status!==409&&e.status!==422)throw e}
   }
   throw last;
