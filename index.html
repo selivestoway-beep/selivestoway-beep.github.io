@@ -749,6 +749,7 @@ svg.hlon .ge.hl line{opacity:1;stroke-width:2.4}svg.hlon .ge.hl text{opacity:1}
 <footer class="gut"><div class="inner"><span>Кодекс Термины · вики мира Mudila Quest · сведения на 383–384 год Второй Эры</span><span class="foot-links"><button type="button" class="linkbtn" id="mechfoot">Показать правила</button><a href="#novoe">Что нового</a><a href="#nuzhnye">Нужные статьи</a><a href="#predlozheniya" id="inboxlink" hidden>Предложения</a><a href="#gm" id="gmlink" hidden>Вход для ГМа</a></span></div></footer>
 
 <script type="application/json" id="snapshot">{"at":0,"articles":{}}</script>
+<script src="character-import.js"></script>
 <script>
 const SERVICE="Служебное";
 const RULES="Правила";
@@ -765,8 +766,8 @@ function applyMech(){document.documentElement.classList.toggle("nomech",!mechOn)
 const CATS=["Мир","История","Расы","Земли","Магия","Вера и ордена","Существа","Бой","Артефакты","Сказания"];
 const HERO="Главные герои";
 const GROUPS=[HERO,"Силы Пожирателя","Альянс","Великие","Загадочные личности","Внешний космос","Герои былых времён","Древние владыки","Правители нашего дня","Тьма и угрозы","Боги и великие силы"];
-const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","nuzhnye","pravila","stoyka","proverka-lista","novoe","predlozheniya","bestiariy","svyazi","predlozhit"]);
-const RESERVED=new Set(["mir","geroi","gm","personazhi","hronika","nuzhnye","pravila","stoyka","proverka-lista","novoe","predlozheniya","bestiariy","svyazi","predlozhit","istoriya","settings","sidebar","customize","upgrade","downloads","new","edit"]);
+const ROUTES=new Set(["","mir","geroi","personazhi","hronika","gm","import-personazhi","nuzhnye","pravila","stoyka","proverka-lista","novoe","predlozheniya","bestiariy","svyazi","predlozhit"]);
+const RESERVED=new Set(["mir","geroi","gm","import-personazhi","personazhi","hronika","nuzhnye","pravila","stoyka","proverka-lista","novoe","predlozheniya","bestiariy","svyazi","predlozhit","istoriya","settings","sidebar","customize","upgrade","downloads","new","edit"]);
 let db=null,user=null,assets=null,canWrite=null,writeRefused=false,live=false;
 let articles={},snapMeta={at:0};
 let editing=null,filterCat="";
@@ -929,6 +930,7 @@ async function view(){
   else if(r==="personazhi")html=peopleHtml();
   else if(r==="geroi")html=heroesHtml();
   else if(r==="gm")html=gmHtml();
+   else if(r==="import-personazhi")html=ciHtml();
   else if(r==="hronika")html=chronicleHtml();
   else if(r==="nuzhnye")html=wantedHtml();
   else if(r.startsWith("istoriya/"))html=await histHtml(r.slice(9));
@@ -945,7 +947,7 @@ async function view(){
   else html=`<div class="gut"><div class="inner empty"><div class="eyebrow">Нет такой страницы</div><h1>Здесь пусто</h1><p class="lede">Статью могли переименовать или удалить.</p><p><a href="#">На главную</a></p></div></div>`;
   main.innerHTML=`<div class="view">${html}</div>`;
   const cv=main.querySelector("canvas.skycv");if(cv)sky(cv);
-  bindView();glossify(main);bindGraph();window.scrollTo({top:0});
+  bindView();ciBind();glossify(main);bindGraph();window.scrollTo({top:0});
 }
 let viewerChecked=false;
 
@@ -2172,7 +2174,7 @@ async function ghUpload(file,slug){
 function gmHtml(){
   document.title="Вход для ГМа · Кодекс Термины";
   if(!GH)return `<div class="gut"><div class="inner gm"><div class="eyebrow">Вход для ГМа</div><h1>Здесь не нужно</h1><p class="lede">Эта страница работает на сайте GitHub. В вики на claude.ai правки доступны владельцу и редакторам без входа.</p></div></div>`;
-  if(gh.token&&gh.login)return `<div class="gut"><div class="inner gm"><div class="eyebrow">Вход для ГМа</div><h1>Вы вошли как ${esc(gh.login)}</h1><p class="lede">Кнопки «Редактировать» и «Новая статья» теперь видны на всех страницах. Каждая правка сохраняется в репозиторий, сайт обновляется у всех примерно через минуту.</p><div class="gmbar"><a class="btn primary" href="#">К вики</a><button class="btn" id="gm-logout" type="button">Выйти</button></div></div></div>`;
+  if(gh.token&&gh.login)return `<div class="gut"><div class="inner gm"><div class="eyebrow">Вход для ГМа</div><h1>Вы вошли как ${esc(gh.login)}</h1><p class="lede">Кнопки «Редактировать» и «Новая статья» теперь видны на всех страницах. Каждая правка сохраняется в репозиторий, сайт обновляется у всех примерно через минуту.</p><div class="gmbar"><a class="btn primary" href="#">К вики</a><a class="btn" href="#import-personazhi">Импорт персонажей</a><button class="btn" id="gm-logout" type="button">Выйти</button></div></div></div>`;
   return `<div class="gut"><div class="inner gm gm-min">
   <input id="gm-token" type="password" autocomplete="off" spellcheck="false" placeholder="сасай 333" aria-label="Код" ${gh.busy?"disabled":""}>
   ${gh.busy?`<p class="status">Проверяем…</p>`:""}${gh.err?`<div class="notice err" style="margin-top:var(--s3)">${esc(gh.err)}</div>`:""}</div></div>`;
