@@ -2106,7 +2106,11 @@ const GH=(()=>{if(!location.hostname.endsWith(".github.io"))return null;let part
 function readSessionSecret(key){
   let value="";
   try{value=sessionStorage.getItem(key)||""}catch{}
-  try{value=value||localStorage.getItem(key)||"";localStorage.removeItem(key)}catch{}
+  try{
+    const legacy=localStorage.getItem(key)||"";
+    if(!value&&legacy){value=legacy;try{sessionStorage.setItem(key,legacy)}catch{}}
+    localStorage.removeItem(key);
+  }catch{}
   return value;
 }
 function saveSessionSecret(key,value){
