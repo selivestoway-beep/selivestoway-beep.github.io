@@ -1,0 +1,23 @@
+name: Публикация персонажей и фактов
+on:
+  pull_request:
+    paths:
+      - index.html
+      - data/published-additions.json
+      - images/pontifik-alister.png
+      - images/immora.png
+      - tests/published-codex.test.mjs
+      - .github/workflows/published-codex.yml
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/published-codex.test.mjs

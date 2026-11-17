@@ -790,6 +790,45 @@ function faction(a){if(!isChar(a))return"fx";const st=norm(a.status);
 function wideCheck(el){if(el.naturalWidth>el.naturalHeight*1.12)el.parentNode.classList.add("wide")}
 function imgFallback(el){const p=(el.getAttribute("src")||"").split("?")[0];if(GH&&!el.dataset.raw&&p.startsWith("images/")){el.dataset.raw=1;el.src=`https://raw.githubusercontent.com/${GH.repo}/${GH.branch}/${GH.dir}${p}`}else el.remove()}
 
+/* Публичные дополнения к зашифрованной вики. Тексты видны в исходниках репозитория. */
+const PUBLISHED={articles:{},facts:[]};
+function publishedMerge(base){
+  const out={...(base||{})};
+  for(const [slug,a] of Object.entries(PUBLISHED.articles)){
+    if(!/^[a-z0-9-]+$/.test(slug)||!a||a.kind!=="character")continue;
+    const old=out[slug];
+    if(!old||(Number(old.updatedAt)||0)<=(Number(a.updatedAt)||0))out[slug]=a;
+  }
+  return out;
+}
+async function publishedLoad(){
+  if(!GH)return;
+  try{
+    const r=await fetch("data/published-additions.json?v=20261117",{cache:"no-store"});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const data=await r.json();
+    if(data.version!==1||!data.articles||!Array.isArray(data.facts))throw new Error("Неверный формат дополнений");
+    PUBLISHED.articles=data.articles;
+    PUBLISHED.facts=data.facts.filter(x=>typeof x==="string"&&x.trim());
+  }catch(e){console.warn("Дополнения Кодекса недоступны:",e)}
+}
+function publishedFacts(existing){
+  const list=[...(existing||[])],used=new Set(list.map(x=>norm(x).replace(/\s+/g," ")));
+  for(const fact of PUBLISHED.facts){
+    const key=norm(fact).replace(/\s+/g," ");
+    if(!used.has(key)){list.push(fact);used.add(key)}
+  }
+  return list;
+}
+function publishedFactBody(body){
+  if(!PUBLISHED.facts.length)return body;
+  const original=String(body||"");
+  const existing=blocks(original).filter(b=>b.t==="ul").flatMap(b=>b.v);
+  const seen=new Set(existing.map(x=>norm(x).replace(/\s+/g," ")));
+  const fresh=PUBLISHED.facts.filter(x=>!seen.has(norm(x).replace(/\s+/g," ")));
+  return fresh.length?original+"\n\n## Новые факты\n\n"+fresh.map(x=>"- "+x).join("\n"):original;
+}
+
 /* ---------- снимок для гостей ---------- */
 try{const s=JSON.parse($("#snapshot").textContent);articles=s.articles||{};snapMeta={at:s.at||0}}catch{articles={}}
 
@@ -1030,7 +1069,8 @@ async function pageHtml(slug){
   const nm=await names([a.updatedBy]);const whoName=who(a.updatedBy,nm);
   const sib=ch?chars(a.group||"Прочие"):inCat(a.category);const k=sib.findIndex(([s])=>s===slug);
   const prev=sib[k-1],next=sib[k+1];
-  const words=String(a.body||"").split(/\s+/).length,mins=Math.max(1,Math.round(words/180));
+  const articleBody=slug==="znaete-li-vy"?publishedFactBody(a.body):a.body;
+  const words=String(articleBody||"").split(/\s+/).length,mins=Math.max(1,Math.round(words/180));
   const src=imgSrc(a.image);
   const fc=faction(a);
   const chead=ch?`<header class="chead ${fc} s-${slug}">${DECO[slug]||""}${src?`<div class="blur" style="background-image:url('${src}')"></div>`:""}<div class="gut"><div class="inner">
@@ -1057,10 +1097,10 @@ async function pageHtml(slug){
       <h1>${esc(a.title)}</h1>
       ${a.summary?`<p class="lede">${esc(a.summary)}</p>`:""}`}
       <div class="readtime">${mins} мин чтения</div>
-      ${tocHtml(a.body)}
+      ${tocHtml(articleBody)}
       ${a.epigraph?`<blockquote class="epigraph">${esc(a.epigraph)}${a.epigraphBy?`<cite>${esc(a.epigraphBy)}</cite>`:""}</blockquote>`:""}
       <div class="actions art-actions">${canW()?`<button class="btn" id="editbtn" type="button">Редактировать</button>`:(isMech(a)||isSvc(a)?"":`<a class="btn" href="#predlozhit/${slug}">Предложить правку</a>`)}<a class="btn" href="#istoriya/${slug}">История правок</a>${ch?`<a class="btn" href="#svyazi/${slug}">На древе связей</a>`:""}</div>
-      <div class="prose">${render(slug==="glossariy"?glossPageBody(a.body):a.body,{ids:true})}</div>
+      <div class="prose">${render(slug==="glossariy"?glossPageBody(articleBody):articleBody,{ids:true})}</div>
       ${relationsHtml(slug,a)}
       ${navboxesHtml(slug,a)}
       ${prev||next?`<nav class="pager" aria-label="Соседние статьи">${prev?`<a href="#${prev[0]}"><span>Назад</span><b>${esc(prev[1].title)}</b></a>`:""}${next?`<a class="next" href="#${next[0]}"><span>Дальше</span><b>${esc(next[1].title)}</b></a>`:""}</nav>`:""}
@@ -1208,7 +1248,7 @@ function relationsHtml(slug,a){
 let dykShift=0;
 function dayKey(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
 function articleOfDay(){const pool=entries().filter(([,a])=>!isChar(a)&&!isSvc(a)&&!isRule(a)&&!isSheet(a)&&a.summary&&String(a.body||"").length>1500&&a.category!=="Сказания").sort((x,y)=>x[0].localeCompare(y[0]));if(!pool.length)return null;return pool[hash("aotd"+dayKey())%pool.length]}
-function dykFacts(){const a=articles["znaete-li-vy"];if(!a)return[];const out=[];for(const b of blocks(a.body))if(b.t==="ul")out.push(...b.v);return out}
+function dykFacts(){const a=articles["znaete-li-vy"],out=[];if(a)for(const b of blocks(a.body))if(b.t==="ul")out.push(...b.v);return publishedFacts(out)}
 function dykHtml(){const f=dykFacts();if(!f.length)return"";const idx=nameIndex(),n=Math.min(3,f.length),start=(hash("dyk"+dayKey())+dykShift*n)%f.length;
   return Array.from({length:n},(_,i)=>`<li>${inline(f[(start+i)%f.length],idx)}</li>`).join("")}
 function todayHtml(){
@@ -2115,7 +2155,7 @@ async function encryptData(data,pass){const salt=crypto.getRandomValues(new Uint
 async function unlock(pass){
   const data=await decryptData(lock.env,pass);
   lock.key=pass;lock.state="open";lock.err="";try{localStorage.setItem(KEY_LS,pass)}catch{}
-  articles=data.articles||{};siteLog=data.log||[];snapMeta={at:data.at||0};return true;
+  articles=publishedMerge(data.articles||{});siteLog=data.log||[];snapMeta={at:data.at||0};return true;
 }
 function lockHtml(){
   document.title="Кодекс Термины";
@@ -2151,7 +2191,7 @@ async function ghWrite(slug,doc,meta){
     data.at=Date.now();
     const body={message:(doc?"Правка: ":"Удалено: ")+(doc?.title||articles[slug]?.title||slug),content:b64enc(new TextEncoder().encode(JSON.stringify(await encryptData(data,lock.key)))),branch:GH.branch};
     if(cur.sha)body.sha=cur.sha;
-    try{await ghApi(`contents/${DATA_PATH()}`,{method:"PUT",body:JSON.stringify(body)});articles=data.articles;siteLog=data.log||siteLog;return}
+    try{await ghApi(`contents/${DATA_PATH()}`,{method:"PUT",body:JSON.stringify(body)});articles=publishedMerge(data.articles);siteLog=data.log||siteLog;return}
     catch(e){last=e;if(e.status!==409&&e.status!==422)throw e}
   }
   throw last;
@@ -2183,7 +2223,7 @@ async function gmLogin(){
   try{const repo=await ghApi("");if(!repo.permissions||!repo.permissions.push)throw new Error("У этого ключа нет права записи в репозиторий.");
     const u=await fetch("https://api.github.com/user",{headers:{"Authorization":"Bearer "+t}}).then(r=>r.ok?r.json():{}).catch(()=>({}));
     gh.login=u.login||"ГМ";try{localStorage.setItem(GH_KEY,t)}catch{}
-    try{const fresh=await ghRead();articles=fresh.data.articles||articles}catch{}
+    try{const fresh=await ghRead();articles=publishedMerge(fresh.data.articles||articles)}catch{}
   }catch(e){gh.token="";gh.err=e.net?"Браузер не смог достучаться до api.github.com. Обычно мешает блокировщик рекламы, антивирус или VPN: отключите их для этого сайта или попробуйте другой браузер. Если открыт не сайт selivestoway-beep.github.io, а копия в Claude, вход там не работает.":e.status===401?"Ключ не подошёл. Проверьте, что скопировали его целиком.":e.status===404?"Ключ не видит репозиторий. Проверьте шаг с выбором репозитория.":(e.message||"Не удалось войти.")}
   gh.busy=false;view();
 }
@@ -2195,10 +2235,11 @@ view();
     const hm=location.hash.match(/^#k=(.+)$/);
     if(hm){lock.key=decodeURIComponent(hm[1]);history.replaceState(null,"",location.pathname+location.search)}else{try{lock.key=localStorage.getItem(KEY_LS)||""}catch{}}
     try{const r=await fetch(`data/articles.enc.json?t=${Date.now()}`,{cache:"no-store"});if(r.ok)lock.env=await r.json()}catch{}
+    await publishedLoad();
     if(!lock.env){lock.state="locked";lock.err="Не удалось загрузить кодекс. Обновите страницу.";return view()}
     if(lock.key){try{await unlock(lock.key)}catch{lock.state="locked";lock.err=hm?"Ссылка устарела: ключ не подходит.":"";lock.key="";try{localStorage.removeItem(KEY_LS)}catch{}}}else lock.state="locked";
     if(lock.state!=="open")return view();
-    if(gh.token){try{const u=await fetch("https://api.github.com/user",{headers:{"Authorization":"Bearer "+gh.token}});if(u.ok){gh.login=(await u.json()).login;const fresh=await ghRead();articles=fresh.data.articles||articles}else gh.token=""}catch{}}
+    if(gh.token){try{const u=await fetch("https://api.github.com/user",{headers:{"Authorization":"Bearer "+gh.token}});if(u.ok){gh.login=(await u.json()).login;const fresh=await ghRead();articles=publishedMerge(fresh.data.articles||articles)}else gh.token=""}catch{}}
     if(!editing)view();return;
   }
   const use=n=>(window.claude&&window.claude.use)?window.claude.use(n).catch(()=>null):Promise.resolve(null);
@@ -2210,7 +2251,7 @@ view();
   db.collection("articles").onSnapshot(snap=>{
     if(snap.metadata.fromCache&&snap.empty)return;
     const next={};for(const d of snap.docs){const x=d.data();if(x&&x.title)next[d.id]=x}
-    articles=next;live=true;clearTimeout(timer);
+    articles=publishedMerge(next);live=true;clearTimeout(timer);
     if(!editing)view();else{$("#banner").hidden=true}
   },err=>{clearTimeout(timer);if(err?.code==="revoked")db=null;view()});
 })();
