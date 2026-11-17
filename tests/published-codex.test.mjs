@@ -23,14 +23,14 @@ test("original PNG uploads are byte-for-byte intact",()=>{
  for(const [p,sha] of Object.entries(expected)){
    const b=readFileSync(path(p));
    assert.equal(b.subarray(0,8).toString("hex"),"89504e470d0a1a0a");
-   const hash=createHash("sha1").update(Buffer.from("blob "+b.length+"\\0")).update(b).digest("hex");
+   const hash=createHash("sha1").update(Buffer.from("blob "+b.length+"\0")).update(b).digest("hex");
    assert.equal(hash,sha);
  }
 });
 test("facts are verified additions rather than an overwrite",()=>{
  assert.equal(additions.facts.length,10);
  assert.ok(additions.facts.every(f=>typeof f==="string"&&f.includes("[[")));
- assert.match(html,/function dykFacts\(\)\{[^\\n]*publishedFacts\(out\)/);
+ assert.match(html,/function dykFacts\(\)\{[^\n]*publishedFacts\(out\)/);
  assert.match(html,/const original=String\(body\|\|""\)/);
 });
 test("codex JS syntax is valid, content is loaded only after unlock",()=>{
