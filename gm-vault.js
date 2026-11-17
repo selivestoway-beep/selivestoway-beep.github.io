@@ -73,13 +73,14 @@ async function gvHtml(slug){
   const chosen=Object.hasOwn(articles,slug)?slug:"";
   const options='<option value="">Выберите статью...</option>'+choices.map(([s,a])=>'<option value="'+esc(s)+'" '+(s===chosen?'selected':'')+'>'+esc(a.title)+'</option>').join("");
   const count=Object.values(GV.notes).filter(Boolean).length;
-  const affected=gvCollect(articles);
+  let affected=[],migrationError="";
+  try{affected=gvCollect(articles)}catch(e){migrationError=e.message||"Есть повреждённые блоки"}
   const form= '<label>Статья<select id="gv-select">'+options+'</select></label>'+
     (chosen?'<label>Приватная заметка к статье<textarea id="gv-note" spellcheck="false">'+esc(Object.hasOwn(GV.drafts,chosen)?GV.drafts[chosen]:(GV.notes[chosen]||""))+'</textarea></label>'+
       '<div class="actions"><button class="btn primary" id="gv-save" type="button" '+(GV.busy?"disabled":"")+'>Сохранить секрет отдельно</button>'+
       '<a class="btn" href="#'+encodeURIComponent(chosen)+'">К статье</a></div>':
       '<p class="status">Выберите статью, чтобы добавить или изменить приватные заметки. В общей статье они храниться не будут.</p>');
-  const migration=affected.length?'<section class="block"><h2 class="sec">Старые секретные блоки</h2>'+
+  const migration=migrationError?'<p class="notice err">'+esc(migrationError)+'</p>':affected.length?'<section class="block"><h2 class="sec">Старые секретные блоки</h2>'+
     '<p>Найдено '+affected.length+' '+plural(affected.length,"статья","статьи","статей")+' с блоками <code>:::гм</code> или <code>:::секрет</code> в общей базе. Сейчас они <strong>не защищены</strong> от читателей с ключом энциклопедии.</p>'+
     '<p>Перенос сначала сохраняет заметки в отдельный сейф, затем убирает блоки из текущей версии общей базы. Старые версии в истории GitHub и в резервных копиях <strong>останутся доступными со старым ключом</strong>; для полной защиты понадобится очистка истории и смена общего ключа.</p>'+
     '<label>Для подтверждения напишите ПЕРЕНЕСТИ<input id="gv-migrate-confirm" type="text" autocomplete="off" placeholder="ПЕРЕНЕСТИ"></label>'+
