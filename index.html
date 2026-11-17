@@ -797,7 +797,10 @@ function publishedMerge(base){
   for(const [slug,a] of Object.entries(PUBLISHED.articles)){
     if(!/^[a-z0-9-]+$/.test(slug)||!a||a.kind!=="character")continue;
     const old=out[slug];
-    if(!old||(Number(old.updatedAt)||0)<=(Number(a.updatedAt)||0))out[slug]=a;
+    if(!old||(Number(old.updatedAt)||0)<=(Number(a.updatedAt)||0)){
+      // Не теряем порядок карточки и дату создания существующего персонажа.
+      out[slug]=old?{...old,...a,createdAt:old.createdAt||a.createdAt,order:old.order??a.order}:a;
+    }
   }
   return out;
 }
