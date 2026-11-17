@@ -34,7 +34,8 @@ test("existing articles preserve stable metadata on replacement",()=>{
 test("secrets never enter repository as source files",()=>{
   assert.match(source,/const CI_FORMAT="kodeks-terminy-characters"/);
   assert.match(source,/await ghRead\(\)/);
-  assert.match(source,/await ghUpload\(ciImageFile\(a\.image\),a\.slug\)/);
+  assert.match(source,/await ciUploadOriginal\(ciImageFile\(a\.image\),a\.slug\)/);
+  assert.match(source,/content:b64enc\(bytes\)/);
   assert.match(source,/await commitDoc\(a\.slug,ciDoc/);
   assert.match(html,/<script src="character-import\.js"><\/script>/);
   assert.match(html,/else if\(r==="import-personazhi"\)html=ciHtml\(\)/);
