@@ -1,0 +1,26 @@
+name: Проверка импорта персонажей
+on:
+  pull_request:
+    paths:
+      - character-import.js
+      - index.html
+      - tests/character-import.test.mjs
+      - .github/workflows/character-import.yml
+  push:
+    paths:
+      - character-import.js
+      - index.html
+      - tests/character-import.test.mjs
+      - .github/workflows/character-import.yml
+permissions:
+  contents: read
+jobs:
+  test:
+    name: Тесты импорта
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/character-import.test.mjs
