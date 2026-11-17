@@ -55,6 +55,19 @@ function ciImageFile(img){
   for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
   return new File([bytes],img.filename,{type:img.mime});
 }
+/* Используем исходный PNG / JPEG / WebP / GIF без перекодирования и изменения пикселей. */
+async function ciUploadOriginal(file,slug){
+  const ext={"image/png":"png","image/jpeg":"jpg","image/webp":"webp","image/gif":"gif"}[file.type];
+  if(!ext)throw new Error("Формат портрета не поддерживается");
+  const name="images/"+slug+"-"+Date.now().toString(36)+"."+ext;
+  const bytes=new Uint8Array(await file.arrayBuffer());
+  await ghApi("contents/"+GH.dir+name,{method:"PUT",body:JSON.stringify({
+    message:"Оригинальный портрет: "+slug,
+    content:b64enc(bytes),
+    branch:GH.branch
+  })});
+  return name;
+}
 function ciDoc(a,old,image){
   const now=Date.now();
   const doc={...(old||{}),
@@ -91,7 +104,7 @@ async function ciStart(){
     for(const a of CI.items){
       if(CI.done.has(a.slug))continue;
       CI.status="Загружаем портрет: "+a.title;ciSetStatus();
-      const image=await ghUpload(ciImageFile(a.image),a.slug);
+      const image=await ciUploadOriginal(ciImageFile(a.image),a.slug);
       CI.status="Шифруем и сохраняем статью: "+a.title;ciSetStatus();
       const old=articles[a.slug];
       await commitDoc(a.slug,ciDoc(a,old,image),{act:old?"edit":"create",note:"Импорт подготовленного пакета персонажей"});
